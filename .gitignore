@@ -1,6 +1,11 @@
 # Prerequisites
 *.d
 
+.vs/
+build/
+__pycache__
+CMakeSettings.json
+
 # Compiled Object files
 *.slo
 *.lo
