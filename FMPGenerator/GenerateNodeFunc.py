@@ -22,7 +22,7 @@ def GenerateNodeFunc(out_dir):
                "#include <ADAPT/FMP/Detail/FMPNode_base.h>\n\n"\
                "namespace adapt\n"\
                "{\n\n"\
-               "namespace agr2\n"\
+               "namespace fmp\n"\
                "{\n\n"
                "namespace detail\n"\
                "{\n\n")

@@ -12,7 +12,7 @@
 namespace adapt
 {
 
-namespace agr2
+namespace fmp
 {
 
 enum NumericalType : size_t

@@ -20,7 +20,7 @@ def GenerateFuncImpl(out_dir):
 namespace adapt\n\
 {\n\
 \n\
-namespace agr2\n\
+namespace fmp\n\
 {\n\
 \n\
 namespace detail\n\
