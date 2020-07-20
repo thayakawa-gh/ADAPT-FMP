@@ -1,6 +1,8 @@
-ADAPT-FMP is high performance mathematical expression parser/evaluator for C++. It can be used only with some header files and requires C++14.
+#  ADAPT-FMP
 
-ADAPT-FMP can operate variables of many types simultaneously in a single expression, 
+FMP is high performance mathematical expression parser/evaluator for C++. It can be used only with some header files and requires C++14.
+
+FMP can operate variables of many types simultaneously in a single expression, 
 
 ```cpp
 #include <ADAPT/FMP/FastMathParser.h>
