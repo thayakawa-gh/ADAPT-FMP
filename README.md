@@ -89,7 +89,7 @@ dot ... returns inner product.
 cross ... returns outer product.  
 
 
-## 3 arguments
+### 3 arguments
 if ... if(a, b, c) returns b if a != 0, otherwise c. "a" must be an integer.  
 vec3 ... 3 dimensionnal version of vec2.  
 mat3 ... N x 3 version of mat2.  
