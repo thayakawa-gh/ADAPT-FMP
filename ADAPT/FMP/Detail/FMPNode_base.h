@@ -99,80 +99,80 @@ struct FunctionNode
 
 	//1引数関数用
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::true_type, std::true_type, ParserState* state, TerminalNode& n);
+	FunctionNode(Identity<Func>, size_t func, TrueType, TrueType, ParserState* state, TerminalNode& n);
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::true_type, std::false_type, ParserState* state, TerminalNode& n);
+	FunctionNode(Identity<Func>, size_t func, TrueType, FalseType, ParserState* state, TerminalNode& n);
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::false_type, std::true_type, ParserState* state, TerminalNode& n);
+	FunctionNode(Identity<Func>, size_t func, FalseType, TrueType, ParserState* state, TerminalNode& n);
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::false_type, std::false_type, ParserState* state, TerminalNode& n);
+	FunctionNode(Identity<Func>, size_t func, FalseType, FalseType, ParserState* state, TerminalNode& n);
 
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::true_type, std::true_type, ParserState* state, FunctionNode& n);
+	FunctionNode(Identity<Func>, size_t func, TrueType, TrueType, ParserState* state, FunctionNode& n);
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::true_type, std::false_type, ParserState* state, FunctionNode& n);
+	FunctionNode(Identity<Func>, size_t func, TrueType, FalseType, ParserState* state, FunctionNode& n);
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::false_type, std::true_type, ParserState* state, FunctionNode& n);
+	FunctionNode(Identity<Func>, size_t func, FalseType, TrueType, ParserState* state, FunctionNode& n);
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::false_type, std::false_type, ParserState* state, FunctionNode& n);
+	FunctionNode(Identity<Func>, size_t func, FalseType, FalseType, ParserState* state, FunctionNode& n);
 
 
 	//2引数関数用
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::true_type, std::true_type, ParserState* state, TerminalNode& n1, TerminalNode& n2);
+	FunctionNode(Identity<Func>, size_t func, TrueType, TrueType, ParserState* state, TerminalNode& n1, TerminalNode& n2);
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::true_type, std::false_type, ParserState* state, TerminalNode& n1, TerminalNode& n2);
+	FunctionNode(Identity<Func>, size_t func, TrueType, FalseType, ParserState* state, TerminalNode& n1, TerminalNode& n2);
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::false_type, std::true_type, ParserState* state, TerminalNode& n1, TerminalNode& n2);
+	FunctionNode(Identity<Func>, size_t func, FalseType, TrueType, ParserState* state, TerminalNode& n1, TerminalNode& n2);
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::false_type, std::false_type, ParserState* state, TerminalNode& n1, TerminalNode& n2);
+	FunctionNode(Identity<Func>, size_t func, FalseType, FalseType, ParserState* state, TerminalNode& n1, TerminalNode& n2);
 
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::true_type, std::true_type, ParserState* state, TerminalNode& n1, FunctionNode& n2);
+	FunctionNode(Identity<Func>, size_t func, TrueType, TrueType, ParserState* state, TerminalNode& n1, FunctionNode& n2);
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::true_type, std::false_type, ParserState* state, TerminalNode& n1, FunctionNode& n2);
+	FunctionNode(Identity<Func>, size_t func, TrueType, FalseType, ParserState* state, TerminalNode& n1, FunctionNode& n2);
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::false_type, std::true_type, ParserState* state, TerminalNode& n1, FunctionNode& n2);
+	FunctionNode(Identity<Func>, size_t func, FalseType, TrueType, ParserState* state, TerminalNode& n1, FunctionNode& n2);
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::false_type, std::false_type, ParserState* state, TerminalNode& n1, FunctionNode& n2);
+	FunctionNode(Identity<Func>, size_t func, FalseType, FalseType, ParserState* state, TerminalNode& n1, FunctionNode& n2);
 
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::true_type, std::true_type, ParserState* state, FunctionNode& n1, TerminalNode& n2);
+	FunctionNode(Identity<Func>, size_t func, TrueType, TrueType, ParserState* state, FunctionNode& n1, TerminalNode& n2);
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::true_type, std::false_type, ParserState* state, FunctionNode& n1, TerminalNode& n2);
+	FunctionNode(Identity<Func>, size_t func, TrueType, FalseType, ParserState* state, FunctionNode& n1, TerminalNode& n2);
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::false_type, std::true_type, ParserState* state, FunctionNode& n1, TerminalNode& n2);
+	FunctionNode(Identity<Func>, size_t func, FalseType, TrueType, ParserState* state, FunctionNode& n1, TerminalNode& n2);
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::false_type, std::false_type, ParserState* state, FunctionNode& n1, TerminalNode& n2);
+	FunctionNode(Identity<Func>, size_t func, FalseType, FalseType, ParserState* state, FunctionNode& n1, TerminalNode& n2);
 
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::true_type, std::true_type, ParserState* state, FunctionNode& n1, FunctionNode& n2);
+	FunctionNode(Identity<Func>, size_t func, TrueType, TrueType, ParserState* state, FunctionNode& n1, FunctionNode& n2);
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::true_type, std::false_type, ParserState* state, FunctionNode& n1, FunctionNode& n2);
+	FunctionNode(Identity<Func>, size_t func, TrueType, FalseType, ParserState* state, FunctionNode& n1, FunctionNode& n2);
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::false_type, std::true_type, ParserState* state, FunctionNode& n1, FunctionNode& n2);
+	FunctionNode(Identity<Func>, size_t func, FalseType, TrueType, ParserState* state, FunctionNode& n1, FunctionNode& n2);
 	template <class Func>
-	FunctionNode(Identity<Func>, size_t func, std::false_type, std::false_type, ParserState* state, FunctionNode& n1, FunctionNode& n2);
+	FunctionNode(Identity<Func>, size_t func, FalseType, FalseType, ParserState* state, FunctionNode& n1, FunctionNode& n2);
 
 
 	//3引数関数用
 	//3引数関数は連結しないので、upwardもdownwardも無視する。
 	template <class Func, bool BU, bool BD>
-	FunctionNode(Identity<Func>, size_t func, std::bool_constant<BU>, std::bool_constant<BD>, ParserState* state, TerminalNode& n1, TerminalNode& n2, TerminalNode& n3);
+	FunctionNode(Identity<Func>, size_t func, BoolConstant<BU>, BoolConstant<BD>, ParserState* state, TerminalNode& n1, TerminalNode& n2, TerminalNode& n3);
 	template <class Func, bool BU, bool BD>
-	FunctionNode(Identity<Func>, size_t func, std::bool_constant<BU>, std::bool_constant<BD>, ParserState* state, TerminalNode& n1, FunctionNode& n2, TerminalNode& n3);
+	FunctionNode(Identity<Func>, size_t func, BoolConstant<BU>, BoolConstant<BD>, ParserState* state, TerminalNode& n1, FunctionNode& n2, TerminalNode& n3);
 	template <class Func, bool BU, bool BD>
-	FunctionNode(Identity<Func>, size_t func, std::bool_constant<BU>, std::bool_constant<BD>, ParserState* state, FunctionNode& n1, TerminalNode& n2, TerminalNode& n3);
+	FunctionNode(Identity<Func>, size_t func, BoolConstant<BU>, BoolConstant<BD>, ParserState* state, FunctionNode& n1, TerminalNode& n2, TerminalNode& n3);
 	template <class Func, bool BU, bool BD>
-	FunctionNode(Identity<Func>, size_t func, std::bool_constant<BU>, std::bool_constant<BD>, ParserState* state, FunctionNode& n1, FunctionNode& n2, TerminalNode& n3);
+	FunctionNode(Identity<Func>, size_t func, BoolConstant<BU>, BoolConstant<BD>, ParserState* state, FunctionNode& n1, FunctionNode& n2, TerminalNode& n3);
 	template <class Func, bool BU, bool BD>
-	FunctionNode(Identity<Func>, size_t func, std::bool_constant<BU>, std::bool_constant<BD>, ParserState* state, TerminalNode& n1, TerminalNode& n2, FunctionNode& n3);
+	FunctionNode(Identity<Func>, size_t func, BoolConstant<BU>, BoolConstant<BD>, ParserState* state, TerminalNode& n1, TerminalNode& n2, FunctionNode& n3);
 	template <class Func, bool BU, bool BD>
-	FunctionNode(Identity<Func>, size_t func, std::bool_constant<BU>, std::bool_constant<BD>, ParserState* state, TerminalNode& n1, FunctionNode& n2, FunctionNode& n3);
+	FunctionNode(Identity<Func>, size_t func, BoolConstant<BU>, BoolConstant<BD>, ParserState* state, TerminalNode& n1, FunctionNode& n2, FunctionNode& n3);
 	template <class Func, bool BU, bool BD>
-	FunctionNode(Identity<Func>, size_t func, std::bool_constant<BU>, std::bool_constant<BD>, ParserState* state, FunctionNode& n1, TerminalNode& n2, FunctionNode& n3);
+	FunctionNode(Identity<Func>, size_t func, BoolConstant<BU>, BoolConstant<BD>, ParserState* state, FunctionNode& n1, TerminalNode& n2, FunctionNode& n3);
 	template <class Func, bool BU, bool BD>
-	FunctionNode(Identity<Func>, size_t func, std::bool_constant<BU>, std::bool_constant<BD>, ParserState* state, FunctionNode& n1, FunctionNode& n2, FunctionNode& n3);
+	FunctionNode(Identity<Func>, size_t func, BoolConstant<BU>, BoolConstant<BD>, ParserState* state, FunctionNode& n1, FunctionNode& n2, FunctionNode& n3);
 
 	NumericalType GetType() const
 	{

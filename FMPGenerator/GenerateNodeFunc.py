@@ -48,7 +48,7 @@ def GenerateNodeFunc(out_dir):
             #まず1引数関数を連結する場合。
             file.write(f"    virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override\n"
                         "    {\n"
-                        "        (void)state, (void)func, (void)a; ")
+                        "        (void)state, (void)func, (void)a;\n")
             i = 0
             code = str()
             for o in func1 + oper1:
@@ -103,7 +103,7 @@ def GenerateNodeFunc(out_dir):
                         arg2 = "std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state))"
                 file.write(f"    virtual JunctureNode MakeFunc(ParserState* state, size_t func, {mf1}Node& a, {mf2}Node& b) override\n"
                         "    {\n"
-                        "        (void)state, (void)func, (void)a, (void)b; ")
+                        "        (void)state, (void)func, (void)a, (void)b;\n")
                 
                 code = str()
                 for o in func2 + oper2 + index2:
@@ -176,7 +176,7 @@ def GenerateNodeFunc(out_dir):
                 args = s.GetArgs()
                 argsstr = "".join(args)
                 file.write(f"        if (n.GetType() == VALUE_{args[0].upper()})\n"
-                           f"            return FunctionNode(Identity<{name}{argsstr}>(), func, std::bool_constant<{name}{argsstr}::Upward>(), std::bool_constant<{name}{argsstr}::Downward>(), state, n);\n")
+                           f"            return FunctionNode(Identity<{name}{argsstr}>(), func, BoolConstant<{name}{argsstr}::Upward>(), BoolConstant<{name}{argsstr}::Downward>(), state, n);\n")
             file.write(f"        break;\n")
         file.write(f"    }}\n    throw InvalidType(\"\");\n}}\n")
 
@@ -194,7 +194,7 @@ def GenerateNodeFunc(out_dir):
                 args = s.GetArgs()
                 argsstr = "".join(args)
                 file.write(f"        if (n1.GetType() == VALUE_{args[0].upper()} && n2.GetType() == VALUE_{args[1].upper()})\n"
-                           f"            return FunctionNode(Identity<{name}{argsstr}>(), func, std::bool_constant<{name}{argsstr}::Upward>(), std::bool_constant<{name}{argsstr}::Downward>(), state, n1, n2);\n")
+                           f"            return FunctionNode(Identity<{name}{argsstr}>(), func, BoolConstant<{name}{argsstr}::Upward>(), BoolConstant<{name}{argsstr}::Downward>(), state, n1, n2);\n")
             file.write(f"        break;\n")
         file.write(f"    }}\n    throw InvalidType(\"\");\n}}\n")
         
@@ -212,7 +212,7 @@ def GenerateNodeFunc(out_dir):
                 args = s.GetArgs()
                 argsstr = "".join(args)
                 file.write(f"        if (n1.GetType() == VALUE_{args[0].upper()} && n2.GetType() == VALUE_{args[1].upper()} && n3.GetType() == VALUE_{args[2].upper()})\n"
-                           f"            return FunctionNode(Identity<{name}{argsstr}>(), func, std::bool_constant<{name}{argsstr}::Upward>(), std::bool_constant<{name}{argsstr}::Downward>(), state, n1, n2, n3);\n")
+                           f"            return FunctionNode(Identity<{name}{argsstr}>(), func, BoolConstant<{name}{argsstr}::Upward>(), BoolConstant<{name}{argsstr}::Downward>(), state, n1, n2, n3);\n")
             file.write(f"        break;\n")
         file.write(f"    }}\n    throw InvalidType(\"\");\n}}\n")
     

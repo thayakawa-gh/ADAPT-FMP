@@ -3860,131 +3860,131 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
     {
     case 0:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<sinInt>(), func, std::bool_constant<sinInt::Upward>(), std::bool_constant<sinInt::Downward>(), state, n);
+            return FunctionNode(Identity<sinInt>(), func, BoolConstant<sinInt::Upward>(), BoolConstant<sinInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<sinFlt>(), func, std::bool_constant<sinFlt::Upward>(), std::bool_constant<sinFlt::Downward>(), state, n);
+            return FunctionNode(Identity<sinFlt>(), func, BoolConstant<sinFlt::Upward>(), BoolConstant<sinFlt::Downward>(), state, n);
         break;
     case 1:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<cosInt>(), func, std::bool_constant<cosInt::Upward>(), std::bool_constant<cosInt::Downward>(), state, n);
+            return FunctionNode(Identity<cosInt>(), func, BoolConstant<cosInt::Upward>(), BoolConstant<cosInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<cosFlt>(), func, std::bool_constant<cosFlt::Upward>(), std::bool_constant<cosFlt::Downward>(), state, n);
+            return FunctionNode(Identity<cosFlt>(), func, BoolConstant<cosFlt::Upward>(), BoolConstant<cosFlt::Downward>(), state, n);
         break;
     case 2:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<tanInt>(), func, std::bool_constant<tanInt::Upward>(), std::bool_constant<tanInt::Downward>(), state, n);
+            return FunctionNode(Identity<tanInt>(), func, BoolConstant<tanInt::Upward>(), BoolConstant<tanInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<tanFlt>(), func, std::bool_constant<tanFlt::Upward>(), std::bool_constant<tanFlt::Downward>(), state, n);
+            return FunctionNode(Identity<tanFlt>(), func, BoolConstant<tanFlt::Upward>(), BoolConstant<tanFlt::Downward>(), state, n);
         break;
     case 3:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<asinInt>(), func, std::bool_constant<asinInt::Upward>(), std::bool_constant<asinInt::Downward>(), state, n);
+            return FunctionNode(Identity<asinInt>(), func, BoolConstant<asinInt::Upward>(), BoolConstant<asinInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<asinFlt>(), func, std::bool_constant<asinFlt::Upward>(), std::bool_constant<asinFlt::Downward>(), state, n);
+            return FunctionNode(Identity<asinFlt>(), func, BoolConstant<asinFlt::Upward>(), BoolConstant<asinFlt::Downward>(), state, n);
         break;
     case 4:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<acosInt>(), func, std::bool_constant<acosInt::Upward>(), std::bool_constant<acosInt::Downward>(), state, n);
+            return FunctionNode(Identity<acosInt>(), func, BoolConstant<acosInt::Upward>(), BoolConstant<acosInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<acosFlt>(), func, std::bool_constant<acosFlt::Upward>(), std::bool_constant<acosFlt::Downward>(), state, n);
+            return FunctionNode(Identity<acosFlt>(), func, BoolConstant<acosFlt::Upward>(), BoolConstant<acosFlt::Downward>(), state, n);
         break;
     case 5:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<atanInt>(), func, std::bool_constant<atanInt::Upward>(), std::bool_constant<atanInt::Downward>(), state, n);
+            return FunctionNode(Identity<atanInt>(), func, BoolConstant<atanInt::Upward>(), BoolConstant<atanInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<atanFlt>(), func, std::bool_constant<atanFlt::Upward>(), std::bool_constant<atanFlt::Downward>(), state, n);
+            return FunctionNode(Identity<atanFlt>(), func, BoolConstant<atanFlt::Upward>(), BoolConstant<atanFlt::Downward>(), state, n);
         break;
     case 6:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<lnInt>(), func, std::bool_constant<lnInt::Upward>(), std::bool_constant<lnInt::Downward>(), state, n);
+            return FunctionNode(Identity<lnInt>(), func, BoolConstant<lnInt::Upward>(), BoolConstant<lnInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<lnFlt>(), func, std::bool_constant<lnFlt::Upward>(), std::bool_constant<lnFlt::Downward>(), state, n);
+            return FunctionNode(Identity<lnFlt>(), func, BoolConstant<lnFlt::Upward>(), BoolConstant<lnFlt::Downward>(), state, n);
         break;
     case 7:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<log10Int>(), func, std::bool_constant<log10Int::Upward>(), std::bool_constant<log10Int::Downward>(), state, n);
+            return FunctionNode(Identity<log10Int>(), func, BoolConstant<log10Int::Upward>(), BoolConstant<log10Int::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<log10Flt>(), func, std::bool_constant<log10Flt::Upward>(), std::bool_constant<log10Flt::Downward>(), state, n);
+            return FunctionNode(Identity<log10Flt>(), func, BoolConstant<log10Flt::Upward>(), BoolConstant<log10Flt::Downward>(), state, n);
         break;
     case 8:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<expInt>(), func, std::bool_constant<expInt::Upward>(), std::bool_constant<expInt::Downward>(), state, n);
+            return FunctionNode(Identity<expInt>(), func, BoolConstant<expInt::Upward>(), BoolConstant<expInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<expFlt>(), func, std::bool_constant<expFlt::Upward>(), std::bool_constant<expFlt::Downward>(), state, n);
+            return FunctionNode(Identity<expFlt>(), func, BoolConstant<expFlt::Upward>(), BoolConstant<expFlt::Downward>(), state, n);
         break;
     case 9:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<squareInt>(), func, std::bool_constant<squareInt::Upward>(), std::bool_constant<squareInt::Downward>(), state, n);
+            return FunctionNode(Identity<squareInt>(), func, BoolConstant<squareInt::Upward>(), BoolConstant<squareInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<squareFlt>(), func, std::bool_constant<squareFlt::Upward>(), std::bool_constant<squareFlt::Downward>(), state, n);
+            return FunctionNode(Identity<squareFlt>(), func, BoolConstant<squareFlt::Upward>(), BoolConstant<squareFlt::Downward>(), state, n);
         break;
     case 10:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<cubeInt>(), func, std::bool_constant<cubeInt::Upward>(), std::bool_constant<cubeInt::Downward>(), state, n);
+            return FunctionNode(Identity<cubeInt>(), func, BoolConstant<cubeInt::Upward>(), BoolConstant<cubeInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<cubeFlt>(), func, std::bool_constant<cubeFlt::Upward>(), std::bool_constant<cubeFlt::Downward>(), state, n);
+            return FunctionNode(Identity<cubeFlt>(), func, BoolConstant<cubeFlt::Upward>(), BoolConstant<cubeFlt::Downward>(), state, n);
         break;
     case 11:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<sqrtInt>(), func, std::bool_constant<sqrtInt::Upward>(), std::bool_constant<sqrtInt::Downward>(), state, n);
+            return FunctionNode(Identity<sqrtInt>(), func, BoolConstant<sqrtInt::Upward>(), BoolConstant<sqrtInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<sqrtFlt>(), func, std::bool_constant<sqrtFlt::Upward>(), std::bool_constant<sqrtFlt::Downward>(), state, n);
+            return FunctionNode(Identity<sqrtFlt>(), func, BoolConstant<sqrtFlt::Upward>(), BoolConstant<sqrtFlt::Downward>(), state, n);
         break;
     case 12:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<cbrtInt>(), func, std::bool_constant<cbrtInt::Upward>(), std::bool_constant<cbrtInt::Downward>(), state, n);
+            return FunctionNode(Identity<cbrtInt>(), func, BoolConstant<cbrtInt::Upward>(), BoolConstant<cbrtInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<cbrtFlt>(), func, std::bool_constant<cbrtFlt::Upward>(), std::bool_constant<cbrtFlt::Downward>(), state, n);
+            return FunctionNode(Identity<cbrtFlt>(), func, BoolConstant<cbrtFlt::Upward>(), BoolConstant<cbrtFlt::Downward>(), state, n);
         break;
     case 13:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<ceilInt>(), func, std::bool_constant<ceilInt::Upward>(), std::bool_constant<ceilInt::Downward>(), state, n);
+            return FunctionNode(Identity<ceilInt>(), func, BoolConstant<ceilInt::Upward>(), BoolConstant<ceilInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<ceilFlt>(), func, std::bool_constant<ceilFlt::Upward>(), std::bool_constant<ceilFlt::Downward>(), state, n);
+            return FunctionNode(Identity<ceilFlt>(), func, BoolConstant<ceilFlt::Upward>(), BoolConstant<ceilFlt::Downward>(), state, n);
         break;
     case 14:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<floorInt>(), func, std::bool_constant<floorInt::Upward>(), std::bool_constant<floorInt::Downward>(), state, n);
+            return FunctionNode(Identity<floorInt>(), func, BoolConstant<floorInt::Upward>(), BoolConstant<floorInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<floorFlt>(), func, std::bool_constant<floorFlt::Upward>(), std::bool_constant<floorFlt::Downward>(), state, n);
+            return FunctionNode(Identity<floorFlt>(), func, BoolConstant<floorFlt::Upward>(), BoolConstant<floorFlt::Downward>(), state, n);
         break;
     case 15:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<intInt>(), func, std::bool_constant<intInt::Upward>(), std::bool_constant<intInt::Downward>(), state, n);
+            return FunctionNode(Identity<intInt>(), func, BoolConstant<intInt::Upward>(), BoolConstant<intInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<intFlt>(), func, std::bool_constant<intFlt::Upward>(), std::bool_constant<intFlt::Downward>(), state, n);
+            return FunctionNode(Identity<intFlt>(), func, BoolConstant<intFlt::Upward>(), BoolConstant<intFlt::Downward>(), state, n);
         break;
     case 16:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<floatInt>(), func, std::bool_constant<floatInt::Upward>(), std::bool_constant<floatInt::Downward>(), state, n);
+            return FunctionNode(Identity<floatInt>(), func, BoolConstant<floatInt::Upward>(), BoolConstant<floatInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<floatFlt>(), func, std::bool_constant<floatFlt::Upward>(), std::bool_constant<floatFlt::Downward>(), state, n);
+            return FunctionNode(Identity<floatFlt>(), func, BoolConstant<floatFlt::Upward>(), BoolConstant<floatFlt::Downward>(), state, n);
         break;
     case 17:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<absInt>(), func, std::bool_constant<absInt::Upward>(), std::bool_constant<absInt::Downward>(), state, n);
+            return FunctionNode(Identity<absInt>(), func, BoolConstant<absInt::Upward>(), BoolConstant<absInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<absFlt>(), func, std::bool_constant<absFlt::Upward>(), std::bool_constant<absFlt::Downward>(), state, n);
+            return FunctionNode(Identity<absFlt>(), func, BoolConstant<absFlt::Upward>(), BoolConstant<absFlt::Downward>(), state, n);
         break;
     case 18:
         if (n.GetType() == VALUE_STR)
-            return FunctionNode(Identity<lenStr>(), func, std::bool_constant<lenStr::Upward>(), std::bool_constant<lenStr::Downward>(), state, n);
+            return FunctionNode(Identity<lenStr>(), func, BoolConstant<lenStr::Upward>(), BoolConstant<lenStr::Downward>(), state, n);
         if (n.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<lenVec>(), func, std::bool_constant<lenVec::Upward>(), std::bool_constant<lenVec::Downward>(), state, n);
+            return FunctionNode(Identity<lenVec>(), func, BoolConstant<lenVec::Upward>(), BoolConstant<lenVec::Downward>(), state, n);
         break;
     case 19:
         if (n.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<transposeMat>(), func, std::bool_constant<transposeMat::Upward>(), std::bool_constant<transposeMat::Downward>(), state, n);
+            return FunctionNode(Identity<transposeMat>(), func, BoolConstant<transposeMat::Upward>(), BoolConstant<transposeMat::Downward>(), state, n);
         break;
     case 31:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<subInt>(), func, std::bool_constant<subInt::Upward>(), std::bool_constant<subInt::Downward>(), state, n);
+            return FunctionNode(Identity<subInt>(), func, BoolConstant<subInt::Upward>(), BoolConstant<subInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<subFlt>(), func, std::bool_constant<subFlt::Upward>(), std::bool_constant<subFlt::Downward>(), state, n);
+            return FunctionNode(Identity<subFlt>(), func, BoolConstant<subFlt::Upward>(), BoolConstant<subFlt::Downward>(), state, n);
         if (n.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<subVec>(), func, std::bool_constant<subVec::Upward>(), std::bool_constant<subVec::Downward>(), state, n);
+            return FunctionNode(Identity<subVec>(), func, BoolConstant<subVec::Upward>(), BoolConstant<subVec::Downward>(), state, n);
         if (n.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<subMat>(), func, std::bool_constant<subMat::Upward>(), std::bool_constant<subMat::Downward>(), state, n);
+            return FunctionNode(Identity<subMat>(), func, BoolConstant<subMat::Upward>(), BoolConstant<subMat::Downward>(), state, n);
         break;
     }
     throw InvalidType("");
@@ -3995,131 +3995,131 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
     {
     case 0:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<sinInt>(), func, std::bool_constant<sinInt::Upward>(), std::bool_constant<sinInt::Downward>(), state, n);
+            return FunctionNode(Identity<sinInt>(), func, BoolConstant<sinInt::Upward>(), BoolConstant<sinInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<sinFlt>(), func, std::bool_constant<sinFlt::Upward>(), std::bool_constant<sinFlt::Downward>(), state, n);
+            return FunctionNode(Identity<sinFlt>(), func, BoolConstant<sinFlt::Upward>(), BoolConstant<sinFlt::Downward>(), state, n);
         break;
     case 1:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<cosInt>(), func, std::bool_constant<cosInt::Upward>(), std::bool_constant<cosInt::Downward>(), state, n);
+            return FunctionNode(Identity<cosInt>(), func, BoolConstant<cosInt::Upward>(), BoolConstant<cosInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<cosFlt>(), func, std::bool_constant<cosFlt::Upward>(), std::bool_constant<cosFlt::Downward>(), state, n);
+            return FunctionNode(Identity<cosFlt>(), func, BoolConstant<cosFlt::Upward>(), BoolConstant<cosFlt::Downward>(), state, n);
         break;
     case 2:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<tanInt>(), func, std::bool_constant<tanInt::Upward>(), std::bool_constant<tanInt::Downward>(), state, n);
+            return FunctionNode(Identity<tanInt>(), func, BoolConstant<tanInt::Upward>(), BoolConstant<tanInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<tanFlt>(), func, std::bool_constant<tanFlt::Upward>(), std::bool_constant<tanFlt::Downward>(), state, n);
+            return FunctionNode(Identity<tanFlt>(), func, BoolConstant<tanFlt::Upward>(), BoolConstant<tanFlt::Downward>(), state, n);
         break;
     case 3:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<asinInt>(), func, std::bool_constant<asinInt::Upward>(), std::bool_constant<asinInt::Downward>(), state, n);
+            return FunctionNode(Identity<asinInt>(), func, BoolConstant<asinInt::Upward>(), BoolConstant<asinInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<asinFlt>(), func, std::bool_constant<asinFlt::Upward>(), std::bool_constant<asinFlt::Downward>(), state, n);
+            return FunctionNode(Identity<asinFlt>(), func, BoolConstant<asinFlt::Upward>(), BoolConstant<asinFlt::Downward>(), state, n);
         break;
     case 4:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<acosInt>(), func, std::bool_constant<acosInt::Upward>(), std::bool_constant<acosInt::Downward>(), state, n);
+            return FunctionNode(Identity<acosInt>(), func, BoolConstant<acosInt::Upward>(), BoolConstant<acosInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<acosFlt>(), func, std::bool_constant<acosFlt::Upward>(), std::bool_constant<acosFlt::Downward>(), state, n);
+            return FunctionNode(Identity<acosFlt>(), func, BoolConstant<acosFlt::Upward>(), BoolConstant<acosFlt::Downward>(), state, n);
         break;
     case 5:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<atanInt>(), func, std::bool_constant<atanInt::Upward>(), std::bool_constant<atanInt::Downward>(), state, n);
+            return FunctionNode(Identity<atanInt>(), func, BoolConstant<atanInt::Upward>(), BoolConstant<atanInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<atanFlt>(), func, std::bool_constant<atanFlt::Upward>(), std::bool_constant<atanFlt::Downward>(), state, n);
+            return FunctionNode(Identity<atanFlt>(), func, BoolConstant<atanFlt::Upward>(), BoolConstant<atanFlt::Downward>(), state, n);
         break;
     case 6:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<lnInt>(), func, std::bool_constant<lnInt::Upward>(), std::bool_constant<lnInt::Downward>(), state, n);
+            return FunctionNode(Identity<lnInt>(), func, BoolConstant<lnInt::Upward>(), BoolConstant<lnInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<lnFlt>(), func, std::bool_constant<lnFlt::Upward>(), std::bool_constant<lnFlt::Downward>(), state, n);
+            return FunctionNode(Identity<lnFlt>(), func, BoolConstant<lnFlt::Upward>(), BoolConstant<lnFlt::Downward>(), state, n);
         break;
     case 7:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<log10Int>(), func, std::bool_constant<log10Int::Upward>(), std::bool_constant<log10Int::Downward>(), state, n);
+            return FunctionNode(Identity<log10Int>(), func, BoolConstant<log10Int::Upward>(), BoolConstant<log10Int::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<log10Flt>(), func, std::bool_constant<log10Flt::Upward>(), std::bool_constant<log10Flt::Downward>(), state, n);
+            return FunctionNode(Identity<log10Flt>(), func, BoolConstant<log10Flt::Upward>(), BoolConstant<log10Flt::Downward>(), state, n);
         break;
     case 8:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<expInt>(), func, std::bool_constant<expInt::Upward>(), std::bool_constant<expInt::Downward>(), state, n);
+            return FunctionNode(Identity<expInt>(), func, BoolConstant<expInt::Upward>(), BoolConstant<expInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<expFlt>(), func, std::bool_constant<expFlt::Upward>(), std::bool_constant<expFlt::Downward>(), state, n);
+            return FunctionNode(Identity<expFlt>(), func, BoolConstant<expFlt::Upward>(), BoolConstant<expFlt::Downward>(), state, n);
         break;
     case 9:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<squareInt>(), func, std::bool_constant<squareInt::Upward>(), std::bool_constant<squareInt::Downward>(), state, n);
+            return FunctionNode(Identity<squareInt>(), func, BoolConstant<squareInt::Upward>(), BoolConstant<squareInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<squareFlt>(), func, std::bool_constant<squareFlt::Upward>(), std::bool_constant<squareFlt::Downward>(), state, n);
+            return FunctionNode(Identity<squareFlt>(), func, BoolConstant<squareFlt::Upward>(), BoolConstant<squareFlt::Downward>(), state, n);
         break;
     case 10:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<cubeInt>(), func, std::bool_constant<cubeInt::Upward>(), std::bool_constant<cubeInt::Downward>(), state, n);
+            return FunctionNode(Identity<cubeInt>(), func, BoolConstant<cubeInt::Upward>(), BoolConstant<cubeInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<cubeFlt>(), func, std::bool_constant<cubeFlt::Upward>(), std::bool_constant<cubeFlt::Downward>(), state, n);
+            return FunctionNode(Identity<cubeFlt>(), func, BoolConstant<cubeFlt::Upward>(), BoolConstant<cubeFlt::Downward>(), state, n);
         break;
     case 11:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<sqrtInt>(), func, std::bool_constant<sqrtInt::Upward>(), std::bool_constant<sqrtInt::Downward>(), state, n);
+            return FunctionNode(Identity<sqrtInt>(), func, BoolConstant<sqrtInt::Upward>(), BoolConstant<sqrtInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<sqrtFlt>(), func, std::bool_constant<sqrtFlt::Upward>(), std::bool_constant<sqrtFlt::Downward>(), state, n);
+            return FunctionNode(Identity<sqrtFlt>(), func, BoolConstant<sqrtFlt::Upward>(), BoolConstant<sqrtFlt::Downward>(), state, n);
         break;
     case 12:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<cbrtInt>(), func, std::bool_constant<cbrtInt::Upward>(), std::bool_constant<cbrtInt::Downward>(), state, n);
+            return FunctionNode(Identity<cbrtInt>(), func, BoolConstant<cbrtInt::Upward>(), BoolConstant<cbrtInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<cbrtFlt>(), func, std::bool_constant<cbrtFlt::Upward>(), std::bool_constant<cbrtFlt::Downward>(), state, n);
+            return FunctionNode(Identity<cbrtFlt>(), func, BoolConstant<cbrtFlt::Upward>(), BoolConstant<cbrtFlt::Downward>(), state, n);
         break;
     case 13:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<ceilInt>(), func, std::bool_constant<ceilInt::Upward>(), std::bool_constant<ceilInt::Downward>(), state, n);
+            return FunctionNode(Identity<ceilInt>(), func, BoolConstant<ceilInt::Upward>(), BoolConstant<ceilInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<ceilFlt>(), func, std::bool_constant<ceilFlt::Upward>(), std::bool_constant<ceilFlt::Downward>(), state, n);
+            return FunctionNode(Identity<ceilFlt>(), func, BoolConstant<ceilFlt::Upward>(), BoolConstant<ceilFlt::Downward>(), state, n);
         break;
     case 14:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<floorInt>(), func, std::bool_constant<floorInt::Upward>(), std::bool_constant<floorInt::Downward>(), state, n);
+            return FunctionNode(Identity<floorInt>(), func, BoolConstant<floorInt::Upward>(), BoolConstant<floorInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<floorFlt>(), func, std::bool_constant<floorFlt::Upward>(), std::bool_constant<floorFlt::Downward>(), state, n);
+            return FunctionNode(Identity<floorFlt>(), func, BoolConstant<floorFlt::Upward>(), BoolConstant<floorFlt::Downward>(), state, n);
         break;
     case 15:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<intInt>(), func, std::bool_constant<intInt::Upward>(), std::bool_constant<intInt::Downward>(), state, n);
+            return FunctionNode(Identity<intInt>(), func, BoolConstant<intInt::Upward>(), BoolConstant<intInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<intFlt>(), func, std::bool_constant<intFlt::Upward>(), std::bool_constant<intFlt::Downward>(), state, n);
+            return FunctionNode(Identity<intFlt>(), func, BoolConstant<intFlt::Upward>(), BoolConstant<intFlt::Downward>(), state, n);
         break;
     case 16:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<floatInt>(), func, std::bool_constant<floatInt::Upward>(), std::bool_constant<floatInt::Downward>(), state, n);
+            return FunctionNode(Identity<floatInt>(), func, BoolConstant<floatInt::Upward>(), BoolConstant<floatInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<floatFlt>(), func, std::bool_constant<floatFlt::Upward>(), std::bool_constant<floatFlt::Downward>(), state, n);
+            return FunctionNode(Identity<floatFlt>(), func, BoolConstant<floatFlt::Upward>(), BoolConstant<floatFlt::Downward>(), state, n);
         break;
     case 17:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<absInt>(), func, std::bool_constant<absInt::Upward>(), std::bool_constant<absInt::Downward>(), state, n);
+            return FunctionNode(Identity<absInt>(), func, BoolConstant<absInt::Upward>(), BoolConstant<absInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<absFlt>(), func, std::bool_constant<absFlt::Upward>(), std::bool_constant<absFlt::Downward>(), state, n);
+            return FunctionNode(Identity<absFlt>(), func, BoolConstant<absFlt::Upward>(), BoolConstant<absFlt::Downward>(), state, n);
         break;
     case 18:
         if (n.GetType() == VALUE_STR)
-            return FunctionNode(Identity<lenStr>(), func, std::bool_constant<lenStr::Upward>(), std::bool_constant<lenStr::Downward>(), state, n);
+            return FunctionNode(Identity<lenStr>(), func, BoolConstant<lenStr::Upward>(), BoolConstant<lenStr::Downward>(), state, n);
         if (n.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<lenVec>(), func, std::bool_constant<lenVec::Upward>(), std::bool_constant<lenVec::Downward>(), state, n);
+            return FunctionNode(Identity<lenVec>(), func, BoolConstant<lenVec::Upward>(), BoolConstant<lenVec::Downward>(), state, n);
         break;
     case 19:
         if (n.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<transposeMat>(), func, std::bool_constant<transposeMat::Upward>(), std::bool_constant<transposeMat::Downward>(), state, n);
+            return FunctionNode(Identity<transposeMat>(), func, BoolConstant<transposeMat::Upward>(), BoolConstant<transposeMat::Downward>(), state, n);
         break;
     case 31:
         if (n.GetType() == VALUE_INT)
-            return FunctionNode(Identity<subInt>(), func, std::bool_constant<subInt::Upward>(), std::bool_constant<subInt::Downward>(), state, n);
+            return FunctionNode(Identity<subInt>(), func, BoolConstant<subInt::Upward>(), BoolConstant<subInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<subFlt>(), func, std::bool_constant<subFlt::Upward>(), std::bool_constant<subFlt::Downward>(), state, n);
+            return FunctionNode(Identity<subFlt>(), func, BoolConstant<subFlt::Upward>(), BoolConstant<subFlt::Downward>(), state, n);
         if (n.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<subVec>(), func, std::bool_constant<subVec::Upward>(), std::bool_constant<subVec::Downward>(), state, n);
+            return FunctionNode(Identity<subVec>(), func, BoolConstant<subVec::Upward>(), BoolConstant<subVec::Downward>(), state, n);
         if (n.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<subMat>(), func, std::bool_constant<subMat::Upward>(), std::bool_constant<subMat::Downward>(), state, n);
+            return FunctionNode(Identity<subMat>(), func, BoolConstant<subMat::Upward>(), BoolConstant<subMat::Downward>(), state, n);
         break;
     }
     throw InvalidType("");
@@ -4130,219 +4130,219 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
     {
     case 20:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<atan2IntInt>(), func, std::bool_constant<atan2IntInt::Upward>(), std::bool_constant<atan2IntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<atan2IntInt>(), func, BoolConstant<atan2IntInt::Upward>(), BoolConstant<atan2IntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<atan2IntFlt>(), func, std::bool_constant<atan2IntFlt::Upward>(), std::bool_constant<atan2IntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<atan2IntFlt>(), func, BoolConstant<atan2IntFlt::Upward>(), BoolConstant<atan2IntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<atan2FltInt>(), func, std::bool_constant<atan2FltInt::Upward>(), std::bool_constant<atan2FltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<atan2FltInt>(), func, BoolConstant<atan2FltInt::Upward>(), BoolConstant<atan2FltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<atan2FltFlt>(), func, std::bool_constant<atan2FltFlt::Upward>(), std::bool_constant<atan2FltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<atan2FltFlt>(), func, BoolConstant<atan2FltFlt::Upward>(), BoolConstant<atan2FltFlt::Downward>(), state, n1, n2);
         break;
     case 21:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<log2IntInt>(), func, std::bool_constant<log2IntInt::Upward>(), std::bool_constant<log2IntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<log2IntInt>(), func, BoolConstant<log2IntInt::Upward>(), BoolConstant<log2IntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<log2IntFlt>(), func, std::bool_constant<log2IntFlt::Upward>(), std::bool_constant<log2IntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<log2IntFlt>(), func, BoolConstant<log2IntFlt::Upward>(), BoolConstant<log2IntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<log2FltInt>(), func, std::bool_constant<log2FltInt::Upward>(), std::bool_constant<log2FltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<log2FltInt>(), func, BoolConstant<log2FltInt::Upward>(), BoolConstant<log2FltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<log2FltFlt>(), func, std::bool_constant<log2FltFlt::Upward>(), std::bool_constant<log2FltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<log2FltFlt>(), func, BoolConstant<log2FltFlt::Upward>(), BoolConstant<log2FltFlt::Downward>(), state, n1, n2);
         break;
     case 22:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<maxIntInt>(), func, std::bool_constant<maxIntInt::Upward>(), std::bool_constant<maxIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<maxIntInt>(), func, BoolConstant<maxIntInt::Upward>(), BoolConstant<maxIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<maxFltFlt>(), func, std::bool_constant<maxFltFlt::Upward>(), std::bool_constant<maxFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<maxFltFlt>(), func, BoolConstant<maxFltFlt::Upward>(), BoolConstant<maxFltFlt::Downward>(), state, n1, n2);
         break;
     case 23:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<minIntInt>(), func, std::bool_constant<minIntInt::Upward>(), std::bool_constant<minIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<minIntInt>(), func, BoolConstant<minIntInt::Upward>(), BoolConstant<minIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<minFltFlt>(), func, std::bool_constant<minFltFlt::Upward>(), std::bool_constant<minFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<minFltFlt>(), func, BoolConstant<minFltFlt::Upward>(), BoolConstant<minFltFlt::Downward>(), state, n1, n2);
         break;
     case 24:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<vec2FltFlt>(), func, std::bool_constant<vec2FltFlt::Upward>(), std::bool_constant<vec2FltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<vec2FltFlt>(), func, BoolConstant<vec2FltFlt::Upward>(), BoolConstant<vec2FltFlt::Downward>(), state, n1, n2);
         break;
     case 25:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<mat2VecVec>(), func, std::bool_constant<mat2VecVec::Upward>(), std::bool_constant<mat2VecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mat2VecVec>(), func, BoolConstant<mat2VecVec::Upward>(), BoolConstant<mat2VecVec::Downward>(), state, n1, n2);
         break;
     case 26:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<dotVecVec>(), func, std::bool_constant<dotVecVec::Upward>(), std::bool_constant<dotVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<dotVecVec>(), func, BoolConstant<dotVecVec::Upward>(), BoolConstant<dotVecVec::Downward>(), state, n1, n2);
         break;
     case 27:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<crossVecVec>(), func, std::bool_constant<crossVecVec::Upward>(), std::bool_constant<crossVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<crossVecVec>(), func, BoolConstant<crossVecVec::Upward>(), BoolConstant<crossVecVec::Downward>(), state, n1, n2);
         break;
     case 32:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<powIntInt>(), func, std::bool_constant<powIntInt::Upward>(), std::bool_constant<powIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<powIntInt>(), func, BoolConstant<powIntInt::Upward>(), BoolConstant<powIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<powIntFlt>(), func, std::bool_constant<powIntFlt::Upward>(), std::bool_constant<powIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<powIntFlt>(), func, BoolConstant<powIntFlt::Upward>(), BoolConstant<powIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<powFltInt>(), func, std::bool_constant<powFltInt::Upward>(), std::bool_constant<powFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<powFltInt>(), func, BoolConstant<powFltInt::Upward>(), BoolConstant<powFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<powFltFlt>(), func, std::bool_constant<powFltFlt::Upward>(), std::bool_constant<powFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<powFltFlt>(), func, BoolConstant<powFltFlt::Upward>(), BoolConstant<powFltFlt::Downward>(), state, n1, n2);
         break;
     case 33:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<mulIntInt>(), func, std::bool_constant<mulIntInt::Upward>(), std::bool_constant<mulIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulIntInt>(), func, BoolConstant<mulIntInt::Upward>(), BoolConstant<mulIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<mulIntFlt>(), func, std::bool_constant<mulIntFlt::Upward>(), std::bool_constant<mulIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulIntFlt>(), func, BoolConstant<mulIntFlt::Upward>(), BoolConstant<mulIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<mulFltInt>(), func, std::bool_constant<mulFltInt::Upward>(), std::bool_constant<mulFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulFltInt>(), func, BoolConstant<mulFltInt::Upward>(), BoolConstant<mulFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<mulFltFlt>(), func, std::bool_constant<mulFltFlt::Upward>(), std::bool_constant<mulFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulFltFlt>(), func, BoolConstant<mulFltFlt::Upward>(), BoolConstant<mulFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<mulVecFlt>(), func, std::bool_constant<mulVecFlt::Upward>(), std::bool_constant<mulVecFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulVecFlt>(), func, BoolConstant<mulVecFlt::Upward>(), BoolConstant<mulVecFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<mulFltVec>(), func, std::bool_constant<mulFltVec::Upward>(), std::bool_constant<mulFltVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulFltVec>(), func, BoolConstant<mulFltVec::Upward>(), BoolConstant<mulFltVec::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<mulMatFlt>(), func, std::bool_constant<mulMatFlt::Upward>(), std::bool_constant<mulMatFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulMatFlt>(), func, BoolConstant<mulMatFlt::Upward>(), BoolConstant<mulMatFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<mulFltMat>(), func, std::bool_constant<mulFltMat::Upward>(), std::bool_constant<mulFltMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulFltMat>(), func, BoolConstant<mulFltMat::Upward>(), BoolConstant<mulFltMat::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<mulMatMat>(), func, std::bool_constant<mulMatMat::Upward>(), std::bool_constant<mulMatMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulMatMat>(), func, BoolConstant<mulMatMat::Upward>(), BoolConstant<mulMatMat::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<mulMatVec>(), func, std::bool_constant<mulMatVec::Upward>(), std::bool_constant<mulMatVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulMatVec>(), func, BoolConstant<mulMatVec::Upward>(), BoolConstant<mulMatVec::Downward>(), state, n1, n2);
         break;
     case 34:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<divIntInt>(), func, std::bool_constant<divIntInt::Upward>(), std::bool_constant<divIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<divIntInt>(), func, BoolConstant<divIntInt::Upward>(), BoolConstant<divIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<divIntFlt>(), func, std::bool_constant<divIntFlt::Upward>(), std::bool_constant<divIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<divIntFlt>(), func, BoolConstant<divIntFlt::Upward>(), BoolConstant<divIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<divFltInt>(), func, std::bool_constant<divFltInt::Upward>(), std::bool_constant<divFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<divFltInt>(), func, BoolConstant<divFltInt::Upward>(), BoolConstant<divFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<divFltFlt>(), func, std::bool_constant<divFltFlt::Upward>(), std::bool_constant<divFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<divFltFlt>(), func, BoolConstant<divFltFlt::Upward>(), BoolConstant<divFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<divVecFlt>(), func, std::bool_constant<divVecFlt::Upward>(), std::bool_constant<divVecFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<divVecFlt>(), func, BoolConstant<divVecFlt::Upward>(), BoolConstant<divVecFlt::Downward>(), state, n1, n2);
         break;
     case 35:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<modIntInt>(), func, std::bool_constant<modIntInt::Upward>(), std::bool_constant<modIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<modIntInt>(), func, BoolConstant<modIntInt::Upward>(), BoolConstant<modIntInt::Downward>(), state, n1, n2);
         break;
     case 36:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<addIntInt>(), func, std::bool_constant<addIntInt::Upward>(), std::bool_constant<addIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addIntInt>(), func, BoolConstant<addIntInt::Upward>(), BoolConstant<addIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<addIntFlt>(), func, std::bool_constant<addIntFlt::Upward>(), std::bool_constant<addIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addIntFlt>(), func, BoolConstant<addIntFlt::Upward>(), BoolConstant<addIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<addFltInt>(), func, std::bool_constant<addFltInt::Upward>(), std::bool_constant<addFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addFltInt>(), func, BoolConstant<addFltInt::Upward>(), BoolConstant<addFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<addFltFlt>(), func, std::bool_constant<addFltFlt::Upward>(), std::bool_constant<addFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addFltFlt>(), func, BoolConstant<addFltFlt::Upward>(), BoolConstant<addFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_STR && n2.GetType() == VALUE_STR)
-            return FunctionNode(Identity<addStrStr>(), func, std::bool_constant<addStrStr::Upward>(), std::bool_constant<addStrStr::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addStrStr>(), func, BoolConstant<addStrStr::Upward>(), BoolConstant<addStrStr::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<addVecVec>(), func, std::bool_constant<addVecVec::Upward>(), std::bool_constant<addVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addVecVec>(), func, BoolConstant<addVecVec::Upward>(), BoolConstant<addVecVec::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<addMatMat>(), func, std::bool_constant<addMatMat::Upward>(), std::bool_constant<addMatMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addMatMat>(), func, BoolConstant<addMatMat::Upward>(), BoolConstant<addMatMat::Downward>(), state, n1, n2);
         break;
     case 37:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<subIntInt>(), func, std::bool_constant<subIntInt::Upward>(), std::bool_constant<subIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subIntInt>(), func, BoolConstant<subIntInt::Upward>(), BoolConstant<subIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<subIntFlt>(), func, std::bool_constant<subIntFlt::Upward>(), std::bool_constant<subIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subIntFlt>(), func, BoolConstant<subIntFlt::Upward>(), BoolConstant<subIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<subFltInt>(), func, std::bool_constant<subFltInt::Upward>(), std::bool_constant<subFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subFltInt>(), func, BoolConstant<subFltInt::Upward>(), BoolConstant<subFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<subFltFlt>(), func, std::bool_constant<subFltFlt::Upward>(), std::bool_constant<subFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subFltFlt>(), func, BoolConstant<subFltFlt::Upward>(), BoolConstant<subFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<subVecVec>(), func, std::bool_constant<subVecVec::Upward>(), std::bool_constant<subVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subVecVec>(), func, BoolConstant<subVecVec::Upward>(), BoolConstant<subVecVec::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<subMatMat>(), func, std::bool_constant<subMatMat::Upward>(), std::bool_constant<subMatMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subMatMat>(), func, BoolConstant<subMatMat::Upward>(), BoolConstant<subMatMat::Downward>(), state, n1, n2);
         break;
     case 38:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<gtIntInt>(), func, std::bool_constant<gtIntInt::Upward>(), std::bool_constant<gtIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<gtIntInt>(), func, BoolConstant<gtIntInt::Upward>(), BoolConstant<gtIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<gtIntFlt>(), func, std::bool_constant<gtIntFlt::Upward>(), std::bool_constant<gtIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<gtIntFlt>(), func, BoolConstant<gtIntFlt::Upward>(), BoolConstant<gtIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<gtFltInt>(), func, std::bool_constant<gtFltInt::Upward>(), std::bool_constant<gtFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<gtFltInt>(), func, BoolConstant<gtFltInt::Upward>(), BoolConstant<gtFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<gtFltFlt>(), func, std::bool_constant<gtFltFlt::Upward>(), std::bool_constant<gtFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<gtFltFlt>(), func, BoolConstant<gtFltFlt::Upward>(), BoolConstant<gtFltFlt::Downward>(), state, n1, n2);
         break;
     case 39:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<geqIntInt>(), func, std::bool_constant<geqIntInt::Upward>(), std::bool_constant<geqIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<geqIntInt>(), func, BoolConstant<geqIntInt::Upward>(), BoolConstant<geqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<geqIntFlt>(), func, std::bool_constant<geqIntFlt::Upward>(), std::bool_constant<geqIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<geqIntFlt>(), func, BoolConstant<geqIntFlt::Upward>(), BoolConstant<geqIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<geqFltInt>(), func, std::bool_constant<geqFltInt::Upward>(), std::bool_constant<geqFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<geqFltInt>(), func, BoolConstant<geqFltInt::Upward>(), BoolConstant<geqFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<geqFltFlt>(), func, std::bool_constant<geqFltFlt::Upward>(), std::bool_constant<geqFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<geqFltFlt>(), func, BoolConstant<geqFltFlt::Upward>(), BoolConstant<geqFltFlt::Downward>(), state, n1, n2);
         break;
     case 40:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<ltIntInt>(), func, std::bool_constant<ltIntInt::Upward>(), std::bool_constant<ltIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<ltIntInt>(), func, BoolConstant<ltIntInt::Upward>(), BoolConstant<ltIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<ltIntFlt>(), func, std::bool_constant<ltIntFlt::Upward>(), std::bool_constant<ltIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<ltIntFlt>(), func, BoolConstant<ltIntFlt::Upward>(), BoolConstant<ltIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<ltFltInt>(), func, std::bool_constant<ltFltInt::Upward>(), std::bool_constant<ltFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<ltFltInt>(), func, BoolConstant<ltFltInt::Upward>(), BoolConstant<ltFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<ltFltFlt>(), func, std::bool_constant<ltFltFlt::Upward>(), std::bool_constant<ltFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<ltFltFlt>(), func, BoolConstant<ltFltFlt::Upward>(), BoolConstant<ltFltFlt::Downward>(), state, n1, n2);
         break;
     case 41:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<leqIntInt>(), func, std::bool_constant<leqIntInt::Upward>(), std::bool_constant<leqIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<leqIntInt>(), func, BoolConstant<leqIntInt::Upward>(), BoolConstant<leqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<leqIntFlt>(), func, std::bool_constant<leqIntFlt::Upward>(), std::bool_constant<leqIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<leqIntFlt>(), func, BoolConstant<leqIntFlt::Upward>(), BoolConstant<leqIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<leqFltInt>(), func, std::bool_constant<leqFltInt::Upward>(), std::bool_constant<leqFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<leqFltInt>(), func, BoolConstant<leqFltInt::Upward>(), BoolConstant<leqFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<leqFltFlt>(), func, std::bool_constant<leqFltFlt::Upward>(), std::bool_constant<leqFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<leqFltFlt>(), func, BoolConstant<leqFltFlt::Upward>(), BoolConstant<leqFltFlt::Downward>(), state, n1, n2);
         break;
     case 42:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<eqIntInt>(), func, std::bool_constant<eqIntInt::Upward>(), std::bool_constant<eqIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<eqIntInt>(), func, BoolConstant<eqIntInt::Upward>(), BoolConstant<eqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<eqFltFlt>(), func, std::bool_constant<eqFltFlt::Upward>(), std::bool_constant<eqFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<eqFltFlt>(), func, BoolConstant<eqFltFlt::Upward>(), BoolConstant<eqFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_STR && n2.GetType() == VALUE_STR)
-            return FunctionNode(Identity<eqStrStr>(), func, std::bool_constant<eqStrStr::Upward>(), std::bool_constant<eqStrStr::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<eqStrStr>(), func, BoolConstant<eqStrStr::Upward>(), BoolConstant<eqStrStr::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<eqVecVec>(), func, std::bool_constant<eqVecVec::Upward>(), std::bool_constant<eqVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<eqVecVec>(), func, BoolConstant<eqVecVec::Upward>(), BoolConstant<eqVecVec::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<eqMatMat>(), func, std::bool_constant<eqMatMat::Upward>(), std::bool_constant<eqMatMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<eqMatMat>(), func, BoolConstant<eqMatMat::Upward>(), BoolConstant<eqMatMat::Downward>(), state, n1, n2);
         break;
     case 43:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<neqIntInt>(), func, std::bool_constant<neqIntInt::Upward>(), std::bool_constant<neqIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<neqIntInt>(), func, BoolConstant<neqIntInt::Upward>(), BoolConstant<neqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<neqFltFlt>(), func, std::bool_constant<neqFltFlt::Upward>(), std::bool_constant<neqFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<neqFltFlt>(), func, BoolConstant<neqFltFlt::Upward>(), BoolConstant<neqFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_STR && n2.GetType() == VALUE_STR)
-            return FunctionNode(Identity<neqStrStr>(), func, std::bool_constant<neqStrStr::Upward>(), std::bool_constant<neqStrStr::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<neqStrStr>(), func, BoolConstant<neqStrStr::Upward>(), BoolConstant<neqStrStr::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<neqVecVec>(), func, std::bool_constant<neqVecVec::Upward>(), std::bool_constant<neqVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<neqVecVec>(), func, BoolConstant<neqVecVec::Upward>(), BoolConstant<neqVecVec::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<neqMatMat>(), func, std::bool_constant<neqMatMat::Upward>(), std::bool_constant<neqMatMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<neqMatMat>(), func, BoolConstant<neqMatMat::Upward>(), BoolConstant<neqMatMat::Downward>(), state, n1, n2);
         break;
     case 44:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<andIntInt>(), func, std::bool_constant<andIntInt::Upward>(), std::bool_constant<andIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<andIntInt>(), func, BoolConstant<andIntInt::Upward>(), BoolConstant<andIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<andIntFlt>(), func, std::bool_constant<andIntFlt::Upward>(), std::bool_constant<andIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<andIntFlt>(), func, BoolConstant<andIntFlt::Upward>(), BoolConstant<andIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<andFltInt>(), func, std::bool_constant<andFltInt::Upward>(), std::bool_constant<andFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<andFltInt>(), func, BoolConstant<andFltInt::Upward>(), BoolConstant<andFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<andFltFlt>(), func, std::bool_constant<andFltFlt::Upward>(), std::bool_constant<andFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<andFltFlt>(), func, BoolConstant<andFltFlt::Upward>(), BoolConstant<andFltFlt::Downward>(), state, n1, n2);
         break;
     case 45:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<orIntInt>(), func, std::bool_constant<orIntInt::Upward>(), std::bool_constant<orIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<orIntInt>(), func, BoolConstant<orIntInt::Upward>(), BoolConstant<orIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<orIntFlt>(), func, std::bool_constant<orIntFlt::Upward>(), std::bool_constant<orIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<orIntFlt>(), func, BoolConstant<orIntFlt::Upward>(), BoolConstant<orIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<orFltInt>(), func, std::bool_constant<orFltInt::Upward>(), std::bool_constant<orFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<orFltInt>(), func, BoolConstant<orFltInt::Upward>(), BoolConstant<orFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<orFltFlt>(), func, std::bool_constant<orFltFlt::Upward>(), std::bool_constant<orFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<orFltFlt>(), func, BoolConstant<orFltFlt::Upward>(), BoolConstant<orFltFlt::Downward>(), state, n1, n2);
         break;
     case 46:
         if (n1.GetType() == VALUE_STR && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<index2StrInt>(), func, std::bool_constant<index2StrInt::Upward>(), std::bool_constant<index2StrInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<index2StrInt>(), func, BoolConstant<index2StrInt::Upward>(), BoolConstant<index2StrInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<index2VecInt>(), func, std::bool_constant<index2VecInt::Upward>(), std::bool_constant<index2VecInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<index2VecInt>(), func, BoolConstant<index2VecInt::Upward>(), BoolConstant<index2VecInt::Downward>(), state, n1, n2);
         break;
     }
     throw InvalidType("");
@@ -4353,219 +4353,219 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
     {
     case 20:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<atan2IntInt>(), func, std::bool_constant<atan2IntInt::Upward>(), std::bool_constant<atan2IntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<atan2IntInt>(), func, BoolConstant<atan2IntInt::Upward>(), BoolConstant<atan2IntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<atan2IntFlt>(), func, std::bool_constant<atan2IntFlt::Upward>(), std::bool_constant<atan2IntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<atan2IntFlt>(), func, BoolConstant<atan2IntFlt::Upward>(), BoolConstant<atan2IntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<atan2FltInt>(), func, std::bool_constant<atan2FltInt::Upward>(), std::bool_constant<atan2FltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<atan2FltInt>(), func, BoolConstant<atan2FltInt::Upward>(), BoolConstant<atan2FltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<atan2FltFlt>(), func, std::bool_constant<atan2FltFlt::Upward>(), std::bool_constant<atan2FltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<atan2FltFlt>(), func, BoolConstant<atan2FltFlt::Upward>(), BoolConstant<atan2FltFlt::Downward>(), state, n1, n2);
         break;
     case 21:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<log2IntInt>(), func, std::bool_constant<log2IntInt::Upward>(), std::bool_constant<log2IntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<log2IntInt>(), func, BoolConstant<log2IntInt::Upward>(), BoolConstant<log2IntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<log2IntFlt>(), func, std::bool_constant<log2IntFlt::Upward>(), std::bool_constant<log2IntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<log2IntFlt>(), func, BoolConstant<log2IntFlt::Upward>(), BoolConstant<log2IntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<log2FltInt>(), func, std::bool_constant<log2FltInt::Upward>(), std::bool_constant<log2FltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<log2FltInt>(), func, BoolConstant<log2FltInt::Upward>(), BoolConstant<log2FltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<log2FltFlt>(), func, std::bool_constant<log2FltFlt::Upward>(), std::bool_constant<log2FltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<log2FltFlt>(), func, BoolConstant<log2FltFlt::Upward>(), BoolConstant<log2FltFlt::Downward>(), state, n1, n2);
         break;
     case 22:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<maxIntInt>(), func, std::bool_constant<maxIntInt::Upward>(), std::bool_constant<maxIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<maxIntInt>(), func, BoolConstant<maxIntInt::Upward>(), BoolConstant<maxIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<maxFltFlt>(), func, std::bool_constant<maxFltFlt::Upward>(), std::bool_constant<maxFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<maxFltFlt>(), func, BoolConstant<maxFltFlt::Upward>(), BoolConstant<maxFltFlt::Downward>(), state, n1, n2);
         break;
     case 23:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<minIntInt>(), func, std::bool_constant<minIntInt::Upward>(), std::bool_constant<minIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<minIntInt>(), func, BoolConstant<minIntInt::Upward>(), BoolConstant<minIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<minFltFlt>(), func, std::bool_constant<minFltFlt::Upward>(), std::bool_constant<minFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<minFltFlt>(), func, BoolConstant<minFltFlt::Upward>(), BoolConstant<minFltFlt::Downward>(), state, n1, n2);
         break;
     case 24:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<vec2FltFlt>(), func, std::bool_constant<vec2FltFlt::Upward>(), std::bool_constant<vec2FltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<vec2FltFlt>(), func, BoolConstant<vec2FltFlt::Upward>(), BoolConstant<vec2FltFlt::Downward>(), state, n1, n2);
         break;
     case 25:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<mat2VecVec>(), func, std::bool_constant<mat2VecVec::Upward>(), std::bool_constant<mat2VecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mat2VecVec>(), func, BoolConstant<mat2VecVec::Upward>(), BoolConstant<mat2VecVec::Downward>(), state, n1, n2);
         break;
     case 26:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<dotVecVec>(), func, std::bool_constant<dotVecVec::Upward>(), std::bool_constant<dotVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<dotVecVec>(), func, BoolConstant<dotVecVec::Upward>(), BoolConstant<dotVecVec::Downward>(), state, n1, n2);
         break;
     case 27:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<crossVecVec>(), func, std::bool_constant<crossVecVec::Upward>(), std::bool_constant<crossVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<crossVecVec>(), func, BoolConstant<crossVecVec::Upward>(), BoolConstant<crossVecVec::Downward>(), state, n1, n2);
         break;
     case 32:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<powIntInt>(), func, std::bool_constant<powIntInt::Upward>(), std::bool_constant<powIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<powIntInt>(), func, BoolConstant<powIntInt::Upward>(), BoolConstant<powIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<powIntFlt>(), func, std::bool_constant<powIntFlt::Upward>(), std::bool_constant<powIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<powIntFlt>(), func, BoolConstant<powIntFlt::Upward>(), BoolConstant<powIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<powFltInt>(), func, std::bool_constant<powFltInt::Upward>(), std::bool_constant<powFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<powFltInt>(), func, BoolConstant<powFltInt::Upward>(), BoolConstant<powFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<powFltFlt>(), func, std::bool_constant<powFltFlt::Upward>(), std::bool_constant<powFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<powFltFlt>(), func, BoolConstant<powFltFlt::Upward>(), BoolConstant<powFltFlt::Downward>(), state, n1, n2);
         break;
     case 33:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<mulIntInt>(), func, std::bool_constant<mulIntInt::Upward>(), std::bool_constant<mulIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulIntInt>(), func, BoolConstant<mulIntInt::Upward>(), BoolConstant<mulIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<mulIntFlt>(), func, std::bool_constant<mulIntFlt::Upward>(), std::bool_constant<mulIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulIntFlt>(), func, BoolConstant<mulIntFlt::Upward>(), BoolConstant<mulIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<mulFltInt>(), func, std::bool_constant<mulFltInt::Upward>(), std::bool_constant<mulFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulFltInt>(), func, BoolConstant<mulFltInt::Upward>(), BoolConstant<mulFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<mulFltFlt>(), func, std::bool_constant<mulFltFlt::Upward>(), std::bool_constant<mulFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulFltFlt>(), func, BoolConstant<mulFltFlt::Upward>(), BoolConstant<mulFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<mulVecFlt>(), func, std::bool_constant<mulVecFlt::Upward>(), std::bool_constant<mulVecFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulVecFlt>(), func, BoolConstant<mulVecFlt::Upward>(), BoolConstant<mulVecFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<mulFltVec>(), func, std::bool_constant<mulFltVec::Upward>(), std::bool_constant<mulFltVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulFltVec>(), func, BoolConstant<mulFltVec::Upward>(), BoolConstant<mulFltVec::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<mulMatFlt>(), func, std::bool_constant<mulMatFlt::Upward>(), std::bool_constant<mulMatFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulMatFlt>(), func, BoolConstant<mulMatFlt::Upward>(), BoolConstant<mulMatFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<mulFltMat>(), func, std::bool_constant<mulFltMat::Upward>(), std::bool_constant<mulFltMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulFltMat>(), func, BoolConstant<mulFltMat::Upward>(), BoolConstant<mulFltMat::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<mulMatMat>(), func, std::bool_constant<mulMatMat::Upward>(), std::bool_constant<mulMatMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulMatMat>(), func, BoolConstant<mulMatMat::Upward>(), BoolConstant<mulMatMat::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<mulMatVec>(), func, std::bool_constant<mulMatVec::Upward>(), std::bool_constant<mulMatVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulMatVec>(), func, BoolConstant<mulMatVec::Upward>(), BoolConstant<mulMatVec::Downward>(), state, n1, n2);
         break;
     case 34:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<divIntInt>(), func, std::bool_constant<divIntInt::Upward>(), std::bool_constant<divIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<divIntInt>(), func, BoolConstant<divIntInt::Upward>(), BoolConstant<divIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<divIntFlt>(), func, std::bool_constant<divIntFlt::Upward>(), std::bool_constant<divIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<divIntFlt>(), func, BoolConstant<divIntFlt::Upward>(), BoolConstant<divIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<divFltInt>(), func, std::bool_constant<divFltInt::Upward>(), std::bool_constant<divFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<divFltInt>(), func, BoolConstant<divFltInt::Upward>(), BoolConstant<divFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<divFltFlt>(), func, std::bool_constant<divFltFlt::Upward>(), std::bool_constant<divFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<divFltFlt>(), func, BoolConstant<divFltFlt::Upward>(), BoolConstant<divFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<divVecFlt>(), func, std::bool_constant<divVecFlt::Upward>(), std::bool_constant<divVecFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<divVecFlt>(), func, BoolConstant<divVecFlt::Upward>(), BoolConstant<divVecFlt::Downward>(), state, n1, n2);
         break;
     case 35:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<modIntInt>(), func, std::bool_constant<modIntInt::Upward>(), std::bool_constant<modIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<modIntInt>(), func, BoolConstant<modIntInt::Upward>(), BoolConstant<modIntInt::Downward>(), state, n1, n2);
         break;
     case 36:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<addIntInt>(), func, std::bool_constant<addIntInt::Upward>(), std::bool_constant<addIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addIntInt>(), func, BoolConstant<addIntInt::Upward>(), BoolConstant<addIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<addIntFlt>(), func, std::bool_constant<addIntFlt::Upward>(), std::bool_constant<addIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addIntFlt>(), func, BoolConstant<addIntFlt::Upward>(), BoolConstant<addIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<addFltInt>(), func, std::bool_constant<addFltInt::Upward>(), std::bool_constant<addFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addFltInt>(), func, BoolConstant<addFltInt::Upward>(), BoolConstant<addFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<addFltFlt>(), func, std::bool_constant<addFltFlt::Upward>(), std::bool_constant<addFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addFltFlt>(), func, BoolConstant<addFltFlt::Upward>(), BoolConstant<addFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_STR && n2.GetType() == VALUE_STR)
-            return FunctionNode(Identity<addStrStr>(), func, std::bool_constant<addStrStr::Upward>(), std::bool_constant<addStrStr::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addStrStr>(), func, BoolConstant<addStrStr::Upward>(), BoolConstant<addStrStr::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<addVecVec>(), func, std::bool_constant<addVecVec::Upward>(), std::bool_constant<addVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addVecVec>(), func, BoolConstant<addVecVec::Upward>(), BoolConstant<addVecVec::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<addMatMat>(), func, std::bool_constant<addMatMat::Upward>(), std::bool_constant<addMatMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addMatMat>(), func, BoolConstant<addMatMat::Upward>(), BoolConstant<addMatMat::Downward>(), state, n1, n2);
         break;
     case 37:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<subIntInt>(), func, std::bool_constant<subIntInt::Upward>(), std::bool_constant<subIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subIntInt>(), func, BoolConstant<subIntInt::Upward>(), BoolConstant<subIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<subIntFlt>(), func, std::bool_constant<subIntFlt::Upward>(), std::bool_constant<subIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subIntFlt>(), func, BoolConstant<subIntFlt::Upward>(), BoolConstant<subIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<subFltInt>(), func, std::bool_constant<subFltInt::Upward>(), std::bool_constant<subFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subFltInt>(), func, BoolConstant<subFltInt::Upward>(), BoolConstant<subFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<subFltFlt>(), func, std::bool_constant<subFltFlt::Upward>(), std::bool_constant<subFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subFltFlt>(), func, BoolConstant<subFltFlt::Upward>(), BoolConstant<subFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<subVecVec>(), func, std::bool_constant<subVecVec::Upward>(), std::bool_constant<subVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subVecVec>(), func, BoolConstant<subVecVec::Upward>(), BoolConstant<subVecVec::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<subMatMat>(), func, std::bool_constant<subMatMat::Upward>(), std::bool_constant<subMatMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subMatMat>(), func, BoolConstant<subMatMat::Upward>(), BoolConstant<subMatMat::Downward>(), state, n1, n2);
         break;
     case 38:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<gtIntInt>(), func, std::bool_constant<gtIntInt::Upward>(), std::bool_constant<gtIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<gtIntInt>(), func, BoolConstant<gtIntInt::Upward>(), BoolConstant<gtIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<gtIntFlt>(), func, std::bool_constant<gtIntFlt::Upward>(), std::bool_constant<gtIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<gtIntFlt>(), func, BoolConstant<gtIntFlt::Upward>(), BoolConstant<gtIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<gtFltInt>(), func, std::bool_constant<gtFltInt::Upward>(), std::bool_constant<gtFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<gtFltInt>(), func, BoolConstant<gtFltInt::Upward>(), BoolConstant<gtFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<gtFltFlt>(), func, std::bool_constant<gtFltFlt::Upward>(), std::bool_constant<gtFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<gtFltFlt>(), func, BoolConstant<gtFltFlt::Upward>(), BoolConstant<gtFltFlt::Downward>(), state, n1, n2);
         break;
     case 39:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<geqIntInt>(), func, std::bool_constant<geqIntInt::Upward>(), std::bool_constant<geqIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<geqIntInt>(), func, BoolConstant<geqIntInt::Upward>(), BoolConstant<geqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<geqIntFlt>(), func, std::bool_constant<geqIntFlt::Upward>(), std::bool_constant<geqIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<geqIntFlt>(), func, BoolConstant<geqIntFlt::Upward>(), BoolConstant<geqIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<geqFltInt>(), func, std::bool_constant<geqFltInt::Upward>(), std::bool_constant<geqFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<geqFltInt>(), func, BoolConstant<geqFltInt::Upward>(), BoolConstant<geqFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<geqFltFlt>(), func, std::bool_constant<geqFltFlt::Upward>(), std::bool_constant<geqFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<geqFltFlt>(), func, BoolConstant<geqFltFlt::Upward>(), BoolConstant<geqFltFlt::Downward>(), state, n1, n2);
         break;
     case 40:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<ltIntInt>(), func, std::bool_constant<ltIntInt::Upward>(), std::bool_constant<ltIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<ltIntInt>(), func, BoolConstant<ltIntInt::Upward>(), BoolConstant<ltIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<ltIntFlt>(), func, std::bool_constant<ltIntFlt::Upward>(), std::bool_constant<ltIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<ltIntFlt>(), func, BoolConstant<ltIntFlt::Upward>(), BoolConstant<ltIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<ltFltInt>(), func, std::bool_constant<ltFltInt::Upward>(), std::bool_constant<ltFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<ltFltInt>(), func, BoolConstant<ltFltInt::Upward>(), BoolConstant<ltFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<ltFltFlt>(), func, std::bool_constant<ltFltFlt::Upward>(), std::bool_constant<ltFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<ltFltFlt>(), func, BoolConstant<ltFltFlt::Upward>(), BoolConstant<ltFltFlt::Downward>(), state, n1, n2);
         break;
     case 41:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<leqIntInt>(), func, std::bool_constant<leqIntInt::Upward>(), std::bool_constant<leqIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<leqIntInt>(), func, BoolConstant<leqIntInt::Upward>(), BoolConstant<leqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<leqIntFlt>(), func, std::bool_constant<leqIntFlt::Upward>(), std::bool_constant<leqIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<leqIntFlt>(), func, BoolConstant<leqIntFlt::Upward>(), BoolConstant<leqIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<leqFltInt>(), func, std::bool_constant<leqFltInt::Upward>(), std::bool_constant<leqFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<leqFltInt>(), func, BoolConstant<leqFltInt::Upward>(), BoolConstant<leqFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<leqFltFlt>(), func, std::bool_constant<leqFltFlt::Upward>(), std::bool_constant<leqFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<leqFltFlt>(), func, BoolConstant<leqFltFlt::Upward>(), BoolConstant<leqFltFlt::Downward>(), state, n1, n2);
         break;
     case 42:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<eqIntInt>(), func, std::bool_constant<eqIntInt::Upward>(), std::bool_constant<eqIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<eqIntInt>(), func, BoolConstant<eqIntInt::Upward>(), BoolConstant<eqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<eqFltFlt>(), func, std::bool_constant<eqFltFlt::Upward>(), std::bool_constant<eqFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<eqFltFlt>(), func, BoolConstant<eqFltFlt::Upward>(), BoolConstant<eqFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_STR && n2.GetType() == VALUE_STR)
-            return FunctionNode(Identity<eqStrStr>(), func, std::bool_constant<eqStrStr::Upward>(), std::bool_constant<eqStrStr::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<eqStrStr>(), func, BoolConstant<eqStrStr::Upward>(), BoolConstant<eqStrStr::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<eqVecVec>(), func, std::bool_constant<eqVecVec::Upward>(), std::bool_constant<eqVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<eqVecVec>(), func, BoolConstant<eqVecVec::Upward>(), BoolConstant<eqVecVec::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<eqMatMat>(), func, std::bool_constant<eqMatMat::Upward>(), std::bool_constant<eqMatMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<eqMatMat>(), func, BoolConstant<eqMatMat::Upward>(), BoolConstant<eqMatMat::Downward>(), state, n1, n2);
         break;
     case 43:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<neqIntInt>(), func, std::bool_constant<neqIntInt::Upward>(), std::bool_constant<neqIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<neqIntInt>(), func, BoolConstant<neqIntInt::Upward>(), BoolConstant<neqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<neqFltFlt>(), func, std::bool_constant<neqFltFlt::Upward>(), std::bool_constant<neqFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<neqFltFlt>(), func, BoolConstant<neqFltFlt::Upward>(), BoolConstant<neqFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_STR && n2.GetType() == VALUE_STR)
-            return FunctionNode(Identity<neqStrStr>(), func, std::bool_constant<neqStrStr::Upward>(), std::bool_constant<neqStrStr::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<neqStrStr>(), func, BoolConstant<neqStrStr::Upward>(), BoolConstant<neqStrStr::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<neqVecVec>(), func, std::bool_constant<neqVecVec::Upward>(), std::bool_constant<neqVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<neqVecVec>(), func, BoolConstant<neqVecVec::Upward>(), BoolConstant<neqVecVec::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<neqMatMat>(), func, std::bool_constant<neqMatMat::Upward>(), std::bool_constant<neqMatMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<neqMatMat>(), func, BoolConstant<neqMatMat::Upward>(), BoolConstant<neqMatMat::Downward>(), state, n1, n2);
         break;
     case 44:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<andIntInt>(), func, std::bool_constant<andIntInt::Upward>(), std::bool_constant<andIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<andIntInt>(), func, BoolConstant<andIntInt::Upward>(), BoolConstant<andIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<andIntFlt>(), func, std::bool_constant<andIntFlt::Upward>(), std::bool_constant<andIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<andIntFlt>(), func, BoolConstant<andIntFlt::Upward>(), BoolConstant<andIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<andFltInt>(), func, std::bool_constant<andFltInt::Upward>(), std::bool_constant<andFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<andFltInt>(), func, BoolConstant<andFltInt::Upward>(), BoolConstant<andFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<andFltFlt>(), func, std::bool_constant<andFltFlt::Upward>(), std::bool_constant<andFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<andFltFlt>(), func, BoolConstant<andFltFlt::Upward>(), BoolConstant<andFltFlt::Downward>(), state, n1, n2);
         break;
     case 45:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<orIntInt>(), func, std::bool_constant<orIntInt::Upward>(), std::bool_constant<orIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<orIntInt>(), func, BoolConstant<orIntInt::Upward>(), BoolConstant<orIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<orIntFlt>(), func, std::bool_constant<orIntFlt::Upward>(), std::bool_constant<orIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<orIntFlt>(), func, BoolConstant<orIntFlt::Upward>(), BoolConstant<orIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<orFltInt>(), func, std::bool_constant<orFltInt::Upward>(), std::bool_constant<orFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<orFltInt>(), func, BoolConstant<orFltInt::Upward>(), BoolConstant<orFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<orFltFlt>(), func, std::bool_constant<orFltFlt::Upward>(), std::bool_constant<orFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<orFltFlt>(), func, BoolConstant<orFltFlt::Upward>(), BoolConstant<orFltFlt::Downward>(), state, n1, n2);
         break;
     case 46:
         if (n1.GetType() == VALUE_STR && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<index2StrInt>(), func, std::bool_constant<index2StrInt::Upward>(), std::bool_constant<index2StrInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<index2StrInt>(), func, BoolConstant<index2StrInt::Upward>(), BoolConstant<index2StrInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<index2VecInt>(), func, std::bool_constant<index2VecInt::Upward>(), std::bool_constant<index2VecInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<index2VecInt>(), func, BoolConstant<index2VecInt::Upward>(), BoolConstant<index2VecInt::Downward>(), state, n1, n2);
         break;
     }
     throw InvalidType("");
@@ -4576,219 +4576,219 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
     {
     case 20:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<atan2IntInt>(), func, std::bool_constant<atan2IntInt::Upward>(), std::bool_constant<atan2IntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<atan2IntInt>(), func, BoolConstant<atan2IntInt::Upward>(), BoolConstant<atan2IntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<atan2IntFlt>(), func, std::bool_constant<atan2IntFlt::Upward>(), std::bool_constant<atan2IntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<atan2IntFlt>(), func, BoolConstant<atan2IntFlt::Upward>(), BoolConstant<atan2IntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<atan2FltInt>(), func, std::bool_constant<atan2FltInt::Upward>(), std::bool_constant<atan2FltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<atan2FltInt>(), func, BoolConstant<atan2FltInt::Upward>(), BoolConstant<atan2FltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<atan2FltFlt>(), func, std::bool_constant<atan2FltFlt::Upward>(), std::bool_constant<atan2FltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<atan2FltFlt>(), func, BoolConstant<atan2FltFlt::Upward>(), BoolConstant<atan2FltFlt::Downward>(), state, n1, n2);
         break;
     case 21:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<log2IntInt>(), func, std::bool_constant<log2IntInt::Upward>(), std::bool_constant<log2IntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<log2IntInt>(), func, BoolConstant<log2IntInt::Upward>(), BoolConstant<log2IntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<log2IntFlt>(), func, std::bool_constant<log2IntFlt::Upward>(), std::bool_constant<log2IntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<log2IntFlt>(), func, BoolConstant<log2IntFlt::Upward>(), BoolConstant<log2IntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<log2FltInt>(), func, std::bool_constant<log2FltInt::Upward>(), std::bool_constant<log2FltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<log2FltInt>(), func, BoolConstant<log2FltInt::Upward>(), BoolConstant<log2FltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<log2FltFlt>(), func, std::bool_constant<log2FltFlt::Upward>(), std::bool_constant<log2FltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<log2FltFlt>(), func, BoolConstant<log2FltFlt::Upward>(), BoolConstant<log2FltFlt::Downward>(), state, n1, n2);
         break;
     case 22:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<maxIntInt>(), func, std::bool_constant<maxIntInt::Upward>(), std::bool_constant<maxIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<maxIntInt>(), func, BoolConstant<maxIntInt::Upward>(), BoolConstant<maxIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<maxFltFlt>(), func, std::bool_constant<maxFltFlt::Upward>(), std::bool_constant<maxFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<maxFltFlt>(), func, BoolConstant<maxFltFlt::Upward>(), BoolConstant<maxFltFlt::Downward>(), state, n1, n2);
         break;
     case 23:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<minIntInt>(), func, std::bool_constant<minIntInt::Upward>(), std::bool_constant<minIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<minIntInt>(), func, BoolConstant<minIntInt::Upward>(), BoolConstant<minIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<minFltFlt>(), func, std::bool_constant<minFltFlt::Upward>(), std::bool_constant<minFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<minFltFlt>(), func, BoolConstant<minFltFlt::Upward>(), BoolConstant<minFltFlt::Downward>(), state, n1, n2);
         break;
     case 24:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<vec2FltFlt>(), func, std::bool_constant<vec2FltFlt::Upward>(), std::bool_constant<vec2FltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<vec2FltFlt>(), func, BoolConstant<vec2FltFlt::Upward>(), BoolConstant<vec2FltFlt::Downward>(), state, n1, n2);
         break;
     case 25:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<mat2VecVec>(), func, std::bool_constant<mat2VecVec::Upward>(), std::bool_constant<mat2VecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mat2VecVec>(), func, BoolConstant<mat2VecVec::Upward>(), BoolConstant<mat2VecVec::Downward>(), state, n1, n2);
         break;
     case 26:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<dotVecVec>(), func, std::bool_constant<dotVecVec::Upward>(), std::bool_constant<dotVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<dotVecVec>(), func, BoolConstant<dotVecVec::Upward>(), BoolConstant<dotVecVec::Downward>(), state, n1, n2);
         break;
     case 27:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<crossVecVec>(), func, std::bool_constant<crossVecVec::Upward>(), std::bool_constant<crossVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<crossVecVec>(), func, BoolConstant<crossVecVec::Upward>(), BoolConstant<crossVecVec::Downward>(), state, n1, n2);
         break;
     case 32:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<powIntInt>(), func, std::bool_constant<powIntInt::Upward>(), std::bool_constant<powIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<powIntInt>(), func, BoolConstant<powIntInt::Upward>(), BoolConstant<powIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<powIntFlt>(), func, std::bool_constant<powIntFlt::Upward>(), std::bool_constant<powIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<powIntFlt>(), func, BoolConstant<powIntFlt::Upward>(), BoolConstant<powIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<powFltInt>(), func, std::bool_constant<powFltInt::Upward>(), std::bool_constant<powFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<powFltInt>(), func, BoolConstant<powFltInt::Upward>(), BoolConstant<powFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<powFltFlt>(), func, std::bool_constant<powFltFlt::Upward>(), std::bool_constant<powFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<powFltFlt>(), func, BoolConstant<powFltFlt::Upward>(), BoolConstant<powFltFlt::Downward>(), state, n1, n2);
         break;
     case 33:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<mulIntInt>(), func, std::bool_constant<mulIntInt::Upward>(), std::bool_constant<mulIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulIntInt>(), func, BoolConstant<mulIntInt::Upward>(), BoolConstant<mulIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<mulIntFlt>(), func, std::bool_constant<mulIntFlt::Upward>(), std::bool_constant<mulIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulIntFlt>(), func, BoolConstant<mulIntFlt::Upward>(), BoolConstant<mulIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<mulFltInt>(), func, std::bool_constant<mulFltInt::Upward>(), std::bool_constant<mulFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulFltInt>(), func, BoolConstant<mulFltInt::Upward>(), BoolConstant<mulFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<mulFltFlt>(), func, std::bool_constant<mulFltFlt::Upward>(), std::bool_constant<mulFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulFltFlt>(), func, BoolConstant<mulFltFlt::Upward>(), BoolConstant<mulFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<mulVecFlt>(), func, std::bool_constant<mulVecFlt::Upward>(), std::bool_constant<mulVecFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulVecFlt>(), func, BoolConstant<mulVecFlt::Upward>(), BoolConstant<mulVecFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<mulFltVec>(), func, std::bool_constant<mulFltVec::Upward>(), std::bool_constant<mulFltVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulFltVec>(), func, BoolConstant<mulFltVec::Upward>(), BoolConstant<mulFltVec::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<mulMatFlt>(), func, std::bool_constant<mulMatFlt::Upward>(), std::bool_constant<mulMatFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulMatFlt>(), func, BoolConstant<mulMatFlt::Upward>(), BoolConstant<mulMatFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<mulFltMat>(), func, std::bool_constant<mulFltMat::Upward>(), std::bool_constant<mulFltMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulFltMat>(), func, BoolConstant<mulFltMat::Upward>(), BoolConstant<mulFltMat::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<mulMatMat>(), func, std::bool_constant<mulMatMat::Upward>(), std::bool_constant<mulMatMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulMatMat>(), func, BoolConstant<mulMatMat::Upward>(), BoolConstant<mulMatMat::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<mulMatVec>(), func, std::bool_constant<mulMatVec::Upward>(), std::bool_constant<mulMatVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulMatVec>(), func, BoolConstant<mulMatVec::Upward>(), BoolConstant<mulMatVec::Downward>(), state, n1, n2);
         break;
     case 34:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<divIntInt>(), func, std::bool_constant<divIntInt::Upward>(), std::bool_constant<divIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<divIntInt>(), func, BoolConstant<divIntInt::Upward>(), BoolConstant<divIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<divIntFlt>(), func, std::bool_constant<divIntFlt::Upward>(), std::bool_constant<divIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<divIntFlt>(), func, BoolConstant<divIntFlt::Upward>(), BoolConstant<divIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<divFltInt>(), func, std::bool_constant<divFltInt::Upward>(), std::bool_constant<divFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<divFltInt>(), func, BoolConstant<divFltInt::Upward>(), BoolConstant<divFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<divFltFlt>(), func, std::bool_constant<divFltFlt::Upward>(), std::bool_constant<divFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<divFltFlt>(), func, BoolConstant<divFltFlt::Upward>(), BoolConstant<divFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<divVecFlt>(), func, std::bool_constant<divVecFlt::Upward>(), std::bool_constant<divVecFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<divVecFlt>(), func, BoolConstant<divVecFlt::Upward>(), BoolConstant<divVecFlt::Downward>(), state, n1, n2);
         break;
     case 35:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<modIntInt>(), func, std::bool_constant<modIntInt::Upward>(), std::bool_constant<modIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<modIntInt>(), func, BoolConstant<modIntInt::Upward>(), BoolConstant<modIntInt::Downward>(), state, n1, n2);
         break;
     case 36:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<addIntInt>(), func, std::bool_constant<addIntInt::Upward>(), std::bool_constant<addIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addIntInt>(), func, BoolConstant<addIntInt::Upward>(), BoolConstant<addIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<addIntFlt>(), func, std::bool_constant<addIntFlt::Upward>(), std::bool_constant<addIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addIntFlt>(), func, BoolConstant<addIntFlt::Upward>(), BoolConstant<addIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<addFltInt>(), func, std::bool_constant<addFltInt::Upward>(), std::bool_constant<addFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addFltInt>(), func, BoolConstant<addFltInt::Upward>(), BoolConstant<addFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<addFltFlt>(), func, std::bool_constant<addFltFlt::Upward>(), std::bool_constant<addFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addFltFlt>(), func, BoolConstant<addFltFlt::Upward>(), BoolConstant<addFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_STR && n2.GetType() == VALUE_STR)
-            return FunctionNode(Identity<addStrStr>(), func, std::bool_constant<addStrStr::Upward>(), std::bool_constant<addStrStr::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addStrStr>(), func, BoolConstant<addStrStr::Upward>(), BoolConstant<addStrStr::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<addVecVec>(), func, std::bool_constant<addVecVec::Upward>(), std::bool_constant<addVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addVecVec>(), func, BoolConstant<addVecVec::Upward>(), BoolConstant<addVecVec::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<addMatMat>(), func, std::bool_constant<addMatMat::Upward>(), std::bool_constant<addMatMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addMatMat>(), func, BoolConstant<addMatMat::Upward>(), BoolConstant<addMatMat::Downward>(), state, n1, n2);
         break;
     case 37:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<subIntInt>(), func, std::bool_constant<subIntInt::Upward>(), std::bool_constant<subIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subIntInt>(), func, BoolConstant<subIntInt::Upward>(), BoolConstant<subIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<subIntFlt>(), func, std::bool_constant<subIntFlt::Upward>(), std::bool_constant<subIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subIntFlt>(), func, BoolConstant<subIntFlt::Upward>(), BoolConstant<subIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<subFltInt>(), func, std::bool_constant<subFltInt::Upward>(), std::bool_constant<subFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subFltInt>(), func, BoolConstant<subFltInt::Upward>(), BoolConstant<subFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<subFltFlt>(), func, std::bool_constant<subFltFlt::Upward>(), std::bool_constant<subFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subFltFlt>(), func, BoolConstant<subFltFlt::Upward>(), BoolConstant<subFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<subVecVec>(), func, std::bool_constant<subVecVec::Upward>(), std::bool_constant<subVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subVecVec>(), func, BoolConstant<subVecVec::Upward>(), BoolConstant<subVecVec::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<subMatMat>(), func, std::bool_constant<subMatMat::Upward>(), std::bool_constant<subMatMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subMatMat>(), func, BoolConstant<subMatMat::Upward>(), BoolConstant<subMatMat::Downward>(), state, n1, n2);
         break;
     case 38:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<gtIntInt>(), func, std::bool_constant<gtIntInt::Upward>(), std::bool_constant<gtIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<gtIntInt>(), func, BoolConstant<gtIntInt::Upward>(), BoolConstant<gtIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<gtIntFlt>(), func, std::bool_constant<gtIntFlt::Upward>(), std::bool_constant<gtIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<gtIntFlt>(), func, BoolConstant<gtIntFlt::Upward>(), BoolConstant<gtIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<gtFltInt>(), func, std::bool_constant<gtFltInt::Upward>(), std::bool_constant<gtFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<gtFltInt>(), func, BoolConstant<gtFltInt::Upward>(), BoolConstant<gtFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<gtFltFlt>(), func, std::bool_constant<gtFltFlt::Upward>(), std::bool_constant<gtFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<gtFltFlt>(), func, BoolConstant<gtFltFlt::Upward>(), BoolConstant<gtFltFlt::Downward>(), state, n1, n2);
         break;
     case 39:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<geqIntInt>(), func, std::bool_constant<geqIntInt::Upward>(), std::bool_constant<geqIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<geqIntInt>(), func, BoolConstant<geqIntInt::Upward>(), BoolConstant<geqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<geqIntFlt>(), func, std::bool_constant<geqIntFlt::Upward>(), std::bool_constant<geqIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<geqIntFlt>(), func, BoolConstant<geqIntFlt::Upward>(), BoolConstant<geqIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<geqFltInt>(), func, std::bool_constant<geqFltInt::Upward>(), std::bool_constant<geqFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<geqFltInt>(), func, BoolConstant<geqFltInt::Upward>(), BoolConstant<geqFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<geqFltFlt>(), func, std::bool_constant<geqFltFlt::Upward>(), std::bool_constant<geqFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<geqFltFlt>(), func, BoolConstant<geqFltFlt::Upward>(), BoolConstant<geqFltFlt::Downward>(), state, n1, n2);
         break;
     case 40:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<ltIntInt>(), func, std::bool_constant<ltIntInt::Upward>(), std::bool_constant<ltIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<ltIntInt>(), func, BoolConstant<ltIntInt::Upward>(), BoolConstant<ltIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<ltIntFlt>(), func, std::bool_constant<ltIntFlt::Upward>(), std::bool_constant<ltIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<ltIntFlt>(), func, BoolConstant<ltIntFlt::Upward>(), BoolConstant<ltIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<ltFltInt>(), func, std::bool_constant<ltFltInt::Upward>(), std::bool_constant<ltFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<ltFltInt>(), func, BoolConstant<ltFltInt::Upward>(), BoolConstant<ltFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<ltFltFlt>(), func, std::bool_constant<ltFltFlt::Upward>(), std::bool_constant<ltFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<ltFltFlt>(), func, BoolConstant<ltFltFlt::Upward>(), BoolConstant<ltFltFlt::Downward>(), state, n1, n2);
         break;
     case 41:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<leqIntInt>(), func, std::bool_constant<leqIntInt::Upward>(), std::bool_constant<leqIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<leqIntInt>(), func, BoolConstant<leqIntInt::Upward>(), BoolConstant<leqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<leqIntFlt>(), func, std::bool_constant<leqIntFlt::Upward>(), std::bool_constant<leqIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<leqIntFlt>(), func, BoolConstant<leqIntFlt::Upward>(), BoolConstant<leqIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<leqFltInt>(), func, std::bool_constant<leqFltInt::Upward>(), std::bool_constant<leqFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<leqFltInt>(), func, BoolConstant<leqFltInt::Upward>(), BoolConstant<leqFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<leqFltFlt>(), func, std::bool_constant<leqFltFlt::Upward>(), std::bool_constant<leqFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<leqFltFlt>(), func, BoolConstant<leqFltFlt::Upward>(), BoolConstant<leqFltFlt::Downward>(), state, n1, n2);
         break;
     case 42:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<eqIntInt>(), func, std::bool_constant<eqIntInt::Upward>(), std::bool_constant<eqIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<eqIntInt>(), func, BoolConstant<eqIntInt::Upward>(), BoolConstant<eqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<eqFltFlt>(), func, std::bool_constant<eqFltFlt::Upward>(), std::bool_constant<eqFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<eqFltFlt>(), func, BoolConstant<eqFltFlt::Upward>(), BoolConstant<eqFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_STR && n2.GetType() == VALUE_STR)
-            return FunctionNode(Identity<eqStrStr>(), func, std::bool_constant<eqStrStr::Upward>(), std::bool_constant<eqStrStr::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<eqStrStr>(), func, BoolConstant<eqStrStr::Upward>(), BoolConstant<eqStrStr::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<eqVecVec>(), func, std::bool_constant<eqVecVec::Upward>(), std::bool_constant<eqVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<eqVecVec>(), func, BoolConstant<eqVecVec::Upward>(), BoolConstant<eqVecVec::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<eqMatMat>(), func, std::bool_constant<eqMatMat::Upward>(), std::bool_constant<eqMatMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<eqMatMat>(), func, BoolConstant<eqMatMat::Upward>(), BoolConstant<eqMatMat::Downward>(), state, n1, n2);
         break;
     case 43:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<neqIntInt>(), func, std::bool_constant<neqIntInt::Upward>(), std::bool_constant<neqIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<neqIntInt>(), func, BoolConstant<neqIntInt::Upward>(), BoolConstant<neqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<neqFltFlt>(), func, std::bool_constant<neqFltFlt::Upward>(), std::bool_constant<neqFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<neqFltFlt>(), func, BoolConstant<neqFltFlt::Upward>(), BoolConstant<neqFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_STR && n2.GetType() == VALUE_STR)
-            return FunctionNode(Identity<neqStrStr>(), func, std::bool_constant<neqStrStr::Upward>(), std::bool_constant<neqStrStr::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<neqStrStr>(), func, BoolConstant<neqStrStr::Upward>(), BoolConstant<neqStrStr::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<neqVecVec>(), func, std::bool_constant<neqVecVec::Upward>(), std::bool_constant<neqVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<neqVecVec>(), func, BoolConstant<neqVecVec::Upward>(), BoolConstant<neqVecVec::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<neqMatMat>(), func, std::bool_constant<neqMatMat::Upward>(), std::bool_constant<neqMatMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<neqMatMat>(), func, BoolConstant<neqMatMat::Upward>(), BoolConstant<neqMatMat::Downward>(), state, n1, n2);
         break;
     case 44:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<andIntInt>(), func, std::bool_constant<andIntInt::Upward>(), std::bool_constant<andIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<andIntInt>(), func, BoolConstant<andIntInt::Upward>(), BoolConstant<andIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<andIntFlt>(), func, std::bool_constant<andIntFlt::Upward>(), std::bool_constant<andIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<andIntFlt>(), func, BoolConstant<andIntFlt::Upward>(), BoolConstant<andIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<andFltInt>(), func, std::bool_constant<andFltInt::Upward>(), std::bool_constant<andFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<andFltInt>(), func, BoolConstant<andFltInt::Upward>(), BoolConstant<andFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<andFltFlt>(), func, std::bool_constant<andFltFlt::Upward>(), std::bool_constant<andFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<andFltFlt>(), func, BoolConstant<andFltFlt::Upward>(), BoolConstant<andFltFlt::Downward>(), state, n1, n2);
         break;
     case 45:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<orIntInt>(), func, std::bool_constant<orIntInt::Upward>(), std::bool_constant<orIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<orIntInt>(), func, BoolConstant<orIntInt::Upward>(), BoolConstant<orIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<orIntFlt>(), func, std::bool_constant<orIntFlt::Upward>(), std::bool_constant<orIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<orIntFlt>(), func, BoolConstant<orIntFlt::Upward>(), BoolConstant<orIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<orFltInt>(), func, std::bool_constant<orFltInt::Upward>(), std::bool_constant<orFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<orFltInt>(), func, BoolConstant<orFltInt::Upward>(), BoolConstant<orFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<orFltFlt>(), func, std::bool_constant<orFltFlt::Upward>(), std::bool_constant<orFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<orFltFlt>(), func, BoolConstant<orFltFlt::Upward>(), BoolConstant<orFltFlt::Downward>(), state, n1, n2);
         break;
     case 46:
         if (n1.GetType() == VALUE_STR && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<index2StrInt>(), func, std::bool_constant<index2StrInt::Upward>(), std::bool_constant<index2StrInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<index2StrInt>(), func, BoolConstant<index2StrInt::Upward>(), BoolConstant<index2StrInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<index2VecInt>(), func, std::bool_constant<index2VecInt::Upward>(), std::bool_constant<index2VecInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<index2VecInt>(), func, BoolConstant<index2VecInt::Upward>(), BoolConstant<index2VecInt::Downward>(), state, n1, n2);
         break;
     }
     throw InvalidType("");
@@ -4799,219 +4799,219 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
     {
     case 20:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<atan2IntInt>(), func, std::bool_constant<atan2IntInt::Upward>(), std::bool_constant<atan2IntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<atan2IntInt>(), func, BoolConstant<atan2IntInt::Upward>(), BoolConstant<atan2IntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<atan2IntFlt>(), func, std::bool_constant<atan2IntFlt::Upward>(), std::bool_constant<atan2IntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<atan2IntFlt>(), func, BoolConstant<atan2IntFlt::Upward>(), BoolConstant<atan2IntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<atan2FltInt>(), func, std::bool_constant<atan2FltInt::Upward>(), std::bool_constant<atan2FltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<atan2FltInt>(), func, BoolConstant<atan2FltInt::Upward>(), BoolConstant<atan2FltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<atan2FltFlt>(), func, std::bool_constant<atan2FltFlt::Upward>(), std::bool_constant<atan2FltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<atan2FltFlt>(), func, BoolConstant<atan2FltFlt::Upward>(), BoolConstant<atan2FltFlt::Downward>(), state, n1, n2);
         break;
     case 21:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<log2IntInt>(), func, std::bool_constant<log2IntInt::Upward>(), std::bool_constant<log2IntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<log2IntInt>(), func, BoolConstant<log2IntInt::Upward>(), BoolConstant<log2IntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<log2IntFlt>(), func, std::bool_constant<log2IntFlt::Upward>(), std::bool_constant<log2IntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<log2IntFlt>(), func, BoolConstant<log2IntFlt::Upward>(), BoolConstant<log2IntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<log2FltInt>(), func, std::bool_constant<log2FltInt::Upward>(), std::bool_constant<log2FltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<log2FltInt>(), func, BoolConstant<log2FltInt::Upward>(), BoolConstant<log2FltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<log2FltFlt>(), func, std::bool_constant<log2FltFlt::Upward>(), std::bool_constant<log2FltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<log2FltFlt>(), func, BoolConstant<log2FltFlt::Upward>(), BoolConstant<log2FltFlt::Downward>(), state, n1, n2);
         break;
     case 22:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<maxIntInt>(), func, std::bool_constant<maxIntInt::Upward>(), std::bool_constant<maxIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<maxIntInt>(), func, BoolConstant<maxIntInt::Upward>(), BoolConstant<maxIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<maxFltFlt>(), func, std::bool_constant<maxFltFlt::Upward>(), std::bool_constant<maxFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<maxFltFlt>(), func, BoolConstant<maxFltFlt::Upward>(), BoolConstant<maxFltFlt::Downward>(), state, n1, n2);
         break;
     case 23:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<minIntInt>(), func, std::bool_constant<minIntInt::Upward>(), std::bool_constant<minIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<minIntInt>(), func, BoolConstant<minIntInt::Upward>(), BoolConstant<minIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<minFltFlt>(), func, std::bool_constant<minFltFlt::Upward>(), std::bool_constant<minFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<minFltFlt>(), func, BoolConstant<minFltFlt::Upward>(), BoolConstant<minFltFlt::Downward>(), state, n1, n2);
         break;
     case 24:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<vec2FltFlt>(), func, std::bool_constant<vec2FltFlt::Upward>(), std::bool_constant<vec2FltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<vec2FltFlt>(), func, BoolConstant<vec2FltFlt::Upward>(), BoolConstant<vec2FltFlt::Downward>(), state, n1, n2);
         break;
     case 25:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<mat2VecVec>(), func, std::bool_constant<mat2VecVec::Upward>(), std::bool_constant<mat2VecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mat2VecVec>(), func, BoolConstant<mat2VecVec::Upward>(), BoolConstant<mat2VecVec::Downward>(), state, n1, n2);
         break;
     case 26:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<dotVecVec>(), func, std::bool_constant<dotVecVec::Upward>(), std::bool_constant<dotVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<dotVecVec>(), func, BoolConstant<dotVecVec::Upward>(), BoolConstant<dotVecVec::Downward>(), state, n1, n2);
         break;
     case 27:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<crossVecVec>(), func, std::bool_constant<crossVecVec::Upward>(), std::bool_constant<crossVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<crossVecVec>(), func, BoolConstant<crossVecVec::Upward>(), BoolConstant<crossVecVec::Downward>(), state, n1, n2);
         break;
     case 32:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<powIntInt>(), func, std::bool_constant<powIntInt::Upward>(), std::bool_constant<powIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<powIntInt>(), func, BoolConstant<powIntInt::Upward>(), BoolConstant<powIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<powIntFlt>(), func, std::bool_constant<powIntFlt::Upward>(), std::bool_constant<powIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<powIntFlt>(), func, BoolConstant<powIntFlt::Upward>(), BoolConstant<powIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<powFltInt>(), func, std::bool_constant<powFltInt::Upward>(), std::bool_constant<powFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<powFltInt>(), func, BoolConstant<powFltInt::Upward>(), BoolConstant<powFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<powFltFlt>(), func, std::bool_constant<powFltFlt::Upward>(), std::bool_constant<powFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<powFltFlt>(), func, BoolConstant<powFltFlt::Upward>(), BoolConstant<powFltFlt::Downward>(), state, n1, n2);
         break;
     case 33:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<mulIntInt>(), func, std::bool_constant<mulIntInt::Upward>(), std::bool_constant<mulIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulIntInt>(), func, BoolConstant<mulIntInt::Upward>(), BoolConstant<mulIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<mulIntFlt>(), func, std::bool_constant<mulIntFlt::Upward>(), std::bool_constant<mulIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulIntFlt>(), func, BoolConstant<mulIntFlt::Upward>(), BoolConstant<mulIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<mulFltInt>(), func, std::bool_constant<mulFltInt::Upward>(), std::bool_constant<mulFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulFltInt>(), func, BoolConstant<mulFltInt::Upward>(), BoolConstant<mulFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<mulFltFlt>(), func, std::bool_constant<mulFltFlt::Upward>(), std::bool_constant<mulFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulFltFlt>(), func, BoolConstant<mulFltFlt::Upward>(), BoolConstant<mulFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<mulVecFlt>(), func, std::bool_constant<mulVecFlt::Upward>(), std::bool_constant<mulVecFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulVecFlt>(), func, BoolConstant<mulVecFlt::Upward>(), BoolConstant<mulVecFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<mulFltVec>(), func, std::bool_constant<mulFltVec::Upward>(), std::bool_constant<mulFltVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulFltVec>(), func, BoolConstant<mulFltVec::Upward>(), BoolConstant<mulFltVec::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<mulMatFlt>(), func, std::bool_constant<mulMatFlt::Upward>(), std::bool_constant<mulMatFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulMatFlt>(), func, BoolConstant<mulMatFlt::Upward>(), BoolConstant<mulMatFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<mulFltMat>(), func, std::bool_constant<mulFltMat::Upward>(), std::bool_constant<mulFltMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulFltMat>(), func, BoolConstant<mulFltMat::Upward>(), BoolConstant<mulFltMat::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<mulMatMat>(), func, std::bool_constant<mulMatMat::Upward>(), std::bool_constant<mulMatMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulMatMat>(), func, BoolConstant<mulMatMat::Upward>(), BoolConstant<mulMatMat::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<mulMatVec>(), func, std::bool_constant<mulMatVec::Upward>(), std::bool_constant<mulMatVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<mulMatVec>(), func, BoolConstant<mulMatVec::Upward>(), BoolConstant<mulMatVec::Downward>(), state, n1, n2);
         break;
     case 34:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<divIntInt>(), func, std::bool_constant<divIntInt::Upward>(), std::bool_constant<divIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<divIntInt>(), func, BoolConstant<divIntInt::Upward>(), BoolConstant<divIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<divIntFlt>(), func, std::bool_constant<divIntFlt::Upward>(), std::bool_constant<divIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<divIntFlt>(), func, BoolConstant<divIntFlt::Upward>(), BoolConstant<divIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<divFltInt>(), func, std::bool_constant<divFltInt::Upward>(), std::bool_constant<divFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<divFltInt>(), func, BoolConstant<divFltInt::Upward>(), BoolConstant<divFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<divFltFlt>(), func, std::bool_constant<divFltFlt::Upward>(), std::bool_constant<divFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<divFltFlt>(), func, BoolConstant<divFltFlt::Upward>(), BoolConstant<divFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<divVecFlt>(), func, std::bool_constant<divVecFlt::Upward>(), std::bool_constant<divVecFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<divVecFlt>(), func, BoolConstant<divVecFlt::Upward>(), BoolConstant<divVecFlt::Downward>(), state, n1, n2);
         break;
     case 35:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<modIntInt>(), func, std::bool_constant<modIntInt::Upward>(), std::bool_constant<modIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<modIntInt>(), func, BoolConstant<modIntInt::Upward>(), BoolConstant<modIntInt::Downward>(), state, n1, n2);
         break;
     case 36:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<addIntInt>(), func, std::bool_constant<addIntInt::Upward>(), std::bool_constant<addIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addIntInt>(), func, BoolConstant<addIntInt::Upward>(), BoolConstant<addIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<addIntFlt>(), func, std::bool_constant<addIntFlt::Upward>(), std::bool_constant<addIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addIntFlt>(), func, BoolConstant<addIntFlt::Upward>(), BoolConstant<addIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<addFltInt>(), func, std::bool_constant<addFltInt::Upward>(), std::bool_constant<addFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addFltInt>(), func, BoolConstant<addFltInt::Upward>(), BoolConstant<addFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<addFltFlt>(), func, std::bool_constant<addFltFlt::Upward>(), std::bool_constant<addFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addFltFlt>(), func, BoolConstant<addFltFlt::Upward>(), BoolConstant<addFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_STR && n2.GetType() == VALUE_STR)
-            return FunctionNode(Identity<addStrStr>(), func, std::bool_constant<addStrStr::Upward>(), std::bool_constant<addStrStr::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addStrStr>(), func, BoolConstant<addStrStr::Upward>(), BoolConstant<addStrStr::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<addVecVec>(), func, std::bool_constant<addVecVec::Upward>(), std::bool_constant<addVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addVecVec>(), func, BoolConstant<addVecVec::Upward>(), BoolConstant<addVecVec::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<addMatMat>(), func, std::bool_constant<addMatMat::Upward>(), std::bool_constant<addMatMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<addMatMat>(), func, BoolConstant<addMatMat::Upward>(), BoolConstant<addMatMat::Downward>(), state, n1, n2);
         break;
     case 37:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<subIntInt>(), func, std::bool_constant<subIntInt::Upward>(), std::bool_constant<subIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subIntInt>(), func, BoolConstant<subIntInt::Upward>(), BoolConstant<subIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<subIntFlt>(), func, std::bool_constant<subIntFlt::Upward>(), std::bool_constant<subIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subIntFlt>(), func, BoolConstant<subIntFlt::Upward>(), BoolConstant<subIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<subFltInt>(), func, std::bool_constant<subFltInt::Upward>(), std::bool_constant<subFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subFltInt>(), func, BoolConstant<subFltInt::Upward>(), BoolConstant<subFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<subFltFlt>(), func, std::bool_constant<subFltFlt::Upward>(), std::bool_constant<subFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subFltFlt>(), func, BoolConstant<subFltFlt::Upward>(), BoolConstant<subFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<subVecVec>(), func, std::bool_constant<subVecVec::Upward>(), std::bool_constant<subVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subVecVec>(), func, BoolConstant<subVecVec::Upward>(), BoolConstant<subVecVec::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<subMatMat>(), func, std::bool_constant<subMatMat::Upward>(), std::bool_constant<subMatMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<subMatMat>(), func, BoolConstant<subMatMat::Upward>(), BoolConstant<subMatMat::Downward>(), state, n1, n2);
         break;
     case 38:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<gtIntInt>(), func, std::bool_constant<gtIntInt::Upward>(), std::bool_constant<gtIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<gtIntInt>(), func, BoolConstant<gtIntInt::Upward>(), BoolConstant<gtIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<gtIntFlt>(), func, std::bool_constant<gtIntFlt::Upward>(), std::bool_constant<gtIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<gtIntFlt>(), func, BoolConstant<gtIntFlt::Upward>(), BoolConstant<gtIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<gtFltInt>(), func, std::bool_constant<gtFltInt::Upward>(), std::bool_constant<gtFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<gtFltInt>(), func, BoolConstant<gtFltInt::Upward>(), BoolConstant<gtFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<gtFltFlt>(), func, std::bool_constant<gtFltFlt::Upward>(), std::bool_constant<gtFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<gtFltFlt>(), func, BoolConstant<gtFltFlt::Upward>(), BoolConstant<gtFltFlt::Downward>(), state, n1, n2);
         break;
     case 39:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<geqIntInt>(), func, std::bool_constant<geqIntInt::Upward>(), std::bool_constant<geqIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<geqIntInt>(), func, BoolConstant<geqIntInt::Upward>(), BoolConstant<geqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<geqIntFlt>(), func, std::bool_constant<geqIntFlt::Upward>(), std::bool_constant<geqIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<geqIntFlt>(), func, BoolConstant<geqIntFlt::Upward>(), BoolConstant<geqIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<geqFltInt>(), func, std::bool_constant<geqFltInt::Upward>(), std::bool_constant<geqFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<geqFltInt>(), func, BoolConstant<geqFltInt::Upward>(), BoolConstant<geqFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<geqFltFlt>(), func, std::bool_constant<geqFltFlt::Upward>(), std::bool_constant<geqFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<geqFltFlt>(), func, BoolConstant<geqFltFlt::Upward>(), BoolConstant<geqFltFlt::Downward>(), state, n1, n2);
         break;
     case 40:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<ltIntInt>(), func, std::bool_constant<ltIntInt::Upward>(), std::bool_constant<ltIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<ltIntInt>(), func, BoolConstant<ltIntInt::Upward>(), BoolConstant<ltIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<ltIntFlt>(), func, std::bool_constant<ltIntFlt::Upward>(), std::bool_constant<ltIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<ltIntFlt>(), func, BoolConstant<ltIntFlt::Upward>(), BoolConstant<ltIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<ltFltInt>(), func, std::bool_constant<ltFltInt::Upward>(), std::bool_constant<ltFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<ltFltInt>(), func, BoolConstant<ltFltInt::Upward>(), BoolConstant<ltFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<ltFltFlt>(), func, std::bool_constant<ltFltFlt::Upward>(), std::bool_constant<ltFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<ltFltFlt>(), func, BoolConstant<ltFltFlt::Upward>(), BoolConstant<ltFltFlt::Downward>(), state, n1, n2);
         break;
     case 41:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<leqIntInt>(), func, std::bool_constant<leqIntInt::Upward>(), std::bool_constant<leqIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<leqIntInt>(), func, BoolConstant<leqIntInt::Upward>(), BoolConstant<leqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<leqIntFlt>(), func, std::bool_constant<leqIntFlt::Upward>(), std::bool_constant<leqIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<leqIntFlt>(), func, BoolConstant<leqIntFlt::Upward>(), BoolConstant<leqIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<leqFltInt>(), func, std::bool_constant<leqFltInt::Upward>(), std::bool_constant<leqFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<leqFltInt>(), func, BoolConstant<leqFltInt::Upward>(), BoolConstant<leqFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<leqFltFlt>(), func, std::bool_constant<leqFltFlt::Upward>(), std::bool_constant<leqFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<leqFltFlt>(), func, BoolConstant<leqFltFlt::Upward>(), BoolConstant<leqFltFlt::Downward>(), state, n1, n2);
         break;
     case 42:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<eqIntInt>(), func, std::bool_constant<eqIntInt::Upward>(), std::bool_constant<eqIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<eqIntInt>(), func, BoolConstant<eqIntInt::Upward>(), BoolConstant<eqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<eqFltFlt>(), func, std::bool_constant<eqFltFlt::Upward>(), std::bool_constant<eqFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<eqFltFlt>(), func, BoolConstant<eqFltFlt::Upward>(), BoolConstant<eqFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_STR && n2.GetType() == VALUE_STR)
-            return FunctionNode(Identity<eqStrStr>(), func, std::bool_constant<eqStrStr::Upward>(), std::bool_constant<eqStrStr::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<eqStrStr>(), func, BoolConstant<eqStrStr::Upward>(), BoolConstant<eqStrStr::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<eqVecVec>(), func, std::bool_constant<eqVecVec::Upward>(), std::bool_constant<eqVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<eqVecVec>(), func, BoolConstant<eqVecVec::Upward>(), BoolConstant<eqVecVec::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<eqMatMat>(), func, std::bool_constant<eqMatMat::Upward>(), std::bool_constant<eqMatMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<eqMatMat>(), func, BoolConstant<eqMatMat::Upward>(), BoolConstant<eqMatMat::Downward>(), state, n1, n2);
         break;
     case 43:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<neqIntInt>(), func, std::bool_constant<neqIntInt::Upward>(), std::bool_constant<neqIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<neqIntInt>(), func, BoolConstant<neqIntInt::Upward>(), BoolConstant<neqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<neqFltFlt>(), func, std::bool_constant<neqFltFlt::Upward>(), std::bool_constant<neqFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<neqFltFlt>(), func, BoolConstant<neqFltFlt::Upward>(), BoolConstant<neqFltFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_STR && n2.GetType() == VALUE_STR)
-            return FunctionNode(Identity<neqStrStr>(), func, std::bool_constant<neqStrStr::Upward>(), std::bool_constant<neqStrStr::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<neqStrStr>(), func, BoolConstant<neqStrStr::Upward>(), BoolConstant<neqStrStr::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<neqVecVec>(), func, std::bool_constant<neqVecVec::Upward>(), std::bool_constant<neqVecVec::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<neqVecVec>(), func, BoolConstant<neqVecVec::Upward>(), BoolConstant<neqVecVec::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
-            return FunctionNode(Identity<neqMatMat>(), func, std::bool_constant<neqMatMat::Upward>(), std::bool_constant<neqMatMat::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<neqMatMat>(), func, BoolConstant<neqMatMat::Upward>(), BoolConstant<neqMatMat::Downward>(), state, n1, n2);
         break;
     case 44:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<andIntInt>(), func, std::bool_constant<andIntInt::Upward>(), std::bool_constant<andIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<andIntInt>(), func, BoolConstant<andIntInt::Upward>(), BoolConstant<andIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<andIntFlt>(), func, std::bool_constant<andIntFlt::Upward>(), std::bool_constant<andIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<andIntFlt>(), func, BoolConstant<andIntFlt::Upward>(), BoolConstant<andIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<andFltInt>(), func, std::bool_constant<andFltInt::Upward>(), std::bool_constant<andFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<andFltInt>(), func, BoolConstant<andFltInt::Upward>(), BoolConstant<andFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<andFltFlt>(), func, std::bool_constant<andFltFlt::Upward>(), std::bool_constant<andFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<andFltFlt>(), func, BoolConstant<andFltFlt::Upward>(), BoolConstant<andFltFlt::Downward>(), state, n1, n2);
         break;
     case 45:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<orIntInt>(), func, std::bool_constant<orIntInt::Upward>(), std::bool_constant<orIntInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<orIntInt>(), func, BoolConstant<orIntInt::Upward>(), BoolConstant<orIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<orIntFlt>(), func, std::bool_constant<orIntFlt::Upward>(), std::bool_constant<orIntFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<orIntFlt>(), func, BoolConstant<orIntFlt::Upward>(), BoolConstant<orIntFlt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<orFltInt>(), func, std::bool_constant<orFltInt::Upward>(), std::bool_constant<orFltInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<orFltInt>(), func, BoolConstant<orFltInt::Upward>(), BoolConstant<orFltInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<orFltFlt>(), func, std::bool_constant<orFltFlt::Upward>(), std::bool_constant<orFltFlt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<orFltFlt>(), func, BoolConstant<orFltFlt::Upward>(), BoolConstant<orFltFlt::Downward>(), state, n1, n2);
         break;
     case 46:
         if (n1.GetType() == VALUE_STR && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<index2StrInt>(), func, std::bool_constant<index2StrInt::Upward>(), std::bool_constant<index2StrInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<index2StrInt>(), func, BoolConstant<index2StrInt::Upward>(), BoolConstant<index2StrInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_INT)
-            return FunctionNode(Identity<index2VecInt>(), func, std::bool_constant<index2VecInt::Upward>(), std::bool_constant<index2VecInt::Downward>(), state, n1, n2);
+            return FunctionNode(Identity<index2VecInt>(), func, BoolConstant<index2VecInt::Upward>(), BoolConstant<index2VecInt::Downward>(), state, n1, n2);
         break;
     }
     throw InvalidType("");
@@ -5022,25 +5022,25 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
     {
     case 28:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
-            return FunctionNode(Identity<ifIntIntInt>(), func, std::bool_constant<ifIntIntInt::Upward>(), std::bool_constant<ifIntIntInt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntIntInt>(), func, BoolConstant<ifIntIntInt::Upward>(), BoolConstant<ifIntIntInt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<ifIntFltFlt>(), func, std::bool_constant<ifIntFltFlt::Upward>(), std::bool_constant<ifIntFltFlt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntFltFlt>(), func, BoolConstant<ifIntFltFlt::Upward>(), BoolConstant<ifIntFltFlt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_STR && n3.GetType() == VALUE_STR)
-            return FunctionNode(Identity<ifIntStrStr>(), func, std::bool_constant<ifIntStrStr::Upward>(), std::bool_constant<ifIntStrStr::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntStrStr>(), func, BoolConstant<ifIntStrStr::Upward>(), BoolConstant<ifIntStrStr::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<ifIntVecVec>(), func, std::bool_constant<ifIntVecVec::Upward>(), std::bool_constant<ifIntVecVec::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntVecVec>(), func, BoolConstant<ifIntVecVec::Upward>(), BoolConstant<ifIntVecVec::Downward>(), state, n1, n2, n3);
         break;
     case 29:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<vec3FltFltFlt>(), func, std::bool_constant<vec3FltFltFlt::Upward>(), std::bool_constant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<vec3FltFltFlt>(), func, BoolConstant<vec3FltFltFlt::Upward>(), BoolConstant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
         break;
     case 30:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<mat3VecVecVec>(), func, std::bool_constant<mat3VecVecVec::Upward>(), std::bool_constant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<mat3VecVecVec>(), func, BoolConstant<mat3VecVecVec::Upward>(), BoolConstant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
         break;
     case 47:
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
-            return FunctionNode(Identity<index3MatIntInt>(), func, std::bool_constant<index3MatIntInt::Upward>(), std::bool_constant<index3MatIntInt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<index3MatIntInt>(), func, BoolConstant<index3MatIntInt::Upward>(), BoolConstant<index3MatIntInt::Downward>(), state, n1, n2, n3);
         break;
     }
     throw InvalidType("");
@@ -5051,25 +5051,25 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
     {
     case 28:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
-            return FunctionNode(Identity<ifIntIntInt>(), func, std::bool_constant<ifIntIntInt::Upward>(), std::bool_constant<ifIntIntInt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntIntInt>(), func, BoolConstant<ifIntIntInt::Upward>(), BoolConstant<ifIntIntInt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<ifIntFltFlt>(), func, std::bool_constant<ifIntFltFlt::Upward>(), std::bool_constant<ifIntFltFlt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntFltFlt>(), func, BoolConstant<ifIntFltFlt::Upward>(), BoolConstant<ifIntFltFlt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_STR && n3.GetType() == VALUE_STR)
-            return FunctionNode(Identity<ifIntStrStr>(), func, std::bool_constant<ifIntStrStr::Upward>(), std::bool_constant<ifIntStrStr::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntStrStr>(), func, BoolConstant<ifIntStrStr::Upward>(), BoolConstant<ifIntStrStr::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<ifIntVecVec>(), func, std::bool_constant<ifIntVecVec::Upward>(), std::bool_constant<ifIntVecVec::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntVecVec>(), func, BoolConstant<ifIntVecVec::Upward>(), BoolConstant<ifIntVecVec::Downward>(), state, n1, n2, n3);
         break;
     case 29:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<vec3FltFltFlt>(), func, std::bool_constant<vec3FltFltFlt::Upward>(), std::bool_constant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<vec3FltFltFlt>(), func, BoolConstant<vec3FltFltFlt::Upward>(), BoolConstant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
         break;
     case 30:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<mat3VecVecVec>(), func, std::bool_constant<mat3VecVecVec::Upward>(), std::bool_constant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<mat3VecVecVec>(), func, BoolConstant<mat3VecVecVec::Upward>(), BoolConstant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
         break;
     case 47:
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
-            return FunctionNode(Identity<index3MatIntInt>(), func, std::bool_constant<index3MatIntInt::Upward>(), std::bool_constant<index3MatIntInt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<index3MatIntInt>(), func, BoolConstant<index3MatIntInt::Upward>(), BoolConstant<index3MatIntInt::Downward>(), state, n1, n2, n3);
         break;
     }
     throw InvalidType("");
@@ -5080,25 +5080,25 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
     {
     case 28:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
-            return FunctionNode(Identity<ifIntIntInt>(), func, std::bool_constant<ifIntIntInt::Upward>(), std::bool_constant<ifIntIntInt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntIntInt>(), func, BoolConstant<ifIntIntInt::Upward>(), BoolConstant<ifIntIntInt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<ifIntFltFlt>(), func, std::bool_constant<ifIntFltFlt::Upward>(), std::bool_constant<ifIntFltFlt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntFltFlt>(), func, BoolConstant<ifIntFltFlt::Upward>(), BoolConstant<ifIntFltFlt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_STR && n3.GetType() == VALUE_STR)
-            return FunctionNode(Identity<ifIntStrStr>(), func, std::bool_constant<ifIntStrStr::Upward>(), std::bool_constant<ifIntStrStr::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntStrStr>(), func, BoolConstant<ifIntStrStr::Upward>(), BoolConstant<ifIntStrStr::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<ifIntVecVec>(), func, std::bool_constant<ifIntVecVec::Upward>(), std::bool_constant<ifIntVecVec::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntVecVec>(), func, BoolConstant<ifIntVecVec::Upward>(), BoolConstant<ifIntVecVec::Downward>(), state, n1, n2, n3);
         break;
     case 29:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<vec3FltFltFlt>(), func, std::bool_constant<vec3FltFltFlt::Upward>(), std::bool_constant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<vec3FltFltFlt>(), func, BoolConstant<vec3FltFltFlt::Upward>(), BoolConstant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
         break;
     case 30:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<mat3VecVecVec>(), func, std::bool_constant<mat3VecVecVec::Upward>(), std::bool_constant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<mat3VecVecVec>(), func, BoolConstant<mat3VecVecVec::Upward>(), BoolConstant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
         break;
     case 47:
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
-            return FunctionNode(Identity<index3MatIntInt>(), func, std::bool_constant<index3MatIntInt::Upward>(), std::bool_constant<index3MatIntInt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<index3MatIntInt>(), func, BoolConstant<index3MatIntInt::Upward>(), BoolConstant<index3MatIntInt::Downward>(), state, n1, n2, n3);
         break;
     }
     throw InvalidType("");
@@ -5109,25 +5109,25 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
     {
     case 28:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
-            return FunctionNode(Identity<ifIntIntInt>(), func, std::bool_constant<ifIntIntInt::Upward>(), std::bool_constant<ifIntIntInt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntIntInt>(), func, BoolConstant<ifIntIntInt::Upward>(), BoolConstant<ifIntIntInt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<ifIntFltFlt>(), func, std::bool_constant<ifIntFltFlt::Upward>(), std::bool_constant<ifIntFltFlt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntFltFlt>(), func, BoolConstant<ifIntFltFlt::Upward>(), BoolConstant<ifIntFltFlt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_STR && n3.GetType() == VALUE_STR)
-            return FunctionNode(Identity<ifIntStrStr>(), func, std::bool_constant<ifIntStrStr::Upward>(), std::bool_constant<ifIntStrStr::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntStrStr>(), func, BoolConstant<ifIntStrStr::Upward>(), BoolConstant<ifIntStrStr::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<ifIntVecVec>(), func, std::bool_constant<ifIntVecVec::Upward>(), std::bool_constant<ifIntVecVec::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntVecVec>(), func, BoolConstant<ifIntVecVec::Upward>(), BoolConstant<ifIntVecVec::Downward>(), state, n1, n2, n3);
         break;
     case 29:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<vec3FltFltFlt>(), func, std::bool_constant<vec3FltFltFlt::Upward>(), std::bool_constant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<vec3FltFltFlt>(), func, BoolConstant<vec3FltFltFlt::Upward>(), BoolConstant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
         break;
     case 30:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<mat3VecVecVec>(), func, std::bool_constant<mat3VecVecVec::Upward>(), std::bool_constant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<mat3VecVecVec>(), func, BoolConstant<mat3VecVecVec::Upward>(), BoolConstant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
         break;
     case 47:
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
-            return FunctionNode(Identity<index3MatIntInt>(), func, std::bool_constant<index3MatIntInt::Upward>(), std::bool_constant<index3MatIntInt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<index3MatIntInt>(), func, BoolConstant<index3MatIntInt::Upward>(), BoolConstant<index3MatIntInt::Downward>(), state, n1, n2, n3);
         break;
     }
     throw InvalidType("");
@@ -5138,25 +5138,25 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
     {
     case 28:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
-            return FunctionNode(Identity<ifIntIntInt>(), func, std::bool_constant<ifIntIntInt::Upward>(), std::bool_constant<ifIntIntInt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntIntInt>(), func, BoolConstant<ifIntIntInt::Upward>(), BoolConstant<ifIntIntInt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<ifIntFltFlt>(), func, std::bool_constant<ifIntFltFlt::Upward>(), std::bool_constant<ifIntFltFlt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntFltFlt>(), func, BoolConstant<ifIntFltFlt::Upward>(), BoolConstant<ifIntFltFlt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_STR && n3.GetType() == VALUE_STR)
-            return FunctionNode(Identity<ifIntStrStr>(), func, std::bool_constant<ifIntStrStr::Upward>(), std::bool_constant<ifIntStrStr::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntStrStr>(), func, BoolConstant<ifIntStrStr::Upward>(), BoolConstant<ifIntStrStr::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<ifIntVecVec>(), func, std::bool_constant<ifIntVecVec::Upward>(), std::bool_constant<ifIntVecVec::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntVecVec>(), func, BoolConstant<ifIntVecVec::Upward>(), BoolConstant<ifIntVecVec::Downward>(), state, n1, n2, n3);
         break;
     case 29:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<vec3FltFltFlt>(), func, std::bool_constant<vec3FltFltFlt::Upward>(), std::bool_constant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<vec3FltFltFlt>(), func, BoolConstant<vec3FltFltFlt::Upward>(), BoolConstant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
         break;
     case 30:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<mat3VecVecVec>(), func, std::bool_constant<mat3VecVecVec::Upward>(), std::bool_constant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<mat3VecVecVec>(), func, BoolConstant<mat3VecVecVec::Upward>(), BoolConstant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
         break;
     case 47:
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
-            return FunctionNode(Identity<index3MatIntInt>(), func, std::bool_constant<index3MatIntInt::Upward>(), std::bool_constant<index3MatIntInt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<index3MatIntInt>(), func, BoolConstant<index3MatIntInt::Upward>(), BoolConstant<index3MatIntInt::Downward>(), state, n1, n2, n3);
         break;
     }
     throw InvalidType("");
@@ -5167,25 +5167,25 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
     {
     case 28:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
-            return FunctionNode(Identity<ifIntIntInt>(), func, std::bool_constant<ifIntIntInt::Upward>(), std::bool_constant<ifIntIntInt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntIntInt>(), func, BoolConstant<ifIntIntInt::Upward>(), BoolConstant<ifIntIntInt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<ifIntFltFlt>(), func, std::bool_constant<ifIntFltFlt::Upward>(), std::bool_constant<ifIntFltFlt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntFltFlt>(), func, BoolConstant<ifIntFltFlt::Upward>(), BoolConstant<ifIntFltFlt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_STR && n3.GetType() == VALUE_STR)
-            return FunctionNode(Identity<ifIntStrStr>(), func, std::bool_constant<ifIntStrStr::Upward>(), std::bool_constant<ifIntStrStr::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntStrStr>(), func, BoolConstant<ifIntStrStr::Upward>(), BoolConstant<ifIntStrStr::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<ifIntVecVec>(), func, std::bool_constant<ifIntVecVec::Upward>(), std::bool_constant<ifIntVecVec::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntVecVec>(), func, BoolConstant<ifIntVecVec::Upward>(), BoolConstant<ifIntVecVec::Downward>(), state, n1, n2, n3);
         break;
     case 29:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<vec3FltFltFlt>(), func, std::bool_constant<vec3FltFltFlt::Upward>(), std::bool_constant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<vec3FltFltFlt>(), func, BoolConstant<vec3FltFltFlt::Upward>(), BoolConstant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
         break;
     case 30:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<mat3VecVecVec>(), func, std::bool_constant<mat3VecVecVec::Upward>(), std::bool_constant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<mat3VecVecVec>(), func, BoolConstant<mat3VecVecVec::Upward>(), BoolConstant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
         break;
     case 47:
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
-            return FunctionNode(Identity<index3MatIntInt>(), func, std::bool_constant<index3MatIntInt::Upward>(), std::bool_constant<index3MatIntInt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<index3MatIntInt>(), func, BoolConstant<index3MatIntInt::Upward>(), BoolConstant<index3MatIntInt::Downward>(), state, n1, n2, n3);
         break;
     }
     throw InvalidType("");
@@ -5196,25 +5196,25 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
     {
     case 28:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
-            return FunctionNode(Identity<ifIntIntInt>(), func, std::bool_constant<ifIntIntInt::Upward>(), std::bool_constant<ifIntIntInt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntIntInt>(), func, BoolConstant<ifIntIntInt::Upward>(), BoolConstant<ifIntIntInt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<ifIntFltFlt>(), func, std::bool_constant<ifIntFltFlt::Upward>(), std::bool_constant<ifIntFltFlt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntFltFlt>(), func, BoolConstant<ifIntFltFlt::Upward>(), BoolConstant<ifIntFltFlt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_STR && n3.GetType() == VALUE_STR)
-            return FunctionNode(Identity<ifIntStrStr>(), func, std::bool_constant<ifIntStrStr::Upward>(), std::bool_constant<ifIntStrStr::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntStrStr>(), func, BoolConstant<ifIntStrStr::Upward>(), BoolConstant<ifIntStrStr::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<ifIntVecVec>(), func, std::bool_constant<ifIntVecVec::Upward>(), std::bool_constant<ifIntVecVec::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntVecVec>(), func, BoolConstant<ifIntVecVec::Upward>(), BoolConstant<ifIntVecVec::Downward>(), state, n1, n2, n3);
         break;
     case 29:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<vec3FltFltFlt>(), func, std::bool_constant<vec3FltFltFlt::Upward>(), std::bool_constant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<vec3FltFltFlt>(), func, BoolConstant<vec3FltFltFlt::Upward>(), BoolConstant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
         break;
     case 30:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<mat3VecVecVec>(), func, std::bool_constant<mat3VecVecVec::Upward>(), std::bool_constant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<mat3VecVecVec>(), func, BoolConstant<mat3VecVecVec::Upward>(), BoolConstant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
         break;
     case 47:
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
-            return FunctionNode(Identity<index3MatIntInt>(), func, std::bool_constant<index3MatIntInt::Upward>(), std::bool_constant<index3MatIntInt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<index3MatIntInt>(), func, BoolConstant<index3MatIntInt::Upward>(), BoolConstant<index3MatIntInt::Downward>(), state, n1, n2, n3);
         break;
     }
     throw InvalidType("");
@@ -5225,25 +5225,25 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
     {
     case 28:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
-            return FunctionNode(Identity<ifIntIntInt>(), func, std::bool_constant<ifIntIntInt::Upward>(), std::bool_constant<ifIntIntInt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntIntInt>(), func, BoolConstant<ifIntIntInt::Upward>(), BoolConstant<ifIntIntInt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<ifIntFltFlt>(), func, std::bool_constant<ifIntFltFlt::Upward>(), std::bool_constant<ifIntFltFlt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntFltFlt>(), func, BoolConstant<ifIntFltFlt::Upward>(), BoolConstant<ifIntFltFlt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_STR && n3.GetType() == VALUE_STR)
-            return FunctionNode(Identity<ifIntStrStr>(), func, std::bool_constant<ifIntStrStr::Upward>(), std::bool_constant<ifIntStrStr::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntStrStr>(), func, BoolConstant<ifIntStrStr::Upward>(), BoolConstant<ifIntStrStr::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<ifIntVecVec>(), func, std::bool_constant<ifIntVecVec::Upward>(), std::bool_constant<ifIntVecVec::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<ifIntVecVec>(), func, BoolConstant<ifIntVecVec::Upward>(), BoolConstant<ifIntVecVec::Downward>(), state, n1, n2, n3);
         break;
     case 29:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
-            return FunctionNode(Identity<vec3FltFltFlt>(), func, std::bool_constant<vec3FltFltFlt::Upward>(), std::bool_constant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<vec3FltFltFlt>(), func, BoolConstant<vec3FltFltFlt::Upward>(), BoolConstant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
         break;
     case 30:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
-            return FunctionNode(Identity<mat3VecVecVec>(), func, std::bool_constant<mat3VecVecVec::Upward>(), std::bool_constant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<mat3VecVecVec>(), func, BoolConstant<mat3VecVecVec::Upward>(), BoolConstant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
         break;
     case 47:
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
-            return FunctionNode(Identity<index3MatIntInt>(), func, std::bool_constant<index3MatIntInt::Upward>(), std::bool_constant<index3MatIntInt::Downward>(), state, n1, n2, n3);
+            return FunctionNode(Identity<index3MatIntInt>(), func, BoolConstant<index3MatIntInt::Upward>(), BoolConstant<index3MatIntInt::Downward>(), state, n1, n2, n3);
         break;
     }
     throw InvalidType("");

@@ -13,32 +13,32 @@ namespace detail
 {
 
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t, std::true_type, std::true_type, ParserState*, TerminalNode& n)
+FunctionNode::FunctionNode(Identity<Func>, size_t, TrueType, TrueType, ParserState*, TerminalNode& n)
 {
 	mMakeFunc.Emplace<FMPMakeExpressionT<Func>>(n);
 	mIsJuncture = false;
 }
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t func, std::true_type, std::false_type, ParserState* state, TerminalNode& n)
+FunctionNode::FunctionNode(Identity<Func>, size_t func, TrueType, FalseType, ParserState* state, TerminalNode& n)
 {
 	mMakeFunc.Emplace<JunctureNode>(Func::RetType::label, state->mNodeBuffer.EmplaceBack<FMPExpressionTNode<Func>>(state, n.GetIndex(state)));
 	mIsJuncture = true;
 }
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t func, std::false_type, std::true_type, ParserState* state, TerminalNode& n)
+FunctionNode::FunctionNode(Identity<Func>, size_t func, FalseType, TrueType, ParserState* state, TerminalNode& n)
 {
 	mMakeFunc.Emplace<FMPMakeExpressionT<Func>>(n);
 	mIsJuncture = false;
 }
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t, std::false_type, std::false_type, ParserState* state, TerminalNode& n)
+FunctionNode::FunctionNode(Identity<Func>, size_t, FalseType, FalseType, ParserState* state, TerminalNode& n)
 {
 	mMakeFunc.Emplace<JunctureNode>(Func::RetType::label, state->mNodeBuffer.EmplaceBack<FMPExpressionTNode<Func>>(state, n.GetIndex(state)));
 	mIsJuncture = true;
 }
 
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t func, std::true_type, std::true_type, ParserState* state, FunctionNode& n)
+FunctionNode::FunctionNode(Identity<Func>, size_t func, TrueType, TrueType, ParserState* state, FunctionNode& n)
 {
 	if (n.IsJuncture())
 	{
@@ -54,7 +54,7 @@ FunctionNode::FunctionNode(Identity<Func>, size_t func, std::true_type, std::tru
 	}
 }
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t func, std::true_type, std::false_type, ParserState* state, FunctionNode& n)
+FunctionNode::FunctionNode(Identity<Func>, size_t func, TrueType, FalseType, ParserState* state, FunctionNode& n)
 {
 	//downwardがfalseなので、自身はJunctureとしなければならない。
 	if (n.IsJuncture())
@@ -72,7 +72,7 @@ FunctionNode::FunctionNode(Identity<Func>, size_t func, std::true_type, std::fal
 	}
 }
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t func, std::false_type, std::true_type, ParserState* state, FunctionNode& n)
+FunctionNode::FunctionNode(Identity<Func>, size_t func, FalseType, TrueType, ParserState* state, FunctionNode& n)
 {
 	//upwardがfalseなので、nは強制的にJuncturizeする。
 	JunctureNode j = n.IsJuncture() ? n.GetJunctureNode() : n.Juncturize(state);
@@ -80,7 +80,7 @@ FunctionNode::FunctionNode(Identity<Func>, size_t func, std::false_type, std::tr
 	mIsJuncture = false;
 }
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t, std::false_type, std::false_type, ParserState* state, FunctionNode& n)
+FunctionNode::FunctionNode(Identity<Func>, size_t, FalseType, FalseType, ParserState* state, FunctionNode& n)
 {
 	//upwardがfalseなので、nは強制的にJuncturizeする。
 	JunctureNode j = n.IsJuncture() ? n.GetJunctureNode() : n.Juncturize(state);
@@ -92,13 +92,13 @@ FunctionNode::FunctionNode(Identity<Func>, size_t, std::false_type, std::false_t
 }
 
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t, std::true_type, std::true_type, ParserState*, TerminalNode& n1, TerminalNode& n2)
+FunctionNode::FunctionNode(Identity<Func>, size_t, TrueType, TrueType, ParserState*, TerminalNode& n1, TerminalNode& n2)
 {
 	mMakeFunc.Emplace<FMPMakeExpressionTT<Func>>(n1, n2);
 	mIsJuncture = false;
 }
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t, std::true_type, std::false_type, ParserState* state, TerminalNode& n1, TerminalNode& n2)
+FunctionNode::FunctionNode(Identity<Func>, size_t, TrueType, FalseType, ParserState* state, TerminalNode& n1, TerminalNode& n2)
 {
 	//downwardがfalse。自身をJunctureとする。
 	//JunctureNode j = n2.GetJunctureNode();
@@ -106,14 +106,14 @@ FunctionNode::FunctionNode(Identity<Func>, size_t, std::true_type, std::false_ty
 	mIsJuncture = true;
 }
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t func, std::false_type, std::true_type, ParserState* state, TerminalNode& n1, TerminalNode& n2)
+FunctionNode::FunctionNode(Identity<Func>, size_t func, FalseType, TrueType, ParserState* state, TerminalNode& n1, TerminalNode& n2)
 {
 	//upwardがfalseだがそもそも引数は両方ともterminalなので、特殊なことは必要ない。
 	mMakeFunc.Emplace<FMPMakeExpressionTT<Func>>(n1, n2);
 	mIsJuncture = false;
 }
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t, std::false_type, std::false_type, ParserState* state, TerminalNode& n1, TerminalNode& n2)
+FunctionNode::FunctionNode(Identity<Func>, size_t, FalseType, FalseType, ParserState* state, TerminalNode& n1, TerminalNode& n2)
 {
 	//downwardがfalse。自身をJunctureとする。
 	//JunctureNode j = n2.GetJunctureNode();
@@ -122,7 +122,7 @@ FunctionNode::FunctionNode(Identity<Func>, size_t, std::false_type, std::false_t
 }
 
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t func, std::true_type, std::true_type, ParserState* state, TerminalNode& n1, FunctionNode& n2)
+FunctionNode::FunctionNode(Identity<Func>, size_t func, TrueType, TrueType, ParserState* state, TerminalNode& n1, FunctionNode& n2)
 {
 	if (n2.IsJuncture())
 	{
@@ -138,7 +138,7 @@ FunctionNode::FunctionNode(Identity<Func>, size_t func, std::true_type, std::tru
 	}
 }
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t func, std::true_type, std::false_type, ParserState* state, TerminalNode& n1, FunctionNode& n2)
+FunctionNode::FunctionNode(Identity<Func>, size_t func, TrueType, FalseType, ParserState* state, TerminalNode& n1, FunctionNode& n2)
 {
 	//downwardがfalseなので自身をJunctureとする。
 	if (n2.IsJuncture())
@@ -155,7 +155,7 @@ FunctionNode::FunctionNode(Identity<Func>, size_t func, std::true_type, std::fal
 	}
 }
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t func, std::false_type, std::true_type, ParserState* state, TerminalNode& n1, FunctionNode& n2)
+FunctionNode::FunctionNode(Identity<Func>, size_t func, FalseType, TrueType, ParserState* state, TerminalNode& n1, FunctionNode& n2)
 {
 	//upwardがfalseなので、n2を強制的にJuncturizeする。
 	JunctureNode j = n2.IsJuncture() ? n2.GetJunctureNode() : n2.Juncturize(state);
@@ -163,7 +163,7 @@ FunctionNode::FunctionNode(Identity<Func>, size_t func, std::false_type, std::tr
 	mIsJuncture = false;
 }
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t, std::false_type, std::false_type, ParserState* state, TerminalNode& n1, FunctionNode& n2)
+FunctionNode::FunctionNode(Identity<Func>, size_t, FalseType, FalseType, ParserState* state, TerminalNode& n1, FunctionNode& n2)
 {
 	//upwardがfalseなので、n2を強制的にJuncturizeする。
 	JunctureNode j = n2.IsJuncture() ? n2.GetJunctureNode() : n2.Juncturize(state);
@@ -173,7 +173,7 @@ FunctionNode::FunctionNode(Identity<Func>, size_t, std::false_type, std::false_t
 }
 
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t func, std::true_type, std::true_type, ParserState* state, FunctionNode& n1, TerminalNode& n2)
+FunctionNode::FunctionNode(Identity<Func>, size_t func, TrueType, TrueType, ParserState* state, FunctionNode& n1, TerminalNode& n2)
 {
 	if (n1.IsJuncture())
 	{
@@ -189,7 +189,7 @@ FunctionNode::FunctionNode(Identity<Func>, size_t func, std::true_type, std::tru
 	}
 }
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t func, std::true_type, std::false_type, ParserState* state, FunctionNode& n1, TerminalNode& n2)
+FunctionNode::FunctionNode(Identity<Func>, size_t func, TrueType, FalseType, ParserState* state, FunctionNode& n1, TerminalNode& n2)
 {
 	//downwardがfalseなので自身をJunctureとする。
 	if (n1.IsJuncture())
@@ -206,7 +206,7 @@ FunctionNode::FunctionNode(Identity<Func>, size_t func, std::true_type, std::fal
 	}
 }
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t func, std::false_type, std::true_type, ParserState* state, FunctionNode& n1, TerminalNode& n2)
+FunctionNode::FunctionNode(Identity<Func>, size_t func, FalseType, TrueType, ParserState* state, FunctionNode& n1, TerminalNode& n2)
 {
 	//upwardがfalseなので、n1を強制的にJuncturizeする。
 	JunctureNode j = n1.IsJuncture() ? n1.GetJunctureNode() : n1.Juncturize(state);
@@ -214,7 +214,7 @@ FunctionNode::FunctionNode(Identity<Func>, size_t func, std::false_type, std::tr
 	mIsJuncture = false;
 }
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t, std::false_type, std::false_type, ParserState* state, FunctionNode& n1, TerminalNode& n2)
+FunctionNode::FunctionNode(Identity<Func>, size_t, FalseType, FalseType, ParserState* state, FunctionNode& n1, TerminalNode& n2)
 {
 	//upwardがfalseなので、n1を強制的にJuncturizeする。
 	JunctureNode j = n1.IsJuncture() ? n1.GetJunctureNode() : n1.Juncturize(state);
@@ -224,7 +224,7 @@ FunctionNode::FunctionNode(Identity<Func>, size_t, std::false_type, std::false_t
 }
 
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t func, std::true_type, std::true_type, ParserState* state, FunctionNode& n1, FunctionNode& n2)
+FunctionNode::FunctionNode(Identity<Func>, size_t func, TrueType, TrueType, ParserState* state, FunctionNode& n1, FunctionNode& n2)
 {
 	if (n1.IsJuncture())
 	{
@@ -252,7 +252,7 @@ FunctionNode::FunctionNode(Identity<Func>, size_t func, std::true_type, std::tru
 	}
 }
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t func, std::true_type, std::false_type, ParserState* state, FunctionNode& n1, FunctionNode& n2)
+FunctionNode::FunctionNode(Identity<Func>, size_t func, TrueType, FalseType, ParserState* state, FunctionNode& n1, FunctionNode& n2)
 {
 	//downwardがfalseなので、自身はJunctureでなければならない。
 	if (n1.IsJuncture())
@@ -282,7 +282,7 @@ FunctionNode::FunctionNode(Identity<Func>, size_t func, std::true_type, std::fal
 	}
 }
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t func, std::false_type, std::true_type, ParserState* state, FunctionNode& n1, FunctionNode& n2)
+FunctionNode::FunctionNode(Identity<Func>, size_t func, FalseType, TrueType, ParserState* state, FunctionNode& n1, FunctionNode& n2)
 {
 	//upwardがfalseなので、n1、n2双方を強制的にJuncturizeする。
 	JunctureNode j1 = n1.IsJuncture() ? n1.GetJunctureNode() : n1.Juncturize();
@@ -291,7 +291,7 @@ FunctionNode::FunctionNode(Identity<Func>, size_t func, std::false_type, std::tr
 	mIsJuncture = false;
 }
 template <class Func>
-FunctionNode::FunctionNode(Identity<Func>, size_t, std::false_type, std::false_type, ParserState* state, FunctionNode& n1, FunctionNode& n2)
+FunctionNode::FunctionNode(Identity<Func>, size_t, FalseType, FalseType, ParserState* state, FunctionNode& n1, FunctionNode& n2)
 {
 	//upwardがfalseなので、n1、n2双方を強制的にJuncturizeする。
 	JunctureNode j1 = n1.IsJuncture() ? n1.GetJunctureNode() : n1.Juncturize(state);
@@ -300,27 +300,27 @@ FunctionNode::FunctionNode(Identity<Func>, size_t, std::false_type, std::false_t
 	mIsJuncture = true;
 }
 template <class Func, bool BU, bool BD>
-FunctionNode::FunctionNode(Identity<Func>, size_t /*func*/, std::bool_constant<BU>, std::bool_constant<BD>, ParserState* state, TerminalNode& n1, TerminalNode& n2, TerminalNode& n3)
+FunctionNode::FunctionNode(Identity<Func>, size_t /*func*/, BoolConstant<BU>, BoolConstant<BD>, ParserState* state, TerminalNode& n1, TerminalNode& n2, TerminalNode& n3)
 {
 	mMakeFunc.Emplace<JunctureNode>(Func::RetType::label, state->mNodeBuffer.EmplaceBack<FMPExpressionTTTNode<Func>>(state, n1.GetIndex(state), n2.GetIndex(state), n3.GetIndex(state)));
 	mIsJuncture = true;
 }
 template <class Func, bool BU, bool BD>
-FunctionNode::FunctionNode(Identity<Func>, size_t /*func*/, std::bool_constant<BU>, std::bool_constant<BD>, ParserState* state, TerminalNode& n1, FunctionNode& n2, TerminalNode& n3)
+FunctionNode::FunctionNode(Identity<Func>, size_t /*func*/, BoolConstant<BU>, BoolConstant<BD>, ParserState* state, TerminalNode& n1, FunctionNode& n2, TerminalNode& n3)
 {
 	JunctureNode j2 = n2.IsJuncture() ? n2.GetJunctureNode() : n2.Juncturize(state);
 	mMakeFunc.Emplace<JunctureNode>(Func::RetType::label, state->mNodeBuffer.EmplaceBack<FMPExpressionTJTNode<Func>>(state, n1.GetIndex(state), j2.GetIndex(state), n3.GetIndex(state)));
 	mIsJuncture = true;
 }
 template <class Func, bool BU, bool BD>
-FunctionNode::FunctionNode(Identity<Func>, size_t /*func*/, std::bool_constant<BU>, std::bool_constant<BD>, ParserState* state, FunctionNode& n1, TerminalNode& n2, TerminalNode& n3)
+FunctionNode::FunctionNode(Identity<Func>, size_t /*func*/, BoolConstant<BU>, BoolConstant<BD>, ParserState* state, FunctionNode& n1, TerminalNode& n2, TerminalNode& n3)
 {
 	JunctureNode j1 = n1.IsJuncture() ? n1.GetJunctureNode() : n1.Juncturize(state);
 	mMakeFunc.Emplace<JunctureNode>(Func::RetType::label, state->mNodeBuffer.EmplaceBack<FMPExpressionJTTNode<Func>>(state, j1.GetIndex(state), n2.GetIndex(state), n3.GetIndex(state)));
 	mIsJuncture = true;
 }
 template <class Func, bool BU, bool BD>
-FunctionNode::FunctionNode(Identity<Func>, size_t /*func*/, std::bool_constant<BU>, std::bool_constant<BD>, ParserState* state, FunctionNode& n1, FunctionNode& n2, TerminalNode& n3)
+FunctionNode::FunctionNode(Identity<Func>, size_t /*func*/, BoolConstant<BU>, BoolConstant<BD>, ParserState* state, FunctionNode& n1, FunctionNode& n2, TerminalNode& n3)
 {
 	JunctureNode j1 = n1.IsJuncture() ? n1.GetJunctureNode() : n1.Juncturize(state);
 	JunctureNode j2 = n2.IsJuncture() ? n2.GetJunctureNode() : n2.Juncturize(state);
@@ -328,14 +328,14 @@ FunctionNode::FunctionNode(Identity<Func>, size_t /*func*/, std::bool_constant<B
 	mIsJuncture = true;
 }
 template <class Func, bool BU, bool BD>
-FunctionNode::FunctionNode(Identity<Func>, size_t /*func*/, std::bool_constant<BU>, std::bool_constant<BD>, ParserState* state, TerminalNode& n1, TerminalNode& n2, FunctionNode& n3)
+FunctionNode::FunctionNode(Identity<Func>, size_t /*func*/, BoolConstant<BU>, BoolConstant<BD>, ParserState* state, TerminalNode& n1, TerminalNode& n2, FunctionNode& n3)
 {
 	JunctureNode j3 = n3.IsJuncture() ? n3.GetJunctureNode() : n3.Juncturize(state);
 	mMakeFunc.Emplace<JunctureNode>(Func::RetType::label, state->mNodeBuffer.EmplaceBack<FMPExpressionTTJNode<Func>>(state, n1.GetIndex(state), n2.GetIndex(state), j3.GetIndex(state)));
 	mIsJuncture = true;
 }
 template <class Func, bool BU, bool BD>
-FunctionNode::FunctionNode(Identity<Func>, size_t /*func*/, std::bool_constant<BU>, std::bool_constant<BD>, ParserState* state, TerminalNode& n1, FunctionNode& n2, FunctionNode& n3)
+FunctionNode::FunctionNode(Identity<Func>, size_t /*func*/, BoolConstant<BU>, BoolConstant<BD>, ParserState* state, TerminalNode& n1, FunctionNode& n2, FunctionNode& n3)
 {
 	JunctureNode j2 = n2.IsJuncture() ? n2.GetJunctureNode() : n2.Juncturize(state);
 	JunctureNode j3 = n3.IsJuncture() ? n3.GetJunctureNode() : n3.Juncturize(state);
@@ -343,7 +343,7 @@ FunctionNode::FunctionNode(Identity<Func>, size_t /*func*/, std::bool_constant<B
 	mIsJuncture = true;
 }
 template <class Func, bool BU, bool BD>
-FunctionNode::FunctionNode(Identity<Func>, size_t /*func*/, std::bool_constant<BU>, std::bool_constant<BD>, ParserState* state, FunctionNode& n1, TerminalNode& n2, FunctionNode& n3)
+FunctionNode::FunctionNode(Identity<Func>, size_t /*func*/, BoolConstant<BU>, BoolConstant<BD>, ParserState* state, FunctionNode& n1, TerminalNode& n2, FunctionNode& n3)
 {
 	JunctureNode j1 = n1.IsJuncture() ? n1.GetJunctureNode() : n1.Juncturize(state);
 	JunctureNode j3 = n3.IsJuncture() ? n3.GetJunctureNode() : n3.Juncturize(state);
@@ -351,7 +351,7 @@ FunctionNode::FunctionNode(Identity<Func>, size_t /*func*/, std::bool_constant<B
 	mIsJuncture = true;
 }
 template <class Func, bool BU, bool BD>
-FunctionNode::FunctionNode(Identity<Func>, size_t /*func*/, std::bool_constant<BU>, std::bool_constant<BD>, ParserState* state, FunctionNode& n1, FunctionNode& n2, FunctionNode& n3)
+FunctionNode::FunctionNode(Identity<Func>, size_t /*func*/, BoolConstant<BU>, BoolConstant<BD>, ParserState* state, FunctionNode& n1, FunctionNode& n2, FunctionNode& n3)
 {
 	JunctureNode j1 = n1.IsJuncture() ? n1.GetJunctureNode() : n1.Juncturize(state);
 	JunctureNode j2 = n2.IsJuncture() ? n2.GetJunctureNode() : n2.Juncturize(state);

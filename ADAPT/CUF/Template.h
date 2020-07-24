@@ -215,6 +215,17 @@ struct Number
 	static constexpr size_t value = N;
 };
 
+template <class Type, Type N>
+struct IntegralConstant
+{
+	static constexpr Type valie = N;
+};
+template <bool B>
+using BoolConstant = IntegralConstant<bool, B>;
+
+using TrueType = BoolConstant<true>;
+using FalseType = BoolConstant<false>;
+
 namespace detail
 {
 template <size_t Index, class Type>
