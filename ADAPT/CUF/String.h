@@ -97,7 +97,14 @@ public:
 	//すでにdstには必要な領域が確保されていることを前提とする。
 	static void Append(char* dst, SizeType pos, const char* src, SizeType)
 	{
+#ifdef _MSC_VER
+#pragma warning(push)
+#pragma warning(disable: 4996)
+#endif
 		strcpy(dst + pos, src);
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 	}
 	static void Append(char* dst, SizeType pos, char c)
 	{
@@ -116,7 +123,14 @@ private:
 		SizeType* s = reinterpret_cast<SizeType*>(p);
 		*s = cap;
 		p += msOffset;
+#ifdef _MSC_VER
+#pragma warning(push)
+#pragma warning(disable: 4996)
+#endif
 		strcpy(p, ptr);
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 		delete[](ptr - msOffset);
 		return p;
 	}
@@ -341,7 +355,14 @@ public:
 	{
 		//結果を引数で受け取る方。res(len);
 		res.Expand(len);
+#ifdef _MSC_VER
+#pragma warning(push)
+#pragma warning(disable: 4996)
+#endif
 		strncpy(res.mPtr, mPtr + start, len);
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 		res.mPtr[len] = '\0';
 	}
 

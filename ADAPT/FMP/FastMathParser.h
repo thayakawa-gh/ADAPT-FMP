@@ -3,10 +3,21 @@
 
 #include <string>
 #include <vector>
+#ifdef _MSC_VER
+#pragma warning(push)
+#pragma warning(disable: 4100)
+#pragma warning(disable: 4189)
+#pragma warning(disable: 4701)
+#pragma warning(disable: 4996)
+#pragma warning(disable: 6001)
+#endif
 #include <ADAPT/FMP/Detail/FMPRe2c.h>
 #include <ADAPT/FMP/Detail/FMPRe2c_impl.h>
 #include <ADAPT/FMP/Detail/FMPExpression.h>
 #include <ADAPT/FMP/Detail/FMPLemon.h>
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 #include <ADAPT/FMP/Detail/FMPNode.h>
 
 namespace adapt
