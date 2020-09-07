@@ -1,5 +1,5 @@
-#ifndef FMPRE2C_H
-#define FMPRE2C_H
+#ifndef FMPRE2C_IMPL_H
+#define FMPRE2C_IMPL_H
 
 #include <ADAPT/FMP/Detail/FMPRe2c.h>
 
@@ -131,8 +131,27 @@ std:
 						yylval.Reset(static_cast<const adapt::Matrix<double, 2>*>(ptr_type.first));
 						return FMP_TOKEN_MATARG;
 					}
+					default: break;
 					}
 				}
+			}
+			{
+				try
+				{
+					auto c = FindConst(str);
+					auto t = c.GetType();
+					yylval.Reset(std::move(c));
+					switch (t)
+					{
+					case VALUE_INT: return FMP_TOKEN_INT;
+					case VALUE_FLT: return FMP_TOKEN_FLT;
+					case VALUE_STR: return FMP_TOKEN_STR;
+					case VALUE_VEC: return FMP_TOKEN_VEC;
+					case VALUE_MAT: return FMP_TOKEN_MAT;
+					default: break;
+					}
+				}
+				catch (const OutOfRange&) {}
 			}
 			return -1;
 		}

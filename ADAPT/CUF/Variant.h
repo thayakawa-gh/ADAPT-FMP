@@ -220,7 +220,7 @@ public:
 			TabulationSwitch<Size, Copy_impl>(other.mIndex, *this, other);
 		//otherが空の場合、自分も今現在空なので何もしなくていい。
 	}
-	Variant(Variant<Types...>&& other)
+	Variant(Variant<Types...>&& other) noexcept
 	{
 		if (!other.IsEmpty())
 			TabulationSwitch<Size, Move_impl>(other.mIndex, *this, std::move(other));

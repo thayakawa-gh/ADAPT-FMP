@@ -419,6 +419,15 @@ public:
 		GetRange() = { x };
 		ConstructAll(cap, T());
 	}
+	template <bool B = (Dim == 1), std::enable_if_t<B, std::nullptr_t> = nullptr>
+	void Resize(uint32_t x, const T& t)
+	{
+		size_t cap = (size_t)x;
+		if (!mMatrixData) Allocate(cap);
+		else if (GetCapacity() != cap) Reallocate(cap);
+		GetRange() = { x };
+		ConstructAll(cap, t);
+	}
 	template <bool B = (Dim == 2), std::enable_if_t<B, std::nullptr_t> = nullptr>
 	void Resize(uint32_t x, uint32_t y)
 	{
@@ -427,6 +436,15 @@ public:
 		else if (GetCapacity() != cap) Reallocate(cap);
 		GetRange() = { x, y };
 		ConstructAll(cap, T());
+	}
+	template <bool B = (Dim == 2), std::enable_if_t<B, std::nullptr_t> = nullptr>
+	void Resize(uint32_t x, uint32_t y, const T& t)
+	{
+		size_t cap = (size_t)x * (size_t)y;
+		if (!mMatrixData) Allocate(cap);
+		else if (GetCapacity() != cap) Reallocate(cap);
+		GetRange() = { x, y };
+		ConstructAll(cap, t);
 	}
 	template <bool B = (Dim == 3), std::enable_if_t<B, std::nullptr_t> = nullptr>
 	void Resize(uint32_t x, uint32_t y, uint32_t z)
@@ -437,6 +455,15 @@ public:
 		GetRange() = { x, y, z };
 		ConstructAll(cap, T());
 	}
+	template <bool B = (Dim == 3), std::enable_if_t<B, std::nullptr_t> = nullptr>
+	void Resize(uint32_t x, uint32_t y, uint32_t z, const T& t)
+	{
+		size_t cap = (size_t)x * (size_t)y * (size_t)z;
+		if (!mMatrixData) Allocate(cap);
+		else if (GetCapacity() != cap) Reallocate(cap);
+		GetRange() = { x, y, z };
+		ConstructAll(cap, t);
+	}
 	template <bool B = (Dim == 4), std::enable_if_t<B, std::nullptr_t> = nullptr>
 	void Resize(uint32_t x, uint32_t y, uint32_t z, uint32_t t)
 	{
@@ -445,6 +472,26 @@ public:
 		else if (GetCapacity() != cap) Reallocate(cap);
 		GetRange() = { x, y, z, t };
 		ConstructAll(cap, T());
+	}
+	template <bool B = (Dim == 4), std::enable_if_t<B, std::nullptr_t> = nullptr>
+	void Resize(uint32_t x, uint32_t y, uint32_t z, uint32_t t, const T& v)
+	{
+		size_t cap = (size_t)x * (size_t)y * (size_t)z * (size_t)t;
+		if (!mMatrixData) Allocate(cap);
+		else if (GetCapacity() != cap) Reallocate(cap);
+		GetRange() = { x, y, z, t };
+		ConstructAll(cap, v);
+	}
+	void Reset(const T& t)
+	{
+		size_t cap = GetCapacity();
+		T* it = mMatrixData;
+		T* end = mMatrixData + cap;
+		for (; it != end; ++it)
+		{
+			it->~T();
+			new (it) T(t);
+		}
 	}
 
 protected:
@@ -497,7 +544,7 @@ Matrix<T, 2> MakeMatrix(const Vector<T>& r1, const Vector<T>& r2)
 {
 	Matrix<T, 2> res;
 	MakeMatrix(res, r1, r2);
-	return std::move(res);
+	return res;
 }
 template <class T>
 void MakeMatrix(Matrix<T, 2>& res, const Vector<T>& r1, const Vector<T>& r2)
@@ -513,7 +560,7 @@ Matrix<T, 2> MakeMatrix(const Vector<T>& r1, const Vector<T>& r2, const Vector<T
 {
 	Matrix<T, 2> res;
 	MakeMatrix(res, r1, r2, r3);
-	return std::move(res);
+	return res;
 }
 template <class T>
 void MakeMatrix(Matrix<T, 2>& res, const Vector<T>& r1, const Vector<T>& r2, const Vector<T>& r3)
@@ -526,13 +573,45 @@ void MakeMatrix(Matrix<T, 2>& res, const Vector<T>& r1, const Vector<T>& r2, con
 	for (uint32_t c = 0; c < sc; ++c) res[1][c] = r2[c];
 	for (uint32_t c = 0; c < sc; ++c) res[2][c] = r3[c];
 }
+template <class T>
+Matrix<T, 2> MakeDiagonalMatrix(const T& a, const T& b)
+{
+	Matrix<T, 2> res(2, 2, 0);
+	res[0][0] = a;
+	res[1][1] = b;
+	return res;
+}
+template <class T>
+void MakeDiagonalMatrix(Matrix<T, 2>& res, const T& a, const T& b)
+{
+	res.Resize(2, 2, 0);
+	res[0][0] = a;
+	res[1][1] = b;
+}
+template <class T>
+Matrix<T, 2> MakeDiagonalMatrix(const T& a, const T& b, const T& c)
+{
+	Matrix<T, 2> res(3, 3, 0);
+	res[0][0] = a;
+	res[1][1] = b;
+	res[2][2] = c;
+	return res;
+}
+template <class T>
+void MakeDiagonalMatrix(Matrix<T, 2>& res, const T& a, const T& b, const T& c)
+{
+	res.Resize(3, 3, 0);
+	res[0][0] = a;
+	res[1][1] = b;
+	res[2][2] = c;
+}
 
 template <class T>
 Matrix<T, 2> operator*(const Matrix<T, 2>& x, const Matrix<T, 2>& y)
 {
 	Matrix<T, 2> res;
 	Multiply(res, x, y);
-	return std::move(res);
+	return res;
 }
 template <class T>
 void Multiply(Matrix<T, 2>& res, const Matrix<T, 2>& x, const Matrix<T, 2>& y)
@@ -560,7 +639,7 @@ Vector<T> operator*(const Matrix<T, 2>& x, const Vector<T>& y)
 {
 	Vector<T> res;
 	Multiply(res, x, y);
-	return std::move(res);
+	return res;
 }
 template <class T>
 void Multiply(Vector<T>& res, const Matrix<T, 2>& x, const Vector<T>& y)
@@ -585,7 +664,7 @@ Matrix<T, 2> Transpose(const Matrix<T, 2>& x)
 {
 	Matrix<T, 2> res;
 	Transpose(res, x);
-	return std::move(res);
+	return res;
 }
 template <class T>
 void Transpose(Matrix<T, 2>& res, const Matrix<T, 2>& x)
@@ -600,6 +679,18 @@ void Transpose(Matrix<T, 2>& res, const Matrix<T, 2>& x)
 		}
 	}
 }
+template <class T>
+T Trace(const Matrix<T, 2>& x)
+{
+	uint32_t s = x.GetSize(0);
+	assert(s == x.GetSize(1));
+	T res = 0;
+	for (uint32_t i = 0; i < s; ++i)
+	{
+		res += x[i][i];
+	}
+	return res;
+}
 
 //内積
 template <class T>
@@ -608,7 +699,7 @@ T Dot(const Vector<T>& x, const Vector<T>& y)
 	assert(x.GetSize(0) == y.GetSize(0));
 	T res = 0;
 	for (auto t : BundleRange(x, y)) res += std::get<0>(t) * std::get<1>(t);
-	return std::move(res);
+	return res;
 }
 //外積
 template <class T>
@@ -617,7 +708,7 @@ Vector<T> Cross(const Vector<T>& a, const Vector<T>& b)
 	assert(a.GetSize(0) == 3 && b.GetSize(0) == 3);
 	Vector<T> res;
 	Cross(res, a, b);
-	return std::move(res);
+	return res;
 }
 template <class T>
 void Cross(Vector<T>& res, const Vector<T>& a, const Vector<T>& b)

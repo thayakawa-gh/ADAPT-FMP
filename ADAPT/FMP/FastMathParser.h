@@ -30,11 +30,11 @@ class FastMathParser
 {
 public:
 
-	FastMathParser(const std::string& eq, std::vector<FMPArgument> args)
+	FastMathParser(const std::string& eq, std::vector<FMPArgument> args, std::vector<FMPConstant> cnsts = std::vector<FMPConstant>())
 		: mValid(true)
 	{
 		detail::ParserState state;
-		detail::FMPRe2c re2c(eq, std::move(args));
+		detail::FMPRe2c re2c(eq, std::move(args), std::move(cnsts));
 		Trivializer<detail::NodeValue> v;
 		v.NotConstruct();
 		std::vector<std::tuple<int, Trivializer<detail::NodeValue>>> tokens;

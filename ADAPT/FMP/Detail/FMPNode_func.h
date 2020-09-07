@@ -22,7 +22,8 @@ struct FMPMakeExpressionT<Func, IntType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         switch (func)
+        (void)state, (void)func, (void)a;
+        switch (func)
         {
         case 0:
             if (a.GetType() == VALUE_INT)
@@ -64,7 +65,7 @@ struct FMPMakeExpressionT<Func, IntType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, absInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 31:
+        case 34:
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, subInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
             break;
@@ -73,51 +74,52 @@ struct FMPMakeExpressionT<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, maxIntInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, minIntInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, powIntInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, powFltInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, mulIntInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, mulFltInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, divIntInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, divFltInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, modIntInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, addIntInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, addFltInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, subIntInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, subFltInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, index2StrInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
@@ -128,51 +130,52 @@ struct FMPMakeExpressionT<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, maxIntInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, minIntInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, powIntInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, powFltInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, mulIntInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, mulFltInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, divIntInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, divFltInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, modIntInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, addIntInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, addFltInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, subIntInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, subFltInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, index2StrInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
@@ -183,43 +186,44 @@ struct FMPMakeExpressionT<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, maxIntInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, minIntInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, powIntInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, mulIntInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, mulIntFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, divIntInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, divIntFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, modIntInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, addIntInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, addIntFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, subIntInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
@@ -230,43 +234,44 @@ struct FMPMakeExpressionT<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, maxIntInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, minIntInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, powIntInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, mulIntInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, mulIntFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, divIntInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, divIntFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, modIntInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, addIntInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, addIntFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, subIntInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
@@ -289,7 +294,8 @@ struct FMPMakeExpressionT<Func, FltType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         switch (func)
+        (void)state, (void)func, (void)a;
+        switch (func)
         {
         case 0:
             if (a.GetType() == VALUE_FLT)
@@ -331,7 +337,7 @@ struct FMPMakeExpressionT<Func, FltType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, absFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 31:
+        case 34:
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, subFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
             break;
@@ -340,39 +346,40 @@ struct FMPMakeExpressionT<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, maxFltFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, minFltFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, vec2FltFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, mulIntFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, mulFltFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, divIntFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, divFltFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, addIntFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, addFltFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, subIntFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -383,39 +390,40 @@ struct FMPMakeExpressionT<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, maxFltFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, minFltFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, vec2FltFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, mulIntFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, mulFltFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, divIntFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, divFltFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, addIntFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, addFltFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, subIntFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -426,43 +434,44 @@ struct FMPMakeExpressionT<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, maxFltFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, minFltFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, vec2FltFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, powFltInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, mulFltInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, mulFltFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, divFltInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, divFltFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, addFltInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, addFltFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, subFltInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -473,43 +482,44 @@ struct FMPMakeExpressionT<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, maxFltFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, minFltFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, vec2FltFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, powFltInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, mulFltInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, mulFltFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, divFltInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, divFltFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, addFltInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, addFltFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, subFltInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -532,21 +542,25 @@ struct FMPMakeExpressionT<Func, StrType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         throw InvalidType("");
+        (void)state, (void)func, (void)a;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, index2StrInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
@@ -555,9 +569,10 @@ struct FMPMakeExpressionT<Func, StrType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, index2StrInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
@@ -578,21 +593,25 @@ struct FMPMakeExpressionT<Func, VecType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         throw InvalidType("");
+        (void)state, (void)func, (void)a;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, index2VecInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
@@ -601,9 +620,10 @@ struct FMPMakeExpressionT<Func, VecType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, index2VecInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
@@ -624,23 +644,28 @@ struct FMPMakeExpressionT<Func, MatType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         throw InvalidType("");
+        (void)state, (void)func, (void)a;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     JunctureNode Juncturize(ParserState* state)
     {
@@ -659,7 +684,8 @@ struct FMPMakeExpressionJ<Func, IntType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         switch (func)
+        (void)state, (void)func, (void)a;
+        switch (func)
         {
         case 0:
             if (a.GetType() == VALUE_INT)
@@ -701,7 +727,7 @@ struct FMPMakeExpressionJ<Func, IntType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, absInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 31:
+        case 34:
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, subInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
             break;
@@ -710,51 +736,52 @@ struct FMPMakeExpressionJ<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, maxIntInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, minIntInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, powIntInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, powFltInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, mulIntInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, mulFltInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, divIntInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, divFltInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, modIntInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, addIntInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, addFltInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, subIntInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, subFltInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, index2StrInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
@@ -765,51 +792,52 @@ struct FMPMakeExpressionJ<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, maxIntInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, minIntInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, powIntInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, powFltInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, mulIntInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, mulFltInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, divIntInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, divFltInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, modIntInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, addIntInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, addFltInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, subIntInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, subFltInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, index2StrInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
@@ -820,43 +848,44 @@ struct FMPMakeExpressionJ<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, maxIntInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, minIntInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, powIntInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, mulIntInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, mulIntFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, divIntInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, divIntFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, modIntInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, addIntInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, addIntFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, subIntInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
@@ -867,43 +896,44 @@ struct FMPMakeExpressionJ<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, maxIntInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, minIntInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, powIntInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, mulIntInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, mulIntFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, divIntInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, divIntFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, modIntInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, addIntInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, addIntFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, subIntInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
@@ -926,7 +956,8 @@ struct FMPMakeExpressionJ<Func, FltType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         switch (func)
+        (void)state, (void)func, (void)a;
+        switch (func)
         {
         case 0:
             if (a.GetType() == VALUE_FLT)
@@ -968,7 +999,7 @@ struct FMPMakeExpressionJ<Func, FltType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, absFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 31:
+        case 34:
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, subFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
             break;
@@ -977,39 +1008,40 @@ struct FMPMakeExpressionJ<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, maxFltFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, minFltFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, vec2FltFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, mulIntFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, mulFltFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, divIntFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, divFltFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, addIntFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, addFltFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, subIntFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -1020,39 +1052,40 @@ struct FMPMakeExpressionJ<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, maxFltFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, minFltFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, vec2FltFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, mulIntFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, mulFltFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, divIntFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, divFltFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, addIntFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, addFltFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, subIntFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -1063,43 +1096,44 @@ struct FMPMakeExpressionJ<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, maxFltFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, minFltFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, vec2FltFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, powFltInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, mulFltInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, mulFltFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, divFltInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, divFltFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, addFltInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, addFltFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, subFltInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -1110,43 +1144,44 @@ struct FMPMakeExpressionJ<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, maxFltFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, minFltFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, vec2FltFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, powFltInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, mulFltInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, mulFltFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, divFltInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, divFltFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, addFltInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, addFltFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, subFltInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -1169,21 +1204,25 @@ struct FMPMakeExpressionJ<Func, StrType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         throw InvalidType("");
+        (void)state, (void)func, (void)a;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, index2StrInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
@@ -1192,9 +1231,10 @@ struct FMPMakeExpressionJ<Func, StrType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, index2StrInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
@@ -1215,21 +1255,25 @@ struct FMPMakeExpressionJ<Func, VecType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         throw InvalidType("");
+        (void)state, (void)func, (void)a;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, index2VecInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
@@ -1238,9 +1282,10 @@ struct FMPMakeExpressionJ<Func, VecType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, index2VecInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
             break;
@@ -1261,23 +1306,28 @@ struct FMPMakeExpressionJ<Func, MatType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         throw InvalidType("");
+        (void)state, (void)func, (void)a;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     JunctureNode Juncturize(ParserState* state)
     {
@@ -1296,7 +1346,8 @@ struct FMPMakeExpressionTT<Func, IntType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         switch (func)
+        (void)state, (void)func, (void)a;
+        switch (func)
         {
         case 0:
             if (a.GetType() == VALUE_INT)
@@ -1338,7 +1389,7 @@ struct FMPMakeExpressionTT<Func, IntType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, absInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 31:
+        case 34:
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, subInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
@@ -1347,51 +1398,52 @@ struct FMPMakeExpressionTT<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, maxIntInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, minIntInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, powIntInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, powFltInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, mulIntInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, mulFltInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, divIntInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, divFltInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, modIntInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, addIntInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, addFltInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, subIntInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, subFltInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, index2StrInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
@@ -1402,51 +1454,52 @@ struct FMPMakeExpressionTT<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, maxIntInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, minIntInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, powIntInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, powFltInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, mulIntInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, mulFltInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, divIntInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, divFltInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, modIntInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, addIntInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, addFltInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, subIntInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, subFltInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, index2StrInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
@@ -1457,43 +1510,44 @@ struct FMPMakeExpressionTT<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, maxIntInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, minIntInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, powIntInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, mulIntInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, mulIntFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, divIntInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, divIntFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, modIntInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, addIntInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, addIntFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, subIntInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
@@ -1504,43 +1558,44 @@ struct FMPMakeExpressionTT<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, maxIntInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, minIntInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, powIntInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, mulIntInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, mulIntFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, divIntInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, divIntFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, modIntInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, addIntInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, addIntFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, subIntInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
@@ -1564,7 +1619,8 @@ struct FMPMakeExpressionTT<Func, FltType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         switch (func)
+        (void)state, (void)func, (void)a;
+        switch (func)
         {
         case 0:
             if (a.GetType() == VALUE_FLT)
@@ -1606,7 +1662,7 @@ struct FMPMakeExpressionTT<Func, FltType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, absFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 31:
+        case 34:
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, subFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
@@ -1615,39 +1671,40 @@ struct FMPMakeExpressionTT<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, maxFltFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, minFltFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, vec2FltFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, mulIntFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, mulFltFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, divIntFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, divFltFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, addIntFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, addFltFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, subIntFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -1658,39 +1715,40 @@ struct FMPMakeExpressionTT<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, maxFltFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, minFltFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, vec2FltFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, mulIntFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, mulFltFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, divIntFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, divFltFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, addIntFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, addFltFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, subIntFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -1701,43 +1759,44 @@ struct FMPMakeExpressionTT<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, maxFltFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, minFltFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, vec2FltFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, powFltInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, mulFltInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, mulFltFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, divFltInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, divFltFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, addFltInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, addFltFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, subFltInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -1748,43 +1807,44 @@ struct FMPMakeExpressionTT<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, maxFltFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, minFltFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, vec2FltFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, powFltInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, mulFltInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, mulFltFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, divFltInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, divFltFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, addFltInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, addFltFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, subFltInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -1808,21 +1868,25 @@ struct FMPMakeExpressionTT<Func, StrType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         throw InvalidType("");
+        (void)state, (void)func, (void)a;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, index2StrInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
@@ -1831,9 +1895,10 @@ struct FMPMakeExpressionTT<Func, StrType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, index2StrInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
@@ -1855,21 +1920,25 @@ struct FMPMakeExpressionTT<Func, VecType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         throw InvalidType("");
+        (void)state, (void)func, (void)a;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, index2VecInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
@@ -1878,9 +1947,10 @@ struct FMPMakeExpressionTT<Func, VecType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, index2VecInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
@@ -1902,23 +1972,28 @@ struct FMPMakeExpressionTT<Func, MatType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         throw InvalidType("");
+        (void)state, (void)func, (void)a;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     JunctureNode Juncturize(ParserState* state)
     {
@@ -1938,7 +2013,8 @@ struct FMPMakeExpressionTJ<Func, IntType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         switch (func)
+        (void)state, (void)func, (void)a;
+        switch (func)
         {
         case 0:
             if (a.GetType() == VALUE_INT)
@@ -1980,7 +2056,7 @@ struct FMPMakeExpressionTJ<Func, IntType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, absInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 31:
+        case 34:
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, subInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
@@ -1989,51 +2065,52 @@ struct FMPMakeExpressionTJ<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, maxIntInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, minIntInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, powIntInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, powFltInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, mulIntInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, mulFltInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, divIntInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, divFltInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, modIntInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, addIntInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, addFltInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, subIntInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, subFltInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, index2StrInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
@@ -2044,51 +2121,52 @@ struct FMPMakeExpressionTJ<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, maxIntInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, minIntInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, powIntInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, powFltInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, mulIntInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, mulFltInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, divIntInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, divFltInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, modIntInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, addIntInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, addFltInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, subIntInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, subFltInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, index2StrInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
@@ -2099,43 +2177,44 @@ struct FMPMakeExpressionTJ<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, maxIntInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, minIntInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, powIntInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, mulIntInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, mulIntFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, divIntInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, divIntFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, modIntInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, addIntInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, addIntFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, subIntInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
@@ -2146,43 +2225,44 @@ struct FMPMakeExpressionTJ<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, maxIntInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, minIntInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, powIntInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, mulIntInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, mulIntFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, divIntInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, divIntFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, modIntInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, addIntInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, addIntFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, subIntInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
@@ -2206,7 +2286,8 @@ struct FMPMakeExpressionTJ<Func, FltType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         switch (func)
+        (void)state, (void)func, (void)a;
+        switch (func)
         {
         case 0:
             if (a.GetType() == VALUE_FLT)
@@ -2248,7 +2329,7 @@ struct FMPMakeExpressionTJ<Func, FltType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, absFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 31:
+        case 34:
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, subFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
@@ -2257,39 +2338,40 @@ struct FMPMakeExpressionTJ<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, maxFltFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, minFltFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, vec2FltFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, mulIntFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, mulFltFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, divIntFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, divFltFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, addIntFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, addFltFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, subIntFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -2300,39 +2382,40 @@ struct FMPMakeExpressionTJ<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, maxFltFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, minFltFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, vec2FltFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, mulIntFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, mulFltFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, divIntFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, divFltFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, addIntFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, addFltFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, subIntFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -2343,43 +2426,44 @@ struct FMPMakeExpressionTJ<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, maxFltFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, minFltFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, vec2FltFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, powFltInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, mulFltInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, mulFltFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, divFltInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, divFltFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, addFltInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, addFltFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, subFltInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -2390,43 +2474,44 @@ struct FMPMakeExpressionTJ<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, maxFltFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, minFltFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, vec2FltFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, powFltInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, mulFltInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, mulFltFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, divFltInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, divFltFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, addFltInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, addFltFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, subFltInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -2450,21 +2535,25 @@ struct FMPMakeExpressionTJ<Func, StrType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         throw InvalidType("");
+        (void)state, (void)func, (void)a;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, index2StrInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
@@ -2473,9 +2562,10 @@ struct FMPMakeExpressionTJ<Func, StrType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, index2StrInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
@@ -2497,21 +2587,25 @@ struct FMPMakeExpressionTJ<Func, VecType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         throw InvalidType("");
+        (void)state, (void)func, (void)a;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, index2VecInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
@@ -2520,9 +2614,10 @@ struct FMPMakeExpressionTJ<Func, VecType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, index2VecInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
@@ -2544,23 +2639,28 @@ struct FMPMakeExpressionTJ<Func, MatType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         throw InvalidType("");
+        (void)state, (void)func, (void)a;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     JunctureNode Juncturize(ParserState* state)
     {
@@ -2580,7 +2680,8 @@ struct FMPMakeExpressionJT<Func, IntType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         switch (func)
+        (void)state, (void)func, (void)a;
+        switch (func)
         {
         case 0:
             if (a.GetType() == VALUE_INT)
@@ -2622,7 +2723,7 @@ struct FMPMakeExpressionJT<Func, IntType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, absInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 31:
+        case 34:
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, subInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
@@ -2631,51 +2732,52 @@ struct FMPMakeExpressionJT<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, maxIntInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, minIntInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, powIntInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, powFltInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, mulIntInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, mulFltInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, divIntInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, divFltInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, modIntInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, addIntInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, addFltInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, subIntInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, subFltInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, index2StrInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
@@ -2686,51 +2788,52 @@ struct FMPMakeExpressionJT<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, maxIntInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, minIntInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, powIntInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, powFltInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, mulIntInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, mulFltInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, divIntInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, divFltInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, modIntInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, addIntInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, addFltInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, subIntInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, subFltInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, index2StrInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
@@ -2741,43 +2844,44 @@ struct FMPMakeExpressionJT<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, maxIntInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, minIntInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, powIntInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, mulIntInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, mulIntFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, divIntInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, divIntFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, modIntInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, addIntInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, addIntFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, subIntInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
@@ -2788,43 +2892,44 @@ struct FMPMakeExpressionJT<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, maxIntInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, minIntInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, powIntInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, mulIntInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, mulIntFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, divIntInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, divIntFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, modIntInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, addIntInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, addIntFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, subIntInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
@@ -2848,7 +2953,8 @@ struct FMPMakeExpressionJT<Func, FltType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         switch (func)
+        (void)state, (void)func, (void)a;
+        switch (func)
         {
         case 0:
             if (a.GetType() == VALUE_FLT)
@@ -2890,7 +2996,7 @@ struct FMPMakeExpressionJT<Func, FltType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, absFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 31:
+        case 34:
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, subFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
@@ -2899,39 +3005,40 @@ struct FMPMakeExpressionJT<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, maxFltFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, minFltFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, vec2FltFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, mulIntFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, mulFltFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, divIntFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, divFltFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, addIntFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, addFltFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, subIntFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -2942,39 +3049,40 @@ struct FMPMakeExpressionJT<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, maxFltFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, minFltFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, vec2FltFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, mulIntFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, mulFltFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, divIntFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, divFltFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, addIntFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, addFltFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, subIntFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -2985,43 +3093,44 @@ struct FMPMakeExpressionJT<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, maxFltFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, minFltFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, vec2FltFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, powFltInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, mulFltInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, mulFltFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, divFltInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, divFltFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, addFltInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, addFltFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, subFltInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -3032,43 +3141,44 @@ struct FMPMakeExpressionJT<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, maxFltFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, minFltFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, vec2FltFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, powFltInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, mulFltInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, mulFltFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, divFltInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, divFltFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, addFltInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, addFltFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, subFltInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -3092,21 +3202,25 @@ struct FMPMakeExpressionJT<Func, StrType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         throw InvalidType("");
+        (void)state, (void)func, (void)a;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, index2StrInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
@@ -3115,9 +3229,10 @@ struct FMPMakeExpressionJT<Func, StrType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, index2StrInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
@@ -3139,21 +3254,25 @@ struct FMPMakeExpressionJT<Func, VecType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         throw InvalidType("");
+        (void)state, (void)func, (void)a;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, index2VecInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
@@ -3162,9 +3281,10 @@ struct FMPMakeExpressionJT<Func, VecType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, index2VecInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
@@ -3186,23 +3306,28 @@ struct FMPMakeExpressionJT<Func, MatType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         throw InvalidType("");
+        (void)state, (void)func, (void)a;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     JunctureNode Juncturize(ParserState* state)
     {
@@ -3222,7 +3347,8 @@ struct FMPMakeExpressionJJ<Func, IntType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         switch (func)
+        (void)state, (void)func, (void)a;
+        switch (func)
         {
         case 0:
             if (a.GetType() == VALUE_INT)
@@ -3264,7 +3390,7 @@ struct FMPMakeExpressionJJ<Func, IntType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, absInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 31:
+        case 34:
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, subInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
@@ -3273,51 +3399,52 @@ struct FMPMakeExpressionJJ<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, maxIntInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, minIntInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, powIntInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, powFltInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, mulIntInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, mulFltInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, divIntInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, divFltInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, modIntInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, addIntInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, addFltInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, subIntInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, subFltInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, index2StrInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
@@ -3328,51 +3455,52 @@ struct FMPMakeExpressionJJ<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, maxIntInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, minIntInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, powIntInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, powFltInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, mulIntInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, mulFltInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, divIntInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, divFltInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, modIntInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, addIntInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, addFltInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, subIntInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, subFltInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, index2StrInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
@@ -3383,43 +3511,44 @@ struct FMPMakeExpressionJJ<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, maxIntInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, minIntInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, powIntInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, mulIntInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, mulIntFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, divIntInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, divIntFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, modIntInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, addIntInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, addIntFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, subIntInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
@@ -3430,43 +3559,44 @@ struct FMPMakeExpressionJJ<Func, IntType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, maxIntInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, minIntInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, powIntInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, mulIntInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, mulIntFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, divIntInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, divIntFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 35:
+        case 38:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, modIntInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, addIntInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, addIntFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, subIntInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
@@ -3490,7 +3620,8 @@ struct FMPMakeExpressionJJ<Func, FltType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         switch (func)
+        (void)state, (void)func, (void)a;
+        switch (func)
         {
         case 0:
             if (a.GetType() == VALUE_FLT)
@@ -3532,7 +3663,7 @@ struct FMPMakeExpressionJJ<Func, FltType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, absFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 31:
+        case 34:
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, subFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
@@ -3541,39 +3672,40 @@ struct FMPMakeExpressionJJ<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, maxFltFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, minFltFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, vec2FltFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, mulIntFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, mulFltFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, divIntFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, divFltFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, addIntFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, addFltFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, subIntFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -3584,39 +3716,40 @@ struct FMPMakeExpressionJJ<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, maxFltFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, minFltFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, vec2FltFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, mulIntFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, mulFltFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, divIntFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, divFltFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, addIntFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, addFltFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, subIntFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -3627,43 +3760,44 @@ struct FMPMakeExpressionJJ<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, maxFltFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, minFltFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, vec2FltFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, powFltInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, mulFltInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, mulFltFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, divFltInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, divFltFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, addFltInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, addFltFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, subFltInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -3674,43 +3808,44 @@ struct FMPMakeExpressionJJ<Func, FltType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 22:
+        case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, maxFltFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 23:
+        case 24:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, minFltFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 24:
+        case 25:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, vec2FltFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 32:
+        case 35:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, powFltInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 33:
+        case 36:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, mulFltInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, mulFltFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 34:
+        case 37:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, divFltInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, divFltFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 36:
+        case 39:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, addFltInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, addFltFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
-        case 37:
+        case 40:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, subFltInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
@@ -3734,21 +3869,25 @@ struct FMPMakeExpressionJJ<Func, StrType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         throw InvalidType("");
+        (void)state, (void)func, (void)a;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, index2StrInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
@@ -3757,9 +3896,10 @@ struct FMPMakeExpressionJJ<Func, StrType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_STR && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, index2StrInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
@@ -3781,21 +3921,25 @@ struct FMPMakeExpressionJJ<Func, VecType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         throw InvalidType("");
+        (void)state, (void)func, (void)a;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, index2VecInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
@@ -3804,9 +3948,10 @@ struct FMPMakeExpressionJJ<Func, VecType> : public FMPMakeExpressionBase
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         switch (func)
+        (void)state, (void)func, (void)a, (void)b;
+        switch (func)
         {
-        case 46:
+        case 49:
             if (a.GetType() == VALUE_VEC && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, index2VecInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
             break;
@@ -3828,23 +3973,28 @@ struct FMPMakeExpressionJJ<Func, MatType> : public FMPMakeExpressionBase
     virtual NumericalType GetType() const override { return Func::RetType::label; }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a) override
     {
-        (void)state, (void)func, (void)a;         throw InvalidType("");
+        (void)state, (void)func, (void)a;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, TerminalNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, JunctureNode& a, FunctionNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, TerminalNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     virtual JunctureNode MakeFunc(ParserState* state, size_t func, FunctionNode& a, JunctureNode& b) override
     {
-        (void)state, (void)func, (void)a, (void)b;         throw InvalidType("");
+        (void)state, (void)func, (void)a, (void)b;
+        throw InvalidType("");
     }
     JunctureNode Juncturize(ParserState* state)
     {
@@ -3976,7 +4126,11 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n.GetType() == VALUE_MAT)
             return FunctionNode(Identity<transposeMat>(), func, BoolConstant<transposeMat::Upward>(), BoolConstant<transposeMat::Downward>(), state, n);
         break;
-    case 31:
+    case 20:
+        if (n.GetType() == VALUE_MAT)
+            return FunctionNode(Identity<traceMat>(), func, BoolConstant<traceMat::Upward>(), BoolConstant<traceMat::Downward>(), state, n);
+        break;
+    case 34:
         if (n.GetType() == VALUE_INT)
             return FunctionNode(Identity<subInt>(), func, BoolConstant<subInt::Upward>(), BoolConstant<subInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
@@ -4111,7 +4265,11 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n.GetType() == VALUE_MAT)
             return FunctionNode(Identity<transposeMat>(), func, BoolConstant<transposeMat::Upward>(), BoolConstant<transposeMat::Downward>(), state, n);
         break;
-    case 31:
+    case 20:
+        if (n.GetType() == VALUE_MAT)
+            return FunctionNode(Identity<traceMat>(), func, BoolConstant<traceMat::Upward>(), BoolConstant<traceMat::Downward>(), state, n);
+        break;
+    case 34:
         if (n.GetType() == VALUE_INT)
             return FunctionNode(Identity<subInt>(), func, BoolConstant<subInt::Upward>(), BoolConstant<subInt::Downward>(), state, n);
         if (n.GetType() == VALUE_FLT)
@@ -4128,7 +4286,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
 {
     switch (func)
     {
-    case 20:
+    case 21:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<atan2IntInt>(), func, BoolConstant<atan2IntInt::Upward>(), BoolConstant<atan2IntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4138,7 +4296,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<atan2FltFlt>(), func, BoolConstant<atan2FltFlt::Upward>(), BoolConstant<atan2FltFlt::Downward>(), state, n1, n2);
         break;
-    case 21:
+    case 22:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<log2IntInt>(), func, BoolConstant<log2IntInt::Upward>(), BoolConstant<log2IntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4148,35 +4306,39 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<log2FltFlt>(), func, BoolConstant<log2FltFlt::Upward>(), BoolConstant<log2FltFlt::Downward>(), state, n1, n2);
         break;
-    case 22:
+    case 23:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<maxIntInt>(), func, BoolConstant<maxIntInt::Upward>(), BoolConstant<maxIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<maxFltFlt>(), func, BoolConstant<maxFltFlt::Upward>(), BoolConstant<maxFltFlt::Downward>(), state, n1, n2);
         break;
-    case 23:
+    case 24:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<minIntInt>(), func, BoolConstant<minIntInt::Upward>(), BoolConstant<minIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<minFltFlt>(), func, BoolConstant<minFltFlt::Upward>(), BoolConstant<minFltFlt::Downward>(), state, n1, n2);
         break;
-    case 24:
+    case 25:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<vec2FltFlt>(), func, BoolConstant<vec2FltFlt::Upward>(), BoolConstant<vec2FltFlt::Downward>(), state, n1, n2);
         break;
-    case 25:
+    case 26:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
             return FunctionNode(Identity<mat2VecVec>(), func, BoolConstant<mat2VecVec::Upward>(), BoolConstant<mat2VecVec::Downward>(), state, n1, n2);
         break;
-    case 26:
+    case 27:
+        if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
+            return FunctionNode(Identity<diag2FltFlt>(), func, BoolConstant<diag2FltFlt::Upward>(), BoolConstant<diag2FltFlt::Downward>(), state, n1, n2);
+        break;
+    case 28:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
             return FunctionNode(Identity<dotVecVec>(), func, BoolConstant<dotVecVec::Upward>(), BoolConstant<dotVecVec::Downward>(), state, n1, n2);
         break;
-    case 27:
+    case 29:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
             return FunctionNode(Identity<crossVecVec>(), func, BoolConstant<crossVecVec::Upward>(), BoolConstant<crossVecVec::Downward>(), state, n1, n2);
         break;
-    case 32:
+    case 35:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<powIntInt>(), func, BoolConstant<powIntInt::Upward>(), BoolConstant<powIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4186,7 +4348,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<powFltFlt>(), func, BoolConstant<powFltFlt::Upward>(), BoolConstant<powFltFlt::Downward>(), state, n1, n2);
         break;
-    case 33:
+    case 36:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<mulIntInt>(), func, BoolConstant<mulIntInt::Upward>(), BoolConstant<mulIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4208,7 +4370,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_VEC)
             return FunctionNode(Identity<mulMatVec>(), func, BoolConstant<mulMatVec::Upward>(), BoolConstant<mulMatVec::Downward>(), state, n1, n2);
         break;
-    case 34:
+    case 37:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<divIntInt>(), func, BoolConstant<divIntInt::Upward>(), BoolConstant<divIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4220,11 +4382,11 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<divVecFlt>(), func, BoolConstant<divVecFlt::Upward>(), BoolConstant<divVecFlt::Downward>(), state, n1, n2);
         break;
-    case 35:
+    case 38:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<modIntInt>(), func, BoolConstant<modIntInt::Upward>(), BoolConstant<modIntInt::Downward>(), state, n1, n2);
         break;
-    case 36:
+    case 39:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<addIntInt>(), func, BoolConstant<addIntInt::Upward>(), BoolConstant<addIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4240,7 +4402,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
             return FunctionNode(Identity<addMatMat>(), func, BoolConstant<addMatMat::Upward>(), BoolConstant<addMatMat::Downward>(), state, n1, n2);
         break;
-    case 37:
+    case 40:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<subIntInt>(), func, BoolConstant<subIntInt::Upward>(), BoolConstant<subIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4254,7 +4416,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
             return FunctionNode(Identity<subMatMat>(), func, BoolConstant<subMatMat::Upward>(), BoolConstant<subMatMat::Downward>(), state, n1, n2);
         break;
-    case 38:
+    case 41:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<gtIntInt>(), func, BoolConstant<gtIntInt::Upward>(), BoolConstant<gtIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4264,7 +4426,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<gtFltFlt>(), func, BoolConstant<gtFltFlt::Upward>(), BoolConstant<gtFltFlt::Downward>(), state, n1, n2);
         break;
-    case 39:
+    case 42:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<geqIntInt>(), func, BoolConstant<geqIntInt::Upward>(), BoolConstant<geqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4274,7 +4436,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<geqFltFlt>(), func, BoolConstant<geqFltFlt::Upward>(), BoolConstant<geqFltFlt::Downward>(), state, n1, n2);
         break;
-    case 40:
+    case 43:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<ltIntInt>(), func, BoolConstant<ltIntInt::Upward>(), BoolConstant<ltIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4284,7 +4446,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<ltFltFlt>(), func, BoolConstant<ltFltFlt::Upward>(), BoolConstant<ltFltFlt::Downward>(), state, n1, n2);
         break;
-    case 41:
+    case 44:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<leqIntInt>(), func, BoolConstant<leqIntInt::Upward>(), BoolConstant<leqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4294,7 +4456,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<leqFltFlt>(), func, BoolConstant<leqFltFlt::Upward>(), BoolConstant<leqFltFlt::Downward>(), state, n1, n2);
         break;
-    case 42:
+    case 45:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<eqIntInt>(), func, BoolConstant<eqIntInt::Upward>(), BoolConstant<eqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
@@ -4306,7 +4468,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
             return FunctionNode(Identity<eqMatMat>(), func, BoolConstant<eqMatMat::Upward>(), BoolConstant<eqMatMat::Downward>(), state, n1, n2);
         break;
-    case 43:
+    case 46:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<neqIntInt>(), func, BoolConstant<neqIntInt::Upward>(), BoolConstant<neqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
@@ -4318,7 +4480,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
             return FunctionNode(Identity<neqMatMat>(), func, BoolConstant<neqMatMat::Upward>(), BoolConstant<neqMatMat::Downward>(), state, n1, n2);
         break;
-    case 44:
+    case 47:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<andIntInt>(), func, BoolConstant<andIntInt::Upward>(), BoolConstant<andIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4328,7 +4490,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<andFltFlt>(), func, BoolConstant<andFltFlt::Upward>(), BoolConstant<andFltFlt::Downward>(), state, n1, n2);
         break;
-    case 45:
+    case 48:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<orIntInt>(), func, BoolConstant<orIntInt::Upward>(), BoolConstant<orIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4338,7 +4500,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<orFltFlt>(), func, BoolConstant<orFltFlt::Upward>(), BoolConstant<orFltFlt::Downward>(), state, n1, n2);
         break;
-    case 46:
+    case 49:
         if (n1.GetType() == VALUE_STR && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<index2StrInt>(), func, BoolConstant<index2StrInt::Upward>(), BoolConstant<index2StrInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_INT)
@@ -4351,7 +4513,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
 {
     switch (func)
     {
-    case 20:
+    case 21:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<atan2IntInt>(), func, BoolConstant<atan2IntInt::Upward>(), BoolConstant<atan2IntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4361,7 +4523,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<atan2FltFlt>(), func, BoolConstant<atan2FltFlt::Upward>(), BoolConstant<atan2FltFlt::Downward>(), state, n1, n2);
         break;
-    case 21:
+    case 22:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<log2IntInt>(), func, BoolConstant<log2IntInt::Upward>(), BoolConstant<log2IntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4371,35 +4533,39 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<log2FltFlt>(), func, BoolConstant<log2FltFlt::Upward>(), BoolConstant<log2FltFlt::Downward>(), state, n1, n2);
         break;
-    case 22:
+    case 23:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<maxIntInt>(), func, BoolConstant<maxIntInt::Upward>(), BoolConstant<maxIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<maxFltFlt>(), func, BoolConstant<maxFltFlt::Upward>(), BoolConstant<maxFltFlt::Downward>(), state, n1, n2);
         break;
-    case 23:
+    case 24:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<minIntInt>(), func, BoolConstant<minIntInt::Upward>(), BoolConstant<minIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<minFltFlt>(), func, BoolConstant<minFltFlt::Upward>(), BoolConstant<minFltFlt::Downward>(), state, n1, n2);
         break;
-    case 24:
+    case 25:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<vec2FltFlt>(), func, BoolConstant<vec2FltFlt::Upward>(), BoolConstant<vec2FltFlt::Downward>(), state, n1, n2);
         break;
-    case 25:
+    case 26:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
             return FunctionNode(Identity<mat2VecVec>(), func, BoolConstant<mat2VecVec::Upward>(), BoolConstant<mat2VecVec::Downward>(), state, n1, n2);
         break;
-    case 26:
+    case 27:
+        if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
+            return FunctionNode(Identity<diag2FltFlt>(), func, BoolConstant<diag2FltFlt::Upward>(), BoolConstant<diag2FltFlt::Downward>(), state, n1, n2);
+        break;
+    case 28:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
             return FunctionNode(Identity<dotVecVec>(), func, BoolConstant<dotVecVec::Upward>(), BoolConstant<dotVecVec::Downward>(), state, n1, n2);
         break;
-    case 27:
+    case 29:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
             return FunctionNode(Identity<crossVecVec>(), func, BoolConstant<crossVecVec::Upward>(), BoolConstant<crossVecVec::Downward>(), state, n1, n2);
         break;
-    case 32:
+    case 35:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<powIntInt>(), func, BoolConstant<powIntInt::Upward>(), BoolConstant<powIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4409,7 +4575,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<powFltFlt>(), func, BoolConstant<powFltFlt::Upward>(), BoolConstant<powFltFlt::Downward>(), state, n1, n2);
         break;
-    case 33:
+    case 36:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<mulIntInt>(), func, BoolConstant<mulIntInt::Upward>(), BoolConstant<mulIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4431,7 +4597,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_VEC)
             return FunctionNode(Identity<mulMatVec>(), func, BoolConstant<mulMatVec::Upward>(), BoolConstant<mulMatVec::Downward>(), state, n1, n2);
         break;
-    case 34:
+    case 37:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<divIntInt>(), func, BoolConstant<divIntInt::Upward>(), BoolConstant<divIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4443,11 +4609,11 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<divVecFlt>(), func, BoolConstant<divVecFlt::Upward>(), BoolConstant<divVecFlt::Downward>(), state, n1, n2);
         break;
-    case 35:
+    case 38:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<modIntInt>(), func, BoolConstant<modIntInt::Upward>(), BoolConstant<modIntInt::Downward>(), state, n1, n2);
         break;
-    case 36:
+    case 39:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<addIntInt>(), func, BoolConstant<addIntInt::Upward>(), BoolConstant<addIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4463,7 +4629,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
             return FunctionNode(Identity<addMatMat>(), func, BoolConstant<addMatMat::Upward>(), BoolConstant<addMatMat::Downward>(), state, n1, n2);
         break;
-    case 37:
+    case 40:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<subIntInt>(), func, BoolConstant<subIntInt::Upward>(), BoolConstant<subIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4477,7 +4643,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
             return FunctionNode(Identity<subMatMat>(), func, BoolConstant<subMatMat::Upward>(), BoolConstant<subMatMat::Downward>(), state, n1, n2);
         break;
-    case 38:
+    case 41:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<gtIntInt>(), func, BoolConstant<gtIntInt::Upward>(), BoolConstant<gtIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4487,7 +4653,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<gtFltFlt>(), func, BoolConstant<gtFltFlt::Upward>(), BoolConstant<gtFltFlt::Downward>(), state, n1, n2);
         break;
-    case 39:
+    case 42:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<geqIntInt>(), func, BoolConstant<geqIntInt::Upward>(), BoolConstant<geqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4497,7 +4663,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<geqFltFlt>(), func, BoolConstant<geqFltFlt::Upward>(), BoolConstant<geqFltFlt::Downward>(), state, n1, n2);
         break;
-    case 40:
+    case 43:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<ltIntInt>(), func, BoolConstant<ltIntInt::Upward>(), BoolConstant<ltIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4507,7 +4673,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<ltFltFlt>(), func, BoolConstant<ltFltFlt::Upward>(), BoolConstant<ltFltFlt::Downward>(), state, n1, n2);
         break;
-    case 41:
+    case 44:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<leqIntInt>(), func, BoolConstant<leqIntInt::Upward>(), BoolConstant<leqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4517,7 +4683,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<leqFltFlt>(), func, BoolConstant<leqFltFlt::Upward>(), BoolConstant<leqFltFlt::Downward>(), state, n1, n2);
         break;
-    case 42:
+    case 45:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<eqIntInt>(), func, BoolConstant<eqIntInt::Upward>(), BoolConstant<eqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
@@ -4529,7 +4695,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
             return FunctionNode(Identity<eqMatMat>(), func, BoolConstant<eqMatMat::Upward>(), BoolConstant<eqMatMat::Downward>(), state, n1, n2);
         break;
-    case 43:
+    case 46:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<neqIntInt>(), func, BoolConstant<neqIntInt::Upward>(), BoolConstant<neqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
@@ -4541,7 +4707,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
             return FunctionNode(Identity<neqMatMat>(), func, BoolConstant<neqMatMat::Upward>(), BoolConstant<neqMatMat::Downward>(), state, n1, n2);
         break;
-    case 44:
+    case 47:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<andIntInt>(), func, BoolConstant<andIntInt::Upward>(), BoolConstant<andIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4551,7 +4717,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<andFltFlt>(), func, BoolConstant<andFltFlt::Upward>(), BoolConstant<andFltFlt::Downward>(), state, n1, n2);
         break;
-    case 45:
+    case 48:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<orIntInt>(), func, BoolConstant<orIntInt::Upward>(), BoolConstant<orIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4561,7 +4727,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<orFltFlt>(), func, BoolConstant<orFltFlt::Upward>(), BoolConstant<orFltFlt::Downward>(), state, n1, n2);
         break;
-    case 46:
+    case 49:
         if (n1.GetType() == VALUE_STR && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<index2StrInt>(), func, BoolConstant<index2StrInt::Upward>(), BoolConstant<index2StrInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_INT)
@@ -4574,7 +4740,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
 {
     switch (func)
     {
-    case 20:
+    case 21:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<atan2IntInt>(), func, BoolConstant<atan2IntInt::Upward>(), BoolConstant<atan2IntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4584,7 +4750,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<atan2FltFlt>(), func, BoolConstant<atan2FltFlt::Upward>(), BoolConstant<atan2FltFlt::Downward>(), state, n1, n2);
         break;
-    case 21:
+    case 22:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<log2IntInt>(), func, BoolConstant<log2IntInt::Upward>(), BoolConstant<log2IntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4594,35 +4760,39 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<log2FltFlt>(), func, BoolConstant<log2FltFlt::Upward>(), BoolConstant<log2FltFlt::Downward>(), state, n1, n2);
         break;
-    case 22:
+    case 23:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<maxIntInt>(), func, BoolConstant<maxIntInt::Upward>(), BoolConstant<maxIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<maxFltFlt>(), func, BoolConstant<maxFltFlt::Upward>(), BoolConstant<maxFltFlt::Downward>(), state, n1, n2);
         break;
-    case 23:
+    case 24:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<minIntInt>(), func, BoolConstant<minIntInt::Upward>(), BoolConstant<minIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<minFltFlt>(), func, BoolConstant<minFltFlt::Upward>(), BoolConstant<minFltFlt::Downward>(), state, n1, n2);
         break;
-    case 24:
+    case 25:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<vec2FltFlt>(), func, BoolConstant<vec2FltFlt::Upward>(), BoolConstant<vec2FltFlt::Downward>(), state, n1, n2);
         break;
-    case 25:
+    case 26:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
             return FunctionNode(Identity<mat2VecVec>(), func, BoolConstant<mat2VecVec::Upward>(), BoolConstant<mat2VecVec::Downward>(), state, n1, n2);
         break;
-    case 26:
+    case 27:
+        if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
+            return FunctionNode(Identity<diag2FltFlt>(), func, BoolConstant<diag2FltFlt::Upward>(), BoolConstant<diag2FltFlt::Downward>(), state, n1, n2);
+        break;
+    case 28:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
             return FunctionNode(Identity<dotVecVec>(), func, BoolConstant<dotVecVec::Upward>(), BoolConstant<dotVecVec::Downward>(), state, n1, n2);
         break;
-    case 27:
+    case 29:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
             return FunctionNode(Identity<crossVecVec>(), func, BoolConstant<crossVecVec::Upward>(), BoolConstant<crossVecVec::Downward>(), state, n1, n2);
         break;
-    case 32:
+    case 35:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<powIntInt>(), func, BoolConstant<powIntInt::Upward>(), BoolConstant<powIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4632,7 +4802,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<powFltFlt>(), func, BoolConstant<powFltFlt::Upward>(), BoolConstant<powFltFlt::Downward>(), state, n1, n2);
         break;
-    case 33:
+    case 36:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<mulIntInt>(), func, BoolConstant<mulIntInt::Upward>(), BoolConstant<mulIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4654,7 +4824,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_VEC)
             return FunctionNode(Identity<mulMatVec>(), func, BoolConstant<mulMatVec::Upward>(), BoolConstant<mulMatVec::Downward>(), state, n1, n2);
         break;
-    case 34:
+    case 37:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<divIntInt>(), func, BoolConstant<divIntInt::Upward>(), BoolConstant<divIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4666,11 +4836,11 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<divVecFlt>(), func, BoolConstant<divVecFlt::Upward>(), BoolConstant<divVecFlt::Downward>(), state, n1, n2);
         break;
-    case 35:
+    case 38:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<modIntInt>(), func, BoolConstant<modIntInt::Upward>(), BoolConstant<modIntInt::Downward>(), state, n1, n2);
         break;
-    case 36:
+    case 39:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<addIntInt>(), func, BoolConstant<addIntInt::Upward>(), BoolConstant<addIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4686,7 +4856,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
             return FunctionNode(Identity<addMatMat>(), func, BoolConstant<addMatMat::Upward>(), BoolConstant<addMatMat::Downward>(), state, n1, n2);
         break;
-    case 37:
+    case 40:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<subIntInt>(), func, BoolConstant<subIntInt::Upward>(), BoolConstant<subIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4700,7 +4870,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
             return FunctionNode(Identity<subMatMat>(), func, BoolConstant<subMatMat::Upward>(), BoolConstant<subMatMat::Downward>(), state, n1, n2);
         break;
-    case 38:
+    case 41:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<gtIntInt>(), func, BoolConstant<gtIntInt::Upward>(), BoolConstant<gtIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4710,7 +4880,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<gtFltFlt>(), func, BoolConstant<gtFltFlt::Upward>(), BoolConstant<gtFltFlt::Downward>(), state, n1, n2);
         break;
-    case 39:
+    case 42:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<geqIntInt>(), func, BoolConstant<geqIntInt::Upward>(), BoolConstant<geqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4720,7 +4890,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<geqFltFlt>(), func, BoolConstant<geqFltFlt::Upward>(), BoolConstant<geqFltFlt::Downward>(), state, n1, n2);
         break;
-    case 40:
+    case 43:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<ltIntInt>(), func, BoolConstant<ltIntInt::Upward>(), BoolConstant<ltIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4730,7 +4900,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<ltFltFlt>(), func, BoolConstant<ltFltFlt::Upward>(), BoolConstant<ltFltFlt::Downward>(), state, n1, n2);
         break;
-    case 41:
+    case 44:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<leqIntInt>(), func, BoolConstant<leqIntInt::Upward>(), BoolConstant<leqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4740,7 +4910,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<leqFltFlt>(), func, BoolConstant<leqFltFlt::Upward>(), BoolConstant<leqFltFlt::Downward>(), state, n1, n2);
         break;
-    case 42:
+    case 45:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<eqIntInt>(), func, BoolConstant<eqIntInt::Upward>(), BoolConstant<eqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
@@ -4752,7 +4922,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
             return FunctionNode(Identity<eqMatMat>(), func, BoolConstant<eqMatMat::Upward>(), BoolConstant<eqMatMat::Downward>(), state, n1, n2);
         break;
-    case 43:
+    case 46:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<neqIntInt>(), func, BoolConstant<neqIntInt::Upward>(), BoolConstant<neqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
@@ -4764,7 +4934,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
             return FunctionNode(Identity<neqMatMat>(), func, BoolConstant<neqMatMat::Upward>(), BoolConstant<neqMatMat::Downward>(), state, n1, n2);
         break;
-    case 44:
+    case 47:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<andIntInt>(), func, BoolConstant<andIntInt::Upward>(), BoolConstant<andIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4774,7 +4944,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<andFltFlt>(), func, BoolConstant<andFltFlt::Upward>(), BoolConstant<andFltFlt::Downward>(), state, n1, n2);
         break;
-    case 45:
+    case 48:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<orIntInt>(), func, BoolConstant<orIntInt::Upward>(), BoolConstant<orIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4784,7 +4954,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<orFltFlt>(), func, BoolConstant<orFltFlt::Upward>(), BoolConstant<orFltFlt::Downward>(), state, n1, n2);
         break;
-    case 46:
+    case 49:
         if (n1.GetType() == VALUE_STR && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<index2StrInt>(), func, BoolConstant<index2StrInt::Upward>(), BoolConstant<index2StrInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_INT)
@@ -4797,7 +4967,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
 {
     switch (func)
     {
-    case 20:
+    case 21:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<atan2IntInt>(), func, BoolConstant<atan2IntInt::Upward>(), BoolConstant<atan2IntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4807,7 +4977,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<atan2FltFlt>(), func, BoolConstant<atan2FltFlt::Upward>(), BoolConstant<atan2FltFlt::Downward>(), state, n1, n2);
         break;
-    case 21:
+    case 22:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<log2IntInt>(), func, BoolConstant<log2IntInt::Upward>(), BoolConstant<log2IntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4817,35 +4987,39 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<log2FltFlt>(), func, BoolConstant<log2FltFlt::Upward>(), BoolConstant<log2FltFlt::Downward>(), state, n1, n2);
         break;
-    case 22:
+    case 23:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<maxIntInt>(), func, BoolConstant<maxIntInt::Upward>(), BoolConstant<maxIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<maxFltFlt>(), func, BoolConstant<maxFltFlt::Upward>(), BoolConstant<maxFltFlt::Downward>(), state, n1, n2);
         break;
-    case 23:
+    case 24:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<minIntInt>(), func, BoolConstant<minIntInt::Upward>(), BoolConstant<minIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<minFltFlt>(), func, BoolConstant<minFltFlt::Upward>(), BoolConstant<minFltFlt::Downward>(), state, n1, n2);
         break;
-    case 24:
+    case 25:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<vec2FltFlt>(), func, BoolConstant<vec2FltFlt::Upward>(), BoolConstant<vec2FltFlt::Downward>(), state, n1, n2);
         break;
-    case 25:
+    case 26:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
             return FunctionNode(Identity<mat2VecVec>(), func, BoolConstant<mat2VecVec::Upward>(), BoolConstant<mat2VecVec::Downward>(), state, n1, n2);
         break;
-    case 26:
+    case 27:
+        if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
+            return FunctionNode(Identity<diag2FltFlt>(), func, BoolConstant<diag2FltFlt::Upward>(), BoolConstant<diag2FltFlt::Downward>(), state, n1, n2);
+        break;
+    case 28:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
             return FunctionNode(Identity<dotVecVec>(), func, BoolConstant<dotVecVec::Upward>(), BoolConstant<dotVecVec::Downward>(), state, n1, n2);
         break;
-    case 27:
+    case 29:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC)
             return FunctionNode(Identity<crossVecVec>(), func, BoolConstant<crossVecVec::Upward>(), BoolConstant<crossVecVec::Downward>(), state, n1, n2);
         break;
-    case 32:
+    case 35:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<powIntInt>(), func, BoolConstant<powIntInt::Upward>(), BoolConstant<powIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4855,7 +5029,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<powFltFlt>(), func, BoolConstant<powFltFlt::Upward>(), BoolConstant<powFltFlt::Downward>(), state, n1, n2);
         break;
-    case 33:
+    case 36:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<mulIntInt>(), func, BoolConstant<mulIntInt::Upward>(), BoolConstant<mulIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4877,7 +5051,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_VEC)
             return FunctionNode(Identity<mulMatVec>(), func, BoolConstant<mulMatVec::Upward>(), BoolConstant<mulMatVec::Downward>(), state, n1, n2);
         break;
-    case 34:
+    case 37:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<divIntInt>(), func, BoolConstant<divIntInt::Upward>(), BoolConstant<divIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4889,11 +5063,11 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<divVecFlt>(), func, BoolConstant<divVecFlt::Upward>(), BoolConstant<divVecFlt::Downward>(), state, n1, n2);
         break;
-    case 35:
+    case 38:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<modIntInt>(), func, BoolConstant<modIntInt::Upward>(), BoolConstant<modIntInt::Downward>(), state, n1, n2);
         break;
-    case 36:
+    case 39:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<addIntInt>(), func, BoolConstant<addIntInt::Upward>(), BoolConstant<addIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4909,7 +5083,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
             return FunctionNode(Identity<addMatMat>(), func, BoolConstant<addMatMat::Upward>(), BoolConstant<addMatMat::Downward>(), state, n1, n2);
         break;
-    case 37:
+    case 40:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<subIntInt>(), func, BoolConstant<subIntInt::Upward>(), BoolConstant<subIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4923,7 +5097,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
             return FunctionNode(Identity<subMatMat>(), func, BoolConstant<subMatMat::Upward>(), BoolConstant<subMatMat::Downward>(), state, n1, n2);
         break;
-    case 38:
+    case 41:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<gtIntInt>(), func, BoolConstant<gtIntInt::Upward>(), BoolConstant<gtIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4933,7 +5107,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<gtFltFlt>(), func, BoolConstant<gtFltFlt::Upward>(), BoolConstant<gtFltFlt::Downward>(), state, n1, n2);
         break;
-    case 39:
+    case 42:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<geqIntInt>(), func, BoolConstant<geqIntInt::Upward>(), BoolConstant<geqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4943,7 +5117,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<geqFltFlt>(), func, BoolConstant<geqFltFlt::Upward>(), BoolConstant<geqFltFlt::Downward>(), state, n1, n2);
         break;
-    case 40:
+    case 43:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<ltIntInt>(), func, BoolConstant<ltIntInt::Upward>(), BoolConstant<ltIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4953,7 +5127,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<ltFltFlt>(), func, BoolConstant<ltFltFlt::Upward>(), BoolConstant<ltFltFlt::Downward>(), state, n1, n2);
         break;
-    case 41:
+    case 44:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<leqIntInt>(), func, BoolConstant<leqIntInt::Upward>(), BoolConstant<leqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4963,7 +5137,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<leqFltFlt>(), func, BoolConstant<leqFltFlt::Upward>(), BoolConstant<leqFltFlt::Downward>(), state, n1, n2);
         break;
-    case 42:
+    case 45:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<eqIntInt>(), func, BoolConstant<eqIntInt::Upward>(), BoolConstant<eqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
@@ -4975,7 +5149,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
             return FunctionNode(Identity<eqMatMat>(), func, BoolConstant<eqMatMat::Upward>(), BoolConstant<eqMatMat::Downward>(), state, n1, n2);
         break;
-    case 43:
+    case 46:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<neqIntInt>(), func, BoolConstant<neqIntInt::Upward>(), BoolConstant<neqIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
@@ -4987,7 +5161,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_MAT)
             return FunctionNode(Identity<neqMatMat>(), func, BoolConstant<neqMatMat::Upward>(), BoolConstant<neqMatMat::Downward>(), state, n1, n2);
         break;
-    case 44:
+    case 47:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<andIntInt>(), func, BoolConstant<andIntInt::Upward>(), BoolConstant<andIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -4997,7 +5171,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<andFltFlt>(), func, BoolConstant<andFltFlt::Upward>(), BoolConstant<andFltFlt::Downward>(), state, n1, n2);
         break;
-    case 45:
+    case 48:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<orIntInt>(), func, BoolConstant<orIntInt::Upward>(), BoolConstant<orIntInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT)
@@ -5007,7 +5181,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT)
             return FunctionNode(Identity<orFltFlt>(), func, BoolConstant<orFltFlt::Upward>(), BoolConstant<orFltFlt::Downward>(), state, n1, n2);
         break;
-    case 46:
+    case 49:
         if (n1.GetType() == VALUE_STR && n2.GetType() == VALUE_INT)
             return FunctionNode(Identity<index2StrInt>(), func, BoolConstant<index2StrInt::Upward>(), BoolConstant<index2StrInt::Downward>(), state, n1, n2);
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_INT)
@@ -5020,7 +5194,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
 {
     switch (func)
     {
-    case 28:
+    case 30:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
             return FunctionNode(Identity<ifIntIntInt>(), func, BoolConstant<ifIntIntInt::Upward>(), BoolConstant<ifIntIntInt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
@@ -5030,15 +5204,19 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
             return FunctionNode(Identity<ifIntVecVec>(), func, BoolConstant<ifIntVecVec::Upward>(), BoolConstant<ifIntVecVec::Downward>(), state, n1, n2, n3);
         break;
-    case 29:
+    case 31:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
             return FunctionNode(Identity<vec3FltFltFlt>(), func, BoolConstant<vec3FltFltFlt::Upward>(), BoolConstant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
         break;
-    case 30:
+    case 32:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
             return FunctionNode(Identity<mat3VecVecVec>(), func, BoolConstant<mat3VecVecVec::Upward>(), BoolConstant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
         break;
-    case 47:
+    case 33:
+        if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
+            return FunctionNode(Identity<diag3FltFltFlt>(), func, BoolConstant<diag3FltFltFlt::Upward>(), BoolConstant<diag3FltFltFlt::Downward>(), state, n1, n2, n3);
+        break;
+    case 50:
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
             return FunctionNode(Identity<index3MatIntInt>(), func, BoolConstant<index3MatIntInt::Upward>(), BoolConstant<index3MatIntInt::Downward>(), state, n1, n2, n3);
         break;
@@ -5049,7 +5227,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
 {
     switch (func)
     {
-    case 28:
+    case 30:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
             return FunctionNode(Identity<ifIntIntInt>(), func, BoolConstant<ifIntIntInt::Upward>(), BoolConstant<ifIntIntInt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
@@ -5059,15 +5237,19 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
             return FunctionNode(Identity<ifIntVecVec>(), func, BoolConstant<ifIntVecVec::Upward>(), BoolConstant<ifIntVecVec::Downward>(), state, n1, n2, n3);
         break;
-    case 29:
+    case 31:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
             return FunctionNode(Identity<vec3FltFltFlt>(), func, BoolConstant<vec3FltFltFlt::Upward>(), BoolConstant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
         break;
-    case 30:
+    case 32:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
             return FunctionNode(Identity<mat3VecVecVec>(), func, BoolConstant<mat3VecVecVec::Upward>(), BoolConstant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
         break;
-    case 47:
+    case 33:
+        if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
+            return FunctionNode(Identity<diag3FltFltFlt>(), func, BoolConstant<diag3FltFltFlt::Upward>(), BoolConstant<diag3FltFltFlt::Downward>(), state, n1, n2, n3);
+        break;
+    case 50:
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
             return FunctionNode(Identity<index3MatIntInt>(), func, BoolConstant<index3MatIntInt::Upward>(), BoolConstant<index3MatIntInt::Downward>(), state, n1, n2, n3);
         break;
@@ -5078,7 +5260,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
 {
     switch (func)
     {
-    case 28:
+    case 30:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
             return FunctionNode(Identity<ifIntIntInt>(), func, BoolConstant<ifIntIntInt::Upward>(), BoolConstant<ifIntIntInt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
@@ -5088,15 +5270,19 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
             return FunctionNode(Identity<ifIntVecVec>(), func, BoolConstant<ifIntVecVec::Upward>(), BoolConstant<ifIntVecVec::Downward>(), state, n1, n2, n3);
         break;
-    case 29:
+    case 31:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
             return FunctionNode(Identity<vec3FltFltFlt>(), func, BoolConstant<vec3FltFltFlt::Upward>(), BoolConstant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
         break;
-    case 30:
+    case 32:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
             return FunctionNode(Identity<mat3VecVecVec>(), func, BoolConstant<mat3VecVecVec::Upward>(), BoolConstant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
         break;
-    case 47:
+    case 33:
+        if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
+            return FunctionNode(Identity<diag3FltFltFlt>(), func, BoolConstant<diag3FltFltFlt::Upward>(), BoolConstant<diag3FltFltFlt::Downward>(), state, n1, n2, n3);
+        break;
+    case 50:
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
             return FunctionNode(Identity<index3MatIntInt>(), func, BoolConstant<index3MatIntInt::Upward>(), BoolConstant<index3MatIntInt::Downward>(), state, n1, n2, n3);
         break;
@@ -5107,7 +5293,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
 {
     switch (func)
     {
-    case 28:
+    case 30:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
             return FunctionNode(Identity<ifIntIntInt>(), func, BoolConstant<ifIntIntInt::Upward>(), BoolConstant<ifIntIntInt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
@@ -5117,15 +5303,19 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, TerminalNo
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
             return FunctionNode(Identity<ifIntVecVec>(), func, BoolConstant<ifIntVecVec::Upward>(), BoolConstant<ifIntVecVec::Downward>(), state, n1, n2, n3);
         break;
-    case 29:
+    case 31:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
             return FunctionNode(Identity<vec3FltFltFlt>(), func, BoolConstant<vec3FltFltFlt::Upward>(), BoolConstant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
         break;
-    case 30:
+    case 32:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
             return FunctionNode(Identity<mat3VecVecVec>(), func, BoolConstant<mat3VecVecVec::Upward>(), BoolConstant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
         break;
-    case 47:
+    case 33:
+        if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
+            return FunctionNode(Identity<diag3FltFltFlt>(), func, BoolConstant<diag3FltFltFlt::Upward>(), BoolConstant<diag3FltFltFlt::Downward>(), state, n1, n2, n3);
+        break;
+    case 50:
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
             return FunctionNode(Identity<index3MatIntInt>(), func, BoolConstant<index3MatIntInt::Upward>(), BoolConstant<index3MatIntInt::Downward>(), state, n1, n2, n3);
         break;
@@ -5136,7 +5326,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
 {
     switch (func)
     {
-    case 28:
+    case 30:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
             return FunctionNode(Identity<ifIntIntInt>(), func, BoolConstant<ifIntIntInt::Upward>(), BoolConstant<ifIntIntInt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
@@ -5146,15 +5336,19 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
             return FunctionNode(Identity<ifIntVecVec>(), func, BoolConstant<ifIntVecVec::Upward>(), BoolConstant<ifIntVecVec::Downward>(), state, n1, n2, n3);
         break;
-    case 29:
+    case 31:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
             return FunctionNode(Identity<vec3FltFltFlt>(), func, BoolConstant<vec3FltFltFlt::Upward>(), BoolConstant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
         break;
-    case 30:
+    case 32:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
             return FunctionNode(Identity<mat3VecVecVec>(), func, BoolConstant<mat3VecVecVec::Upward>(), BoolConstant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
         break;
-    case 47:
+    case 33:
+        if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
+            return FunctionNode(Identity<diag3FltFltFlt>(), func, BoolConstant<diag3FltFltFlt::Upward>(), BoolConstant<diag3FltFltFlt::Downward>(), state, n1, n2, n3);
+        break;
+    case 50:
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
             return FunctionNode(Identity<index3MatIntInt>(), func, BoolConstant<index3MatIntInt::Upward>(), BoolConstant<index3MatIntInt::Downward>(), state, n1, n2, n3);
         break;
@@ -5165,7 +5359,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
 {
     switch (func)
     {
-    case 28:
+    case 30:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
             return FunctionNode(Identity<ifIntIntInt>(), func, BoolConstant<ifIntIntInt::Upward>(), BoolConstant<ifIntIntInt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
@@ -5175,15 +5369,19 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
             return FunctionNode(Identity<ifIntVecVec>(), func, BoolConstant<ifIntVecVec::Upward>(), BoolConstant<ifIntVecVec::Downward>(), state, n1, n2, n3);
         break;
-    case 29:
+    case 31:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
             return FunctionNode(Identity<vec3FltFltFlt>(), func, BoolConstant<vec3FltFltFlt::Upward>(), BoolConstant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
         break;
-    case 30:
+    case 32:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
             return FunctionNode(Identity<mat3VecVecVec>(), func, BoolConstant<mat3VecVecVec::Upward>(), BoolConstant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
         break;
-    case 47:
+    case 33:
+        if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
+            return FunctionNode(Identity<diag3FltFltFlt>(), func, BoolConstant<diag3FltFltFlt::Upward>(), BoolConstant<diag3FltFltFlt::Downward>(), state, n1, n2, n3);
+        break;
+    case 50:
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
             return FunctionNode(Identity<index3MatIntInt>(), func, BoolConstant<index3MatIntInt::Upward>(), BoolConstant<index3MatIntInt::Downward>(), state, n1, n2, n3);
         break;
@@ -5194,7 +5392,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
 {
     switch (func)
     {
-    case 28:
+    case 30:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
             return FunctionNode(Identity<ifIntIntInt>(), func, BoolConstant<ifIntIntInt::Upward>(), BoolConstant<ifIntIntInt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
@@ -5204,15 +5402,19 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
             return FunctionNode(Identity<ifIntVecVec>(), func, BoolConstant<ifIntVecVec::Upward>(), BoolConstant<ifIntVecVec::Downward>(), state, n1, n2, n3);
         break;
-    case 29:
+    case 31:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
             return FunctionNode(Identity<vec3FltFltFlt>(), func, BoolConstant<vec3FltFltFlt::Upward>(), BoolConstant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
         break;
-    case 30:
+    case 32:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
             return FunctionNode(Identity<mat3VecVecVec>(), func, BoolConstant<mat3VecVecVec::Upward>(), BoolConstant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
         break;
-    case 47:
+    case 33:
+        if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
+            return FunctionNode(Identity<diag3FltFltFlt>(), func, BoolConstant<diag3FltFltFlt::Upward>(), BoolConstant<diag3FltFltFlt::Downward>(), state, n1, n2, n3);
+        break;
+    case 50:
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
             return FunctionNode(Identity<index3MatIntInt>(), func, BoolConstant<index3MatIntInt::Upward>(), BoolConstant<index3MatIntInt::Downward>(), state, n1, n2, n3);
         break;
@@ -5223,7 +5425,7 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
 {
     switch (func)
     {
-    case 28:
+    case 30:
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
             return FunctionNode(Identity<ifIntIntInt>(), func, BoolConstant<ifIntIntInt::Upward>(), BoolConstant<ifIntIntInt::Downward>(), state, n1, n2, n3);
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
@@ -5233,15 +5435,19 @@ inline FunctionNode MakeFunctionNode(ParserState* state, size_t func, FunctionNo
         if (n1.GetType() == VALUE_INT && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
             return FunctionNode(Identity<ifIntVecVec>(), func, BoolConstant<ifIntVecVec::Upward>(), BoolConstant<ifIntVecVec::Downward>(), state, n1, n2, n3);
         break;
-    case 29:
+    case 31:
         if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
             return FunctionNode(Identity<vec3FltFltFlt>(), func, BoolConstant<vec3FltFltFlt::Upward>(), BoolConstant<vec3FltFltFlt::Downward>(), state, n1, n2, n3);
         break;
-    case 30:
+    case 32:
         if (n1.GetType() == VALUE_VEC && n2.GetType() == VALUE_VEC && n3.GetType() == VALUE_VEC)
             return FunctionNode(Identity<mat3VecVecVec>(), func, BoolConstant<mat3VecVecVec::Upward>(), BoolConstant<mat3VecVecVec::Downward>(), state, n1, n2, n3);
         break;
-    case 47:
+    case 33:
+        if (n1.GetType() == VALUE_FLT && n2.GetType() == VALUE_FLT && n3.GetType() == VALUE_FLT)
+            return FunctionNode(Identity<diag3FltFltFlt>(), func, BoolConstant<diag3FltFltFlt::Upward>(), BoolConstant<diag3FltFltFlt::Downward>(), state, n1, n2, n3);
+        break;
+    case 50:
         if (n1.GetType() == VALUE_MAT && n2.GetType() == VALUE_INT && n3.GetType() == VALUE_INT)
             return FunctionNode(Identity<index3MatIntInt>(), func, BoolConstant<index3MatIntInt::Upward>(), BoolConstant<index3MatIntInt::Downward>(), state, n1, n2, n3);
         break;
@@ -5350,7 +5556,10 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t)
     case 19:
         if (t.GetType() == VALUE_MAT)
             return TerminalNode(transposeMat::process_when_compile(t.GetMat()));
-    case 31:
+    case 20:
+        if (t.GetType() == VALUE_MAT)
+            return TerminalNode(traceMat::process_when_compile(t.GetMat()));
+    case 34:
         if (t.GetType() == VALUE_INT)
             return TerminalNode(subInt::process_when_compile(t.GetInt()));
         if (t.GetType() == VALUE_FLT)
@@ -5366,7 +5575,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
 {
     switch (func)
     {
-    case 20:
+    case 21:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(atan2IntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_FLT)
@@ -5375,7 +5584,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(atan2FltInt::process_when_compile(t1.GetFlt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(atan2FltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
-    case 21:
+    case 22:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(log2IntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_FLT)
@@ -5384,29 +5593,32 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(log2FltInt::process_when_compile(t1.GetFlt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(log2FltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
-    case 22:
+    case 23:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(maxIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(maxFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
-    case 23:
+    case 24:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(minIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(minFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
-    case 24:
+    case 25:
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(vec2FltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
-    case 25:
-        if (t1.GetType() == VALUE_VEC && t2.GetType() == VALUE_VEC)
-            return TerminalNode(mat2VecVec::process_when_compile(t1.GetVec(), t2.GetVec()));
     case 26:
         if (t1.GetType() == VALUE_VEC && t2.GetType() == VALUE_VEC)
-            return TerminalNode(dotVecVec::process_when_compile(t1.GetVec(), t2.GetVec()));
+            return TerminalNode(mat2VecVec::process_when_compile(t1.GetVec(), t2.GetVec()));
     case 27:
+        if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
+            return TerminalNode(diag2FltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
+    case 28:
+        if (t1.GetType() == VALUE_VEC && t2.GetType() == VALUE_VEC)
+            return TerminalNode(dotVecVec::process_when_compile(t1.GetVec(), t2.GetVec()));
+    case 29:
         if (t1.GetType() == VALUE_VEC && t2.GetType() == VALUE_VEC)
             return TerminalNode(crossVecVec::process_when_compile(t1.GetVec(), t2.GetVec()));
-    case 32:
+    case 35:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(powIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_FLT)
@@ -5415,7 +5627,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(powFltInt::process_when_compile(t1.GetFlt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(powFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
-    case 33:
+    case 36:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(mulIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_FLT)
@@ -5436,7 +5648,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(mulMatMat::process_when_compile(t1.GetMat(), t2.GetMat()));
         if (t1.GetType() == VALUE_MAT && t2.GetType() == VALUE_VEC)
             return TerminalNode(mulMatVec::process_when_compile(t1.GetMat(), t2.GetVec()));
-    case 34:
+    case 37:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(divIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_FLT)
@@ -5447,10 +5659,10 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(divFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
         if (t1.GetType() == VALUE_VEC && t2.GetType() == VALUE_FLT)
             return TerminalNode(divVecFlt::process_when_compile(t1.GetVec(), t2.GetFlt()));
-    case 35:
+    case 38:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(modIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
-    case 36:
+    case 39:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(addIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_FLT)
@@ -5465,7 +5677,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(addVecVec::process_when_compile(t1.GetVec(), t2.GetVec()));
         if (t1.GetType() == VALUE_MAT && t2.GetType() == VALUE_MAT)
             return TerminalNode(addMatMat::process_when_compile(t1.GetMat(), t2.GetMat()));
-    case 37:
+    case 40:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(subIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_FLT)
@@ -5478,7 +5690,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(subVecVec::process_when_compile(t1.GetVec(), t2.GetVec()));
         if (t1.GetType() == VALUE_MAT && t2.GetType() == VALUE_MAT)
             return TerminalNode(subMatMat::process_when_compile(t1.GetMat(), t2.GetMat()));
-    case 38:
+    case 41:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(gtIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_FLT)
@@ -5487,7 +5699,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(gtFltInt::process_when_compile(t1.GetFlt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(gtFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
-    case 39:
+    case 42:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(geqIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_FLT)
@@ -5496,7 +5708,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(geqFltInt::process_when_compile(t1.GetFlt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(geqFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
-    case 40:
+    case 43:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(ltIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_FLT)
@@ -5505,7 +5717,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(ltFltInt::process_when_compile(t1.GetFlt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(ltFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
-    case 41:
+    case 44:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(leqIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_FLT)
@@ -5514,7 +5726,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(leqFltInt::process_when_compile(t1.GetFlt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(leqFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
-    case 42:
+    case 45:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(eqIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
@@ -5525,7 +5737,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(eqVecVec::process_when_compile(t1.GetVec(), t2.GetVec()));
         if (t1.GetType() == VALUE_MAT && t2.GetType() == VALUE_MAT)
             return TerminalNode(eqMatMat::process_when_compile(t1.GetMat(), t2.GetMat()));
-    case 43:
+    case 46:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(neqIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
@@ -5536,7 +5748,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(neqVecVec::process_when_compile(t1.GetVec(), t2.GetVec()));
         if (t1.GetType() == VALUE_MAT && t2.GetType() == VALUE_MAT)
             return TerminalNode(neqMatMat::process_when_compile(t1.GetMat(), t2.GetMat()));
-    case 44:
+    case 47:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(andIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_FLT)
@@ -5545,7 +5757,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(andFltInt::process_when_compile(t1.GetFlt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(andFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
-    case 45:
+    case 48:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(orIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_FLT)
@@ -5554,7 +5766,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(orFltInt::process_when_compile(t1.GetFlt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(orFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
-    case 46:
+    case 49:
         if (t1.GetType() == VALUE_STR && t2.GetType() == VALUE_INT)
             return TerminalNode(index2StrInt::process_when_compile(t1.GetStr(), t2.GetInt()));
         if (t1.GetType() == VALUE_VEC && t2.GetType() == VALUE_INT)
@@ -5566,7 +5778,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
 {
     switch (func)
     {
-    case 28:
+    case 30:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT && t3.GetType() == VALUE_INT)
             return TerminalNode(ifIntIntInt::process_when_compile(t1.GetInt(), t2.GetInt(), t3.GetInt()));
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_FLT && t3.GetType() == VALUE_FLT)
@@ -5575,13 +5787,16 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(ifIntStrStr::process_when_compile(t1.GetInt(), t2.GetStr(), t3.GetStr()));
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_VEC && t3.GetType() == VALUE_VEC)
             return TerminalNode(ifIntVecVec::process_when_compile(t1.GetInt(), t2.GetVec(), t3.GetVec()));
-    case 29:
+    case 31:
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT && t3.GetType() == VALUE_FLT)
             return TerminalNode(vec3FltFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt(), t3.GetFlt()));
-    case 30:
+    case 32:
         if (t1.GetType() == VALUE_VEC && t2.GetType() == VALUE_VEC && t3.GetType() == VALUE_VEC)
             return TerminalNode(mat3VecVecVec::process_when_compile(t1.GetVec(), t2.GetVec(), t3.GetVec()));
-    case 47:
+    case 33:
+        if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT && t3.GetType() == VALUE_FLT)
+            return TerminalNode(diag3FltFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt(), t3.GetFlt()));
+    case 50:
         if (t1.GetType() == VALUE_MAT && t2.GetType() == VALUE_INT && t3.GetType() == VALUE_INT)
             return TerminalNode(index3MatIntInt::process_when_compile(t1.GetMat(), t2.GetInt(), t3.GetInt()));
     }

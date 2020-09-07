@@ -59,6 +59,7 @@ FMP_DEFINE_FUNC1(abs, Flt, Flt, CUF_TIE_ARGS(return std::abs(a)), true, true)
 FMP_DEFINE_FUNC1(len, Str, Int, CUF_TIE_ARGS(return a.GetSize()), false, false)
 FMP_DEFINE_FUNC1(len, Vec, Int, CUF_TIE_ARGS(return a.GetSize(0)), false, false)
 FMP_DEFINE_FUNC1_WITH_BUFFER(transpose, Mat, Mat, CUF_TIE_ARGS(Transpose(*mBuffer, a); return *mBuffer;), CUF_TIE_ARGS(return Transpose(a);), false, false)
+FMP_DEFINE_FUNC1(trace, Mat, Flt, CUF_TIE_ARGS(return Trace(a);), false, false)
 FMP_DEFINE_FUNC2(pow, Int, Int, Int, CUF_TIE_ARGS(return fast_pow(a, b)), true, true)
 FMP_DEFINE_FUNC2(pow, Int, Flt, Flt, CUF_TIE_ARGS(return std::pow(a, b)), false, false)
 FMP_DEFINE_FUNC2(pow, Flt, Int, Flt, CUF_TIE_ARGS(return fast_pow(a, b)), true, true)
@@ -139,7 +140,8 @@ FMP_DEFINE_FUNC2(max, Flt, Flt, Flt, CUF_TIE_ARGS(return std::max(a, b)), true, 
 FMP_DEFINE_FUNC2(min, Int, Int, Int, CUF_TIE_ARGS(return std::min(a, b)), true, false)
 FMP_DEFINE_FUNC2(min, Flt, Flt, Flt, CUF_TIE_ARGS(return std::min(a, b)), true, false)
 FMP_DEFINE_FUNC2_WITH_BUFFER(vec2, Flt, Flt, Vec, CUF_TIE_ARGS(*mBuffer = { a, b }; return *mBuffer;), CUF_TIE_ARGS(return { a, b };), true, false)
-FMP_DEFINE_FUNC2_WITH_BUFFER(mat2, Vec, Vec, Mat, CUF_TIE_ARGS(MakeMatrix(*mBuffer, a, b); return *mBuffer;), CUF_TIE_ARGS(return MakeMatrix(a, b)), false, false)
+FMP_DEFINE_FUNC2_WITH_BUFFER(mat2, Vec, Vec, Mat, CUF_TIE_ARGS(MakeMatrix(*mBuffer, a, b); return *mBuffer;), CUF_TIE_ARGS(return MakeMatrix(a, b);), false, false)
+FMP_DEFINE_FUNC2_WITH_BUFFER(diag2, Flt, Flt, Mat, CUF_TIE_ARGS(MakeDiagonalMatrix(*mBuffer, a, b); return *mBuffer;), CUF_TIE_ARGS(return MakeDiagonalMatrix(a, b);), false, false)
 FMP_DEFINE_FUNC2(dot, Vec, Vec, Flt, CUF_TIE_ARGS(return Dot(a, b)), false, false)
 FMP_DEFINE_FUNC2_WITH_BUFFER(cross, Vec, Vec, Vec, CUF_TIE_ARGS(Cross(*mBuffer, a, b); return *mBuffer;), CUF_TIE_ARGS(return Cross(a, b);), false, false)
 FMP_DEFINE_FUNC2_WITH_BUFFER(index2, Str, Int, Str, CUF_TIE_ARGS(*mBuffer = a[b]; return *mBuffer;), CUF_TIE_ARGS(return a[b];), true, true)
@@ -150,6 +152,7 @@ FMP_DEFINE_FUNC3(if, Int, Str, Str, Str, CUF_TIE_ARGS(return a ? b : c), false, 
 FMP_DEFINE_FUNC3(if, Int, Vec, Vec, Vec, CUF_TIE_ARGS(return a ? b : c), false, false)
 FMP_DEFINE_FUNC3_WITH_BUFFER(vec3, Flt, Flt, Flt, Vec, CUF_TIE_ARGS(*mBuffer = { a, b, c }; return *mBuffer;), CUF_TIE_ARGS(return { a, b, c };), true, false)
 FMP_DEFINE_FUNC3_WITH_BUFFER(mat3, Vec, Vec, Vec, Mat, CUF_TIE_ARGS(MakeMatrix(*mBuffer, a, b, c); return *mBuffer;), CUF_TIE_ARGS(return MakeMatrix(a, b, c);), false, false)
+FMP_DEFINE_FUNC3_WITH_BUFFER(diag3, Flt, Flt, Flt, Mat, CUF_TIE_ARGS(MakeDiagonalMatrix(*mBuffer, a, b, c); return *mBuffer;), CUF_TIE_ARGS(return MakeDiagonalMatrix(a, b, c);), false, false)
 FMP_DEFINE_FUNC3(index3, Mat, Int, Int, Flt, CUF_TIE_ARGS(return a[(uint32_t)b][(uint32_t)c];), true, true)
 std::map<std::string, size_t> gFuncNames = {
 { "sin", 0 },
@@ -172,17 +175,20 @@ std::map<std::string, size_t> gFuncNames = {
 { "abs", 17 },
 { "len", 18 },
 { "transpose", 19 },
-{ "atan2", 20 },
-{ "log2", 21 },
-{ "max", 22 },
-{ "min", 23 },
-{ "vec2", 24 },
-{ "mat2", 25 },
-{ "dot", 26 },
-{ "cross", 27 },
-{ "if", 28 },
-{ "vec3", 29 },
-{ "mat3", 30 }
+{ "trace", 20 },
+{ "atan2", 21 },
+{ "log2", 22 },
+{ "max", 23 },
+{ "min", 24 },
+{ "vec2", 25 },
+{ "mat2", 26 },
+{ "diag2", 27 },
+{ "dot", 28 },
+{ "cross", 29 },
+{ "if", 30 },
+{ "vec3", 31 },
+{ "mat3", 32 },
+{ "diag3", 33 }
 };
 
 }

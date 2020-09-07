@@ -32,15 +32,15 @@ int main()
 		}
 	}
 	{
-		std::string expr = "mat2(vec2(cos(t), -sin(t)), vec2(sin(t), cos(t)))*v + vec2(0.1, 0.5)";
+		std::string expr = "mat2(vec2(cos(pi * t), -sin(pi * t)), vec2(sin(pi * t), cos(pi * t)))*v + vec2(0.1, 0.5)";
 		double theta;
 		Vector<double> v(2);
-		FastMathParser aff(expr, { "t"_a = &theta, "v"_a = &v });
+		FastMathParser aff(expr, { "t"_a = &theta, "v"_a = &v }, { "pi"_c = 3.1415926535897932});
 		for (double x = 0; x < 1; x += 0.1)
 		{
 			for (double y = 0; y < 1; y += 0.1)
 			{
-				for (theta = 0; theta < 0.1; theta += 0.005)
+				for (theta = 0; theta < 1; theta += 0.05)
 				{
 					v[0] = x, v[1] = y;
 					const Vector<double>& res = aff.Vec();

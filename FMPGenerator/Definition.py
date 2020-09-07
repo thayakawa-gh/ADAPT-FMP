@@ -278,6 +278,8 @@ def GetFuncList():
     
     func1.append(Function1("transpose"))
     func1[-1].AddImpl([ "Mat" ], "Mat", "Transpose(*mBuffer, a); return *mBuffer;", "return Transpose(a);", upward = False, downward = False)
+    func1.append(Function1("trace"))
+    func1[-1].AddImpl([ "Mat" ], "Flt", "return Trace(a);", upward = False, downward = False)
 
     func2.append(Function2("atan2"))
     func2[-1].AddImpl([ "Int", "Int" ], "Flt", "return std::atan2(a, b)", upward = False, downward = False)
@@ -303,7 +305,9 @@ def GetFuncList():
     func2[-1].AddImpl([ "Flt", "Flt" ], "Vec", "*mBuffer = { a, b }; return *mBuffer;", "return { a, b };", downward = False)
 
     func2.append(Function2("mat2"))
-    func2[-1].AddImpl([ "Vec", "Vec" ], "Mat", "MakeMatrix(*mBuffer, a, b); return *mBuffer;", "return MakeMatrix(a, b)", upward = False, downward = False)
+    func2[-1].AddImpl([ "Vec", "Vec" ], "Mat", "MakeMatrix(*mBuffer, a, b); return *mBuffer;", "return MakeMatrix(a, b);", upward = False, downward = False)
+    func2.append(Function2("diag2"))
+    func2[-1].AddImpl([ "Flt", "Flt" ], "Mat", "MakeDiagonalMatrix(*mBuffer, a, b); return *mBuffer;", "return MakeDiagonalMatrix(a, b);", upward = False, downward = False)
 
     func2.append(Function2("dot"))
     func2[-1].AddImpl([ "Vec", "Vec" ], "Flt", "return Dot(a, b)", upward = False, downward = False)
@@ -322,6 +326,8 @@ def GetFuncList():
 
     func3.append(Function3("mat3"))
     func3[-1].AddImpl([ "Vec", "Vec", "Vec" ], "Mat", "MakeMatrix(*mBuffer, a, b, c); return *mBuffer;", "return MakeMatrix(a, b, c);", upward = False, downward = False)
+    func3.append(Function2("diag3"))
+    func3[-1].AddImpl([ "Flt", "Flt", "Flt" ], "Mat", "MakeDiagonalMatrix(*mBuffer, a, b, c); return *mBuffer;", "return MakeDiagonalMatrix(a, b, c);", upward = False, downward = False)
 
     index3.append(Function3("index3"))
     index3[-1].AddImpl([ "Mat", "Int", "Int" ], "Flt", "return a[(uint32_t)b][(uint32_t)c];")
