@@ -125,9 +125,9 @@ public:
 
 	int64_t Int() const { return mRootNode.Get_unsafe<0>()->value(); }
 	double Flt() const { return mRootNode.Get_unsafe<1>()->value(); }
-	const String& Str() const { return mRootNode.Get_unsafe<2>()->value(); }
-	const Vector<double>& Vec() const { return mRootNode.Get_unsafe<3>()->value(); }
-	const Matrix<double, 2>& Mat() const { return mRootNode.Get_unsafe<4>()->value(); }
+	const std::string& Str() const { return mRootNode.Get_unsafe<2>()->value(); }
+	const Eigen::VectorXd& Vec() const { return mRootNode.Get_unsafe<3>()->value(); }
+	const Eigen::MatrixXd& Mat() const { return mRootNode.Get_unsafe<4>()->value(); }
 
 	template <class Type>
 	typename Type::RawType value() const { return mRootNode.Get_unsafe<Type::label>(); }

@@ -21,7 +21,7 @@ int main()
 	{
 		std::string expr1 = "sqrt(dot(xy, xy))";
 		std::string expr2 = "atan2(xy[1], xy[0])";
-		Vector<double> xy({ 1., 1. });
+		Eigen::VectorXd xy(2); xy << 1., 1.;
 		FastMathParser r(expr1, { "xy"_a = &xy });
 		FastMathParser t(expr2, { "xy"_a = &xy });
 		for (double theta = 0; theta < 1.; theta += 0.01)
@@ -34,7 +34,7 @@ int main()
 	{
 		std::string expr = "mat2(vec2(cos(pi * t), -sin(pi * t)), vec2(sin(pi * t), cos(pi * t)))*v + vec2(0.1, 0.5)";
 		double theta;
-		Vector<double> v(2);
+		Eigen::VectorXd v(2);
 		FastMathParser aff(expr, { "t"_a = &theta, "v"_a = &v }, { "pi"_c = 3.1415926535897932});
 		for (double x = 0; x < 1; x += 0.1)
 		{
@@ -43,7 +43,7 @@ int main()
 				for (theta = 0; theta < 1; theta += 0.05)
 				{
 					v[0] = x, v[1] = y;
-					const Vector<double>& res = aff.Vec();
+					const Eigen::VectorXd& res = aff.Vec();
 					printf("(%8.5lf, %8.5lf) -> (%8.5lf, %8.5lf)\n", x, y, res[0], res[1]);
 				}
 			}

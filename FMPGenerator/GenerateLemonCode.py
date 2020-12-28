@@ -31,10 +31,6 @@ def GenerateLemonCode(out_dir):
     nodetype = [ "constant_node", "variable_node", "function_node" ]
 
     #3引数関数まで含めるとややこしくなるから省こう。
-    #for x in type:
-    #    for y in type:
-    #        for z in type:
-    #            f.write("%type integrated_node_" + x[0] + y[0] + z[0] + " {{ IntegratedNode<{}, {}, {}> }}\n".format(x[1], y[1], z[1]))
 
     f.write(
         "%extra_argument { ParserState *state }\n\n"
@@ -57,7 +53,7 @@ def GenerateLemonCode(out_dir):
 
     f.write(
         "equation ::= constant_node(A). { try { state->mRootNode = A->Juncturize(state); } catch (const Exception& e) { state->Error(e.GetErrorMessage()); } }\n"
-        "equation ::= variable_node(A). { try {state->mRootNode = A->Juncturize(state); } catch (const Exception& e) { state->Error(e.GetErrorMessage()); } }\n"
+        "equation ::= variable_node(A). { try { state->mRootNode = A->Juncturize(state); } catch (const Exception& e) { state->Error(e.GetErrorMessage()); } }\n"
         "equation ::= function_node(A). { try { if (!A->IsJuncture()) A->Juncturize(state); state->mRootNode = A->GetJunctureNode(); } catch (const Exception& e) { state->Error(e.GetErrorMessage()); } }\n\n")
 
 
@@ -93,7 +89,6 @@ def GenerateLemonCode(out_dir):
     f.write("\n")
 
     #2引数演算子の動作
-    #oprlist = [ "pow", "add", "sub", "mul", "div", "mod", "gt", "geq", "lt", "leq", "eq", "neq", "and", "or" ]
     for o in oper2:
         n = o.GetName()
         for ix, x in enumerate(nodetype):
@@ -159,7 +154,6 @@ def GenerateLemonCode(out_dir):
                 unode = "constant_node"
             if unode == "constant_node":
                 f.write(f"{unode:<13}(A) ::= {x:<13}(B) BRA {y:<13}(C) KET. {{ try {{ A.Construct(MakeConstantNode(state, {o.GetIndex()}, *B, *C)); }} catch (const Exception& e) {{ state->Error(e.GetErrorMessage()); }} }}\n")
-                #f.write(f"{unode:<13}(A) ::= LPAR {x:<13}(B) RPAR BRA {y:<13}(C) KET. {{ A.Construct(MakeConstantNode(state, {o.GetIndex()}, *B, *C));; }}\n")
             else:
                 f.write(f"{unode:<13}(A) ::= {x:<13}(B) BRA {y:<13}(C) KET. {{ try {{ A.Construct(MakeFunctionNode(state, {o.GetIndex()}, *B, *C)); }} catch (const Exception& e) {{ state->Error(e.GetErrorMessage()); }} }}\n")
     f.write("\n")
@@ -169,15 +163,12 @@ def GenerateLemonCode(out_dir):
     for ix, x in enumerate(nodetype):
         for iy, y in enumerate(nodetype):
             for iz, z in enumerate(nodetype):
-                #vec[index]という記述はterminal nodeに対してのみ許す。function nodeには(vec)[index]のように括弧を付与しなければならない。
-                #o = oper2[oper2.index("index")]
                 o = index3[0]
                 unode = "function_node"
                 if x == "constant_node" and y == "constant_node" and z == "constant_node":
                     unode = "constant_node"
                 if unode == "constant_node":
                     f.write(f"{unode:<13}(A) ::= {x:<13}(B) BRA {y:<13}(C) COM {z:<13}(D) KET. {{ try {{ A.Construct(MakeConstantNode(state, {o.GetIndex()}, *B, *C, *D)); }} catch (const Exception& e) {{ state->Error(e.GetErrorMessage()); }} }}\n")
-                    #f.write(f"{unode:<13}(A) ::= LPAR {x:<13}(B) RPAR BRA {y:<13}(C) KET. {{ A.Construct(MakeConstantNode(state, {o.GetIndex()}, *B, *C));; }}\n")
                 else:
                     f.write(f"{unode:<13}(A) ::= {x:<13}(B) BRA {y:<13}(C) COM {z:<13}(D) KET. {{ try {{ A.Construct(MakeFunctionNode(state, {o.GetIndex()}, *B, *C, *D)); }} catch (const Exception& e) {{ state->Error(e.GetErrorMessage()); }} }}\n")
     f.write("\n")

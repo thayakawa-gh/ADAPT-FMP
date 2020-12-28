@@ -193,7 +193,7 @@ struct FunctionNode
 	//FMPMakeExpressionBase& GetMakeExpression() { return mMakeFunc.Get<FMPMakeExpressionBase>(); }
 
 private:
-	StaticAny<40> mMakeFunc;
+	StaticAny<sizeof(TerminalNode) * 2 + 8> mMakeFunc;//sizeof(TerminalNode) + 8(vtable pointer)
 	bool mIsJuncture;
 	//NumericalType mType;
 };

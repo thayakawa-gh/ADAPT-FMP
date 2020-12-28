@@ -369,17 +369,17 @@ yy42:
 					}
 					case VALUE_STR:
 					{
-						yylval.Reset(static_cast<const adapt::String*>(ptr_type.first));
+						yylval.Reset(static_cast<const std::string*>(ptr_type.first));
 						return FMP_TOKEN_STRARG;
 					}
 					case VALUE_VEC:
 					{
-						yylval.Reset(static_cast<const adapt::Vector<double>*>(ptr_type.first));
+						yylval.Reset(static_cast<const Eigen::VectorXd*>(ptr_type.first));
 						return FMP_TOKEN_VECARG;
 					}
 					case VALUE_MAT:
 					{
-						yylval.Reset(static_cast<const adapt::Matrix<double, 2>*>(ptr_type.first));
+						yylval.Reset(static_cast<const Eigen::MatrixXd*>(ptr_type.first));
 						return FMP_TOKEN_MATARG;
 					}
 					default: break;
@@ -437,7 +437,7 @@ yy54:
 			++mCursor;
 			{
 			std::string str = this->String();
-			yylval.Reset(adapt::String(str.c_str()));
+			yylval.Reset(str);
 			return FMP_TOKEN_STR;
 		}
 yy56:

@@ -40,7 +40,7 @@ BEGIN_LEMON_NAMESPACE
 %start_symbol equation
 
 equation ::= constant_node(A). { try { state->mRootNode = A->Juncturize(state); } catch (const Exception& e) { state->Error(e.GetErrorMessage()); } }
-equation ::= variable_node(A). { try {state->mRootNode = A->Juncturize(state); } catch (const Exception& e) { state->Error(e.GetErrorMessage()); } }
+equation ::= variable_node(A). { try { state->mRootNode = A->Juncturize(state); } catch (const Exception& e) { state->Error(e.GetErrorMessage()); } }
 equation ::= function_node(A). { try { if (!A->IsJuncture()) A->Juncturize(state); state->mRootNode = A->GetJunctureNode(); } catch (const Exception& e) { state->Error(e.GetErrorMessage()); } }
 
 constant_node(A) ::= INT(B).    { try { A.Construct(B->GetInt()); } catch (const Exception& e) { state->Error(e.GetErrorMessage()); } }

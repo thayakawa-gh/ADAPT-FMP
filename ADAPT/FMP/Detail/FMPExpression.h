@@ -8,6 +8,7 @@
 #include <ADAPT/CUF/Variant.h>
 #include <ADAPT/CUF/StaticAny.h>
 #include <ADAPT/CUF/Any.h>
+#include <Eigen/Dense>
 
 namespace adapt
 {
@@ -195,20 +196,20 @@ struct FltType
 struct StrType
 {
 	static constexpr NumericalType label = VALUE_STR;
-	using ValueType = String;
-	using RawType = const String&;
+	using ValueType = std::string;
+	using RawType = const std::string&;
 };
 struct VecType
 {
 	static constexpr NumericalType label = VALUE_VEC;
-	using ValueType = Vector<double>;
-	using RawType = const Vector<double>&;
+	using ValueType = Eigen::VectorXd;
+	using RawType = const Eigen::VectorXd&;
 };
 struct MatType
 {
 	static constexpr NumericalType label = VALUE_MAT;
-	using ValueType = Matrix<double>;
-	using RawType = const Matrix<double>&;
+	using ValueType = Eigen::MatrixXd;
+	using RawType = const Eigen::MatrixXd&;
 };
 struct NonType
 {
@@ -224,18 +225,20 @@ struct ConvertToType<int64_t> { using Type = IntType; };
 template <>
 struct ConvertToType<double> { using Type = FltType; };
 template <>
-struct ConvertToType<String> { using Type = StrType; };
+struct ConvertToType<std::string> { using Type = StrType; };
 template <>
-struct ConvertToType<Vector<double>> { using Type = VecType; };
+struct ConvertToType<Eigen::VectorXd> { using Type = VecType; };
+template <>
+struct ConvertToType<Eigen::MatrixXd> { using Type = MatType; };
 
 struct NodeValue
 {
 	//constant node用
 	NodeValue(int64_t i) : mValue(i) {}
 	NodeValue(double i) : mValue(i) {}
-	NodeValue(const String& i) : mValue(i) {}
-	NodeValue(const Vector<double>& i) : mValue(i) {}
-	NodeValue(const Matrix<double>& i) : mValue(i) {}
+	NodeValue(const std::string& i) : mValue(i) {}
+	NodeValue(const Eigen::VectorXd& i) : mValue(i) {}
+	NodeValue(const Eigen::MatrixXd& i) : mValue(i) {}
 
 	//variable node用
 	NodeValue(const int64_t* i)
@@ -246,24 +249,24 @@ struct NodeValue
 	{
 		mValue.Emplace<VALUE_FLT + VALUE_END>(i);
 	}
-	NodeValue(const String* i)
+	NodeValue(const std::string* i)
 	{
 		mValue.Emplace<VALUE_STR + VALUE_END>(i);
 	}
-	NodeValue(const Vector<double>* i)
+	NodeValue(const Eigen::VectorXd* i)
 	{
 		mValue.Emplace<VALUE_VEC + VALUE_END>(i);
 	}
-	NodeValue(const Matrix<double>* i)
+	NodeValue(const Eigen::MatrixXd* i)
 	{
 		mValue.Emplace<VALUE_MAT + VALUE_END>(i);
 	}
 
 	const int64_t& GetInt() const { return mValue.Get<VALUE_INT>(); }
 	const double&  GetFlt() const { return mValue.Get<VALUE_FLT>(); }
-	const String&  GetStr() const { return mValue.Get<VALUE_STR>(); }
-	const Vector<double>&  GetVec() const { return mValue.Get<VALUE_VEC>(); }
-	const Matrix<double>&  GetMat() const { return mValue.Get<VALUE_MAT>(); }
+	const std::string&  GetStr() const { return mValue.Get<VALUE_STR>(); }
+	const Eigen::VectorXd&  GetVec() const { return mValue.Get<VALUE_VEC>(); }
+	const Eigen::MatrixXd&  GetMat() const { return mValue.Get<VALUE_MAT>(); }
 	size_t GetIntIndex() const { return (size_t)mValue.Get<VALUE_INT + VALUE_END>(); }
 	size_t GetFltIndex() const { return (size_t)mValue.Get<VALUE_FLT + VALUE_END>(); }
 	size_t GetStrIndex() const { return (size_t)mValue.Get<VALUE_STR + VALUE_END>(); }
@@ -271,9 +274,9 @@ struct NodeValue
 	size_t GetMatIndex() const { return (size_t)mValue.Get<VALUE_MAT + VALUE_END>(); }
 	const int64_t* GetIntPtr() const { return mValue.Get<VALUE_INT + VALUE_END>(); }
 	const double*  GetFltPtr() const { return mValue.Get<VALUE_FLT + VALUE_END>(); }
-	const String*  GetStrPtr() const { return mValue.Get<VALUE_STR + VALUE_END>(); }
-	const Vector<double>*  GetVecPtr() const { return mValue.Get<VALUE_VEC + VALUE_END>(); }
-	const Matrix<double>*  GetMatPtr() const { return mValue.Get<VALUE_MAT + VALUE_END>(); }
+	const std::string*  GetStrPtr() const { return mValue.Get<VALUE_STR + VALUE_END>(); }
+	const Eigen::VectorXd* GetVecPtr() const { return mValue.Get<VALUE_VEC + VALUE_END>(); }
+	const Eigen::MatrixXd*  GetMatPtr() const { return mValue.Get<VALUE_MAT + VALUE_END>(); }
 
 	bool IsConstant() const { return mValue.GetIndex() < VALUE_END; }
 	NumericalType GetType() const
@@ -285,10 +288,9 @@ struct NodeValue
 
 protected:
 	Variant<
-		int64_t, double, String, Vector<double>, Matrix<double>,
-		const int64_t*, const double*, const String*, const Vector<double>*, const Matrix<double>*> mValue;
+		int64_t, double, std::string, Eigen::VectorXd, Eigen::MatrixXd,
+		const int64_t*, const double*, const std::string*, const Eigen::VectorXd*, const Eigen::MatrixXd*> mValue;
 };
-
 
 template <class Type>
 class FMPExpressionNodeBase

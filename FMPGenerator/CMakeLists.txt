@@ -2,6 +2,10 @@ project(FMPGenerator)
 
 option(LEMON_EXE "lemon executable file")
 option(RE2C_EXE "re2c executable file")
+if (WIN32)
+    option(CYGWIN_DIR "cygwin directory, needed to execute re2c and lemon")
+endif()
+set(CMAKE_MSVCIDE_RUN_PATH ${CYGWIN_DIR})
 find_package(Python REQUIRED)
 
 set(FMP_DETAIL_DIR    ${CMAKE_SOURCE_DIR}/ADAPT/FMP/Detail)
@@ -26,6 +30,7 @@ if (WIN32)
     string(REGEX REPLACE "/" "\\\\" FMPFUNCTION_H ${FMPFUNCTION_H})
     string(REGEX REPLACE "/" "\\\\" GENERATE_PY ${GENERATE_PY})
     string(REGEX REPLACE "/" "\\\\" GENERATOR_DIR ${GENERATOR_DIR})
+    string(REGEX REPLACE "/" "\\\\" CYGWIN_DIR ${CYGWIN_DIR})
 endif ()
 
 if (MSVC)

@@ -115,8 +115,8 @@ def GetFuncList():
     oper2[-1].AddImpl([ "Flt", "Vec" ], "Vec", "*mBuffer = b; *mBuffer *= a; return *mBuffer", "return a * b", upward = False, downward = False)
     oper2[-1].AddImpl([ "Mat", "Flt" ], "Mat", "*mBuffer = a; *mBuffer *= b; return *mBuffer", "return a * b", upward = False, downward = False)
     oper2[-1].AddImpl([ "Flt", "Mat" ], "Mat", "*mBuffer = b; *mBuffer *= a; return *mBuffer", "return a * b", upward = False, downward = False)
-    oper2[-1].AddImpl([ "Mat", "Mat" ], "Mat", "Multiply(*mBuffer, a, b); return *mBuffer", "return a * b", upward = False, downward = False)
-    oper2[-1].AddImpl([ "Mat", "Vec" ], "Vec", "Multiply(*mBuffer, a, b); return *mBuffer", "return a * b", upward = False, downward = False)
+    oper2[-1].AddImpl([ "Mat", "Mat" ], "Mat", "*mBuffer = a * b; return *mBuffer", "return a * b", upward = False, downward = False)
+    oper2[-1].AddImpl([ "Mat", "Vec" ], "Vec", "*mBuffer = a * b; return *mBuffer", "return a * b", upward = False, downward = False)
 
     oper2.append(Function2("div"))
     oper2[-1].AddImpl([ "Int", "Int" ], "Int", "return a / b")
@@ -196,8 +196,8 @@ def GetFuncList():
     oper2[-1].AddImpl([ "Flt", "Flt" ], "Int", "return (int64_t)(a || b)", upward = False, downward = False)
     
     index2.append(Function2("index2"))
-    index2[-1].AddImpl([ "Str", "Int" ], "Str", "*mBuffer = a[b]; return *mBuffer;", "return a[b];")
-    index2[-1].AddImpl([ "Vec", "Int" ], "Flt", "return a[(uint32_t)b];")
+    index2[-1].AddImpl([ "Str", "Int" ], "Str", "*mBuffer = a[b]; return *mBuffer;", "return std::string(1, a[b]);")
+    index2[-1].AddImpl([ "Vec", "Int" ], "Flt", "return a[b];")
 
 
     func1.append(Function1("sin"))
@@ -273,13 +273,13 @@ def GetFuncList():
     func1[-1].AddImpl([ "Flt" ], "Flt", "return std::abs(a)")
 
     func1.append(Function1("len"))
-    func1[-1].AddImpl([ "Str" ], "Int", "return a.GetSize()", upward = False, downward = False)
-    func1[-1].AddImpl([ "Vec" ], "Int", "return a.GetSize(0)", upward = False, downward = False)
+    func1[-1].AddImpl([ "Str" ], "Int", "return a.size()", upward = False, downward = False)
+    func1[-1].AddImpl([ "Vec" ], "Int", "return a.size()", upward = False, downward = False)
     
     func1.append(Function1("transpose"))
-    func1[-1].AddImpl([ "Mat" ], "Mat", "Transpose(*mBuffer, a); return *mBuffer;", "return Transpose(a);", upward = False, downward = False)
+    func1[-1].AddImpl([ "Mat" ], "Mat", "*mBuffer = a.transpose(); return *mBuffer;", "return a.transpose();", upward = False, downward = False)
     func1.append(Function1("trace"))
-    func1[-1].AddImpl([ "Mat" ], "Flt", "return Trace(a);", upward = False, downward = False)
+    func1[-1].AddImpl([ "Mat" ], "Flt", "return a.trace();", upward = False, downward = False)
 
     func2.append(Function2("atan2"))
     func2[-1].AddImpl([ "Int", "Int" ], "Flt", "return std::atan2(a, b)", upward = False, downward = False)
@@ -302,18 +302,30 @@ def GetFuncList():
     func2[-1].AddImpl([ "Flt", "Flt" ], "Flt", "return std::min(a, b)", downward = False)
 
     func2.append(Function2("vec2"))
-    func2[-1].AddImpl([ "Flt", "Flt" ], "Vec", "*mBuffer = { a, b }; return *mBuffer;", "return { a, b };", downward = False)
+    func2[-1].AddImpl([ "Flt", "Flt" ], "Vec",\
+                      "mBuffer->resize(2); *mBuffer << a, b; return *mBuffer;",\
+                      "Eigen::VectorXd v(2); v << a, b; return v;",\
+                      downward = False)
 
     func2.append(Function2("mat2"))
-    func2[-1].AddImpl([ "Vec", "Vec" ], "Mat", "MakeMatrix(*mBuffer, a, b); return *mBuffer;", "return MakeMatrix(a, b);", upward = False, downward = False)
+    func2[-1].AddImpl([ "Vec", "Vec" ], "Mat",\
+                      "mBuffer->resize(a.size(), 2); *mBuffer << a, b; return *mBuffer;",\
+                      "Eigen::MatrixXd m(a.size(), 2); m << a, b; return m;",\
+                      upward = False, downward = False)
     func2.append(Function2("diag2"))
-    func2[-1].AddImpl([ "Flt", "Flt" ], "Mat", "MakeDiagonalMatrix(*mBuffer, a, b); return *mBuffer;", "return MakeDiagonalMatrix(a, b);", upward = False, downward = False)
+    func2[-1].AddImpl([ "Flt", "Flt" ], "Mat",\
+                      "*mBuffer = Eigen::MatrixXd::Zero(2, 2); mBuffer->diagonal() << a, b; return *mBuffer;",\
+                      "Eigen::MatrixXd m = Eigen::MatrixXd::Zero(2, 2); m.diagonal() << a, b; return m;",\
+                      upward = False, downward = False)
 
     func2.append(Function2("dot"))
-    func2[-1].AddImpl([ "Vec", "Vec" ], "Flt", "return Dot(a, b)", upward = False, downward = False)
+    func2[-1].AddImpl([ "Vec", "Vec" ], "Flt", "return a.dot(b);", upward = False, downward = False)
 
     func2.append(Function2("cross"))
-    func2[-1].AddImpl([ "Vec", "Vec" ], "Vec", "Cross(*mBuffer, a, b); return *mBuffer;", "return Cross(a, b);", upward = False, downward = False)
+    func2[-1].AddImpl([ "Vec", "Vec" ], "Vec",\
+                      "*mBuffer = a.head<3>().cross(b.head<3>()); return *mBuffer;",\
+                      "return a.head<3>().cross(b.head<3>());",\
+                      upward = False, downward = False)
 
     func3.append(Function3("if"))
     func3[-1].AddImpl([ "Int", "Int", "Int" ], "Int", "return a ? b : c", upward = False, downward = False)
@@ -322,15 +334,24 @@ def GetFuncList():
     func3[-1].AddImpl([ "Int", "Vec", "Vec" ], "Vec", "return a ? b : c", upward = False, downward = False)
     
     func3.append(Function3("vec3"))
-    func3[-1].AddImpl([ "Flt", "Flt", "Flt" ], "Vec", "*mBuffer = { a, b, c }; return *mBuffer;", "return { a, b, c };", downward = False)
+    func3[-1].AddImpl([ "Flt", "Flt", "Flt" ], "Vec",\
+                      "mBuffer->resize(3); *mBuffer << a, b, c; return *mBuffer;",\
+                      "Eigen::VectorXd v(3); v << a, b, c; return v;",\
+                      downward = False)
 
     func3.append(Function3("mat3"))
-    func3[-1].AddImpl([ "Vec", "Vec", "Vec" ], "Mat", "MakeMatrix(*mBuffer, a, b, c); return *mBuffer;", "return MakeMatrix(a, b, c);", upward = False, downward = False)
+    func3[-1].AddImpl([ "Vec", "Vec", "Vec" ], "Mat",\
+                      "mBuffer->resize(a.size(), 3); *mBuffer << a, b, c; return *mBuffer;",\
+                      "Eigen::MatrixXd m(a.size(), 3); m << a, b, c; return m;",\
+                      upward = False, downward = False)
     func3.append(Function2("diag3"))
-    func3[-1].AddImpl([ "Flt", "Flt", "Flt" ], "Mat", "MakeDiagonalMatrix(*mBuffer, a, b, c); return *mBuffer;", "return MakeDiagonalMatrix(a, b, c);", upward = False, downward = False)
+    func3[-1].AddImpl([ "Flt", "Flt", "Flt" ], "Mat",\
+                      "*mBuffer = Eigen::MatrixXd::Zero(3, 3); mBuffer->diagonal() << a, b, c; return *mBuffer;",\
+                      "Eigen::MatrixXd m = Eigen::MatrixXd::Zero(3, 3); m.diagonal() << a, b, c; return m;",\
+                      upward = False, downward = False)
 
     index3.append(Function3("index3"))
-    index3[-1].AddImpl([ "Mat", "Int", "Int" ], "Flt", "return a[(uint32_t)b][(uint32_t)c];")
+    index3[-1].AddImpl([ "Mat", "Int", "Int" ], "Flt", "return a(b, c);")
 
     for i, o in enumerate(itertools.chain(func1, func2, func3, oper1, oper2, oper3, index2, index3)):
         o.SetIndex(i)
