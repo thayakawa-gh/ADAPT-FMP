@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <limits>
+#include <tuple>
 
 namespace adapt
 {
@@ -11,8 +12,25 @@ namespace adapt
 inline namespace cuf
 {
 
+template <class Type, Type N>
+struct IntegralConstant
+{
+	static constexpr Type value = N;
+	constexpr IntegralConstant<Type, Type(N + 1)> operator++() const { return IntegralConstant<Type, Type(N + 1)>(); }
+	constexpr IntegralConstant<Type, Type(N - 1)> operator--() const { return IntegralConstant<Type, Type(N - 1)>(); }
+	template <Type M>
+	constexpr IntegralConstant<Type, Type(N + M)> operator+(IntegralConstant<Type, M>) const { return IntegralConstant<Type, Type(N + M)>(); }
+};
+template <bool B>
+using BoolConstant = IntegralConstant<bool, B>;
+template <size_t N>
+using IndexConstant = IntegralConstant<size_t, N>;
+
+using TrueType = BoolConstant<true>;
+using FalseType = BoolConstant<false>;
+
 //累乗計算クラス。ハッシュ化とか必要に応じて使おう。でもできればconstexpr欲しい。
-template <int base, int power>
+/*template <int base, int power>
 struct TPower
 {
 	static_assert(power >= 0, "power must be equal or larger than 0");
@@ -33,7 +51,7 @@ template <int N>
 struct IntSum<N>
 {
 	static constexpr int value = N;
-};
+};*/
 
 //C++20のstd::type_identityの代用。
 template <class T>
@@ -44,90 +62,53 @@ struct Identity
 template <class T>
 using IdentityT = typename Identity<T>::Type;
 
-template <class Derived, class Base>
-class IsBasedOn
-{
-private:
-	typedef char  Yes;
-	typedef struct { char c[2]; } No;
-
-	static constexpr Yes check(const Base&);
-	static constexpr No  check(...);
-
-	static const Derived& d;
-public:
-	static constexpr bool value = sizeof(check(d)) == sizeof(Yes);
-};
-template <class Base>
-class IsBasedOn<void, Base>
-{
-public:
-	static constexpr bool value = false;
-};
-//Base<T...>をTに依らず継承しているか否かを判定する汎用的なクラスを書くことは出来ないのだろうか。
-//あった！あったぞ！できたぞ！すげぇ！テンプレート便利すぎだろこん畜生！
-//実は継承関係でなくとも、T<int>に対するT<...>みたいな関係であれば判定できる。
-template <class Derived, template <class ...> class Base>
+template <class Derived, template <class> class Base>
 class IsBasedOn_T
 {
 private:
-	typedef char  Yes;
-	typedef struct { char c[2]; } No;
+	template <class U>
+	static constexpr TrueType check(const Base<U>*);
+	static constexpr FalseType check(const void*);
 
+	static const Derived* d;
+public:
+	static constexpr bool value = decltype(check(d))::value;
+};
+template <class Derived, template <class...> class Base>
+class IsBasedOn_XT
+{
+private:
 	template <class ...U>
-	static constexpr Yes check(const Base<U...>&);
-	static constexpr No  check(...);
+	static constexpr TrueType check(const Base<U...>*);
+	static constexpr FalseType check(const void*);
 
-	static const Derived& d;
+	static const Derived* d;
 public:
-	static constexpr bool value = sizeof(check(d)) == sizeof(Yes);
+	static constexpr bool value = decltype(check(d))::value;
 };
-template <template <class ...> class Base>
-class IsBasedOn_T<void, Base>
-{
-public:
-	static constexpr bool value = false;
-};
-template <class Derived, template <int, class...> class Base>
-class IsBasedOn_NT
+template <class Derived, template <auto> class Base>
+class IsBasedOn_N
 {
 private:
-	typedef char  Yes;
-	typedef struct { char c[2]; } No;
+	template <auto N>
+	static constexpr TrueType check(const Base<N>*);
+	static constexpr FalseType check(const void*);
 
-	template <int N>
-	static constexpr Yes check(const Base<N>&);
-	//本来はこちらの形式が正しいのだが、
-	//Visual Studioのバグか、コンパイル時に"パラメータ展開できねぇよ"と文句を言われる。
-	//テンプレート周りがゴミカスなVS2015なので仕方ない。
-	//template <int N, class ...U>
-	//static const Yes check(const Base<N, U...>&);
-	static constexpr No  check(...);
-
-	static const Derived& d;
+	static const Derived* d;
 public:
-	static constexpr bool value = sizeof(check(d)) == sizeof(Yes);
+	static constexpr bool value = decltype(check(d))::value;
 };
-template <template <int, class ...> class Base>
-class IsBasedOn_NT<void, Base>
-{
-public:
-	static constexpr bool value = false;
-};
-template <class Derived, template <int, std::size_t, class...> class Base>
-class IsBasedOn_NNT
+template <class Derived, template <auto, auto> class Base>
+class IsBasedOn_NN
 {
 private:
-	typedef char  Yes;
-	typedef struct { char c[2]; } No;
+	template <auto N, auto M>
+	static constexpr TrueType check(const Base<N, M>*);
+	static constexpr FalseType check(const void*);
 
-	template <int N, int M, class ...U>
-	static constexpr Yes check(const Base<N, M, U...>&);
-	static constexpr No  check(...);
-
-	static const Derived& d;
+	static const Derived* d;
 public:
-	static constexpr bool value = sizeof(check(d)) == sizeof(Yes);
+	static constexpr bool value = decltype(check(d))::value;
 };
 
 //template <...> class T : public Base<0, ...>の形で可変長引数テンプレートのメンバを持つクラスに対し、
@@ -166,7 +147,7 @@ template <std::size_t RoopNum, std::size_t N, template <std::size_t CastN> class
 struct StaticRoop_impl<RoopNum, N, Functor, false>
 {
 	template <class ...Args>
-	inline static void apply(Args&& ...args)
+	inline static void apply(Args&& ...)
 	{}
 };
 template <std::size_t RoopNum, template <std::size_t CastN> class Functor, class ...Args>
@@ -178,7 +159,7 @@ inline void StaticRoop(Args&& ...args)
 //FlexibleSwitchは再帰処理で非効率なので、関数ポインタテーブル版を新たに作りたい。
 
 template <class ...Types>
-void WrapSequence(Types&& ...types)
+void WrapSequence(Types&& ...)
 {}
 
 //あるクラスがメンバ関数MemFuncを持つかどうかを判定するHasMemFunc_##MemFunc、
@@ -209,23 +190,6 @@ struct TypeList;
 template <template <class...> class ...T>
 struct UnarguedList;
 
-template <size_t N>
-struct Number
-{
-	static constexpr size_t value = N;
-};
-
-template <class Type, Type N>
-struct IntegralConstant
-{
-	static constexpr Type valie = N;
-};
-template <bool B>
-using BoolConstant = IntegralConstant<bool, B>;
-
-using TrueType = BoolConstant<true>;
-using FalseType = BoolConstant<false>;
-
 namespace detail
 {
 template <size_t Index, class Type>
@@ -248,11 +212,12 @@ struct GetType
 										TypeList<Types...>>(),
 										std::integral_constant<size_t, N>()));
 };
-
 template <size_t N, class ...Types>
 struct GetType<N, TypeList<Types...>>
 	: public GetType<N, Types...>
 {};
+template <int N, class ...Args>
+using GetTypeT = typename GetType<N, Args...>::Type;
 
 namespace detail
 {
@@ -291,7 +256,7 @@ private:
 public:
 
 	static constexpr size_t Index = Exist::Index;
-	static constexpr size_t value = Exist::value;
+	static constexpr bool value = Exist::value;
 };
 
 #if _MSC_VER <= 1900
@@ -437,8 +402,27 @@ struct CatTypeList<T1, T2, T3, Ts...>
 template <class ...T>
 using CatTypeListT = typename CatTypeList<T...>::Type;
 
-template <int N, class ...Args>
-using GetTypeT = typename GetType<N, Args...>::Type;
+template <size_t Index, class ...Types>
+struct GetFrontTypes;
+template <>
+struct GetFrontTypes<0>
+{
+	using Type = TypeList<>;
+};
+template <class Head, class ...Types>
+struct GetFrontTypes<0, Head, Types...>
+{
+	using Type = TypeList<>;
+};
+template <size_t Index, class Head, class ...Types>
+struct GetFrontTypes<Index, Head, Types...>
+{
+	using Type = CatTypeListT<TypeList<Head>, typename GetFrontTypes<Index - 1, Types...>::Type>;
+};
+template <size_t Index, class ...Types>
+using GetFrontTypesT = typename GetFrontTypes<Index, Types...>::Type;
+
+
 
 template <int Nth, int M, class Type, class Head, class ...Body, std::enable_if_t<Nth != M, std::nullptr_t> = nullptr>
 Type GetNthArgument_impl(Head&& head, Body&& ...body)
@@ -454,6 +438,33 @@ template <int Nth, class ...Args, class Type = GetTypeT<Nth, Args...>>
 Type GetNthArgument(Args&& ...args)
 {
 	return GetNthArgument_impl<Nth, 0, Args...>(std::forward<Args>(args)...);
+}
+
+namespace detail
+{
+template <size_t N>
+struct GetFrontArgs_impl
+{
+	template <class Head, class ...Args>
+	static constexpr auto apply(Head&& head, Args&& ...args)
+	{
+		return std::tuple_cat(std::forward_as_tuple(std::forward<Head>(head)), GetFrontArgs_impl<N - 1>::apply(std::forward<Args>(args)...));
+	}
+};
+template <>
+struct GetFrontArgs_impl<0>
+{
+	template <class ...Args>
+	static constexpr auto apply(Args&& ...)
+	{
+		return std::tuple<>();
+	}
+};
+}
+template <size_t Size, class ...Args>
+static constexpr auto GetFrontArgs(Args&& ...args)
+{
+	return detail::GetFrontArgs_impl<Size>::apply(std::forward<Args>(args)...);
 }
 
 template <class Type_>
@@ -479,6 +490,12 @@ namespace detail
 
 template <class ...Ts>
 struct CommonType_impl;
+template <class CommonT>
+struct CommonType_impl<CommonT>
+{
+	using Type = CommonT;
+	static constexpr bool value = true;
+};
 template <class CommonT>
 struct CommonType_impl<CommonT, CommonT>
 {

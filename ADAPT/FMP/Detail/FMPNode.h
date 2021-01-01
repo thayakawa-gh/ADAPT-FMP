@@ -285,8 +285,8 @@ template <class Func>
 FunctionNode::FunctionNode(Identity<Func>, size_t func, FalseType, TrueType, ParserState* state, FunctionNode& n1, FunctionNode& n2)
 {
 	//upwardがfalseなので、n1、n2双方を強制的にJuncturizeする。
-	JunctureNode j1 = n1.IsJuncture() ? n1.GetJunctureNode() : n1.Juncturize();
-	JunctureNode j2 = n2.IsJuncture() ? n2.GetJunctureNode() : n2.Juncturize();
+	JunctureNode j1 = n1.IsJuncture() ? n1.GetJunctureNode() : n1.Juncturize(state);
+	JunctureNode j2 = n2.IsJuncture() ? n2.GetJunctureNode() : n2.Juncturize(state);
 	mMakeFunc.Emplace<FMPMakeExpressionJJ<Func>>(j1, j2);
 	mIsJuncture = false;
 }

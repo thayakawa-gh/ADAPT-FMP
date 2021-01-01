@@ -5463,102 +5463,123 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t)
             return TerminalNode(sinInt::process_when_compile(t.GetInt()));
         if (t.GetType() == VALUE_FLT)
             return TerminalNode(sinFlt::process_when_compile(t.GetFlt()));
+        break;
     case 1:
         if (t.GetType() == VALUE_INT)
             return TerminalNode(cosInt::process_when_compile(t.GetInt()));
         if (t.GetType() == VALUE_FLT)
             return TerminalNode(cosFlt::process_when_compile(t.GetFlt()));
+        break;
     case 2:
         if (t.GetType() == VALUE_INT)
             return TerminalNode(tanInt::process_when_compile(t.GetInt()));
         if (t.GetType() == VALUE_FLT)
             return TerminalNode(tanFlt::process_when_compile(t.GetFlt()));
+        break;
     case 3:
         if (t.GetType() == VALUE_INT)
             return TerminalNode(asinInt::process_when_compile(t.GetInt()));
         if (t.GetType() == VALUE_FLT)
             return TerminalNode(asinFlt::process_when_compile(t.GetFlt()));
+        break;
     case 4:
         if (t.GetType() == VALUE_INT)
             return TerminalNode(acosInt::process_when_compile(t.GetInt()));
         if (t.GetType() == VALUE_FLT)
             return TerminalNode(acosFlt::process_when_compile(t.GetFlt()));
+        break;
     case 5:
         if (t.GetType() == VALUE_INT)
             return TerminalNode(atanInt::process_when_compile(t.GetInt()));
         if (t.GetType() == VALUE_FLT)
             return TerminalNode(atanFlt::process_when_compile(t.GetFlt()));
+        break;
     case 6:
         if (t.GetType() == VALUE_INT)
             return TerminalNode(lnInt::process_when_compile(t.GetInt()));
         if (t.GetType() == VALUE_FLT)
             return TerminalNode(lnFlt::process_when_compile(t.GetFlt()));
+        break;
     case 7:
         if (t.GetType() == VALUE_INT)
             return TerminalNode(log10Int::process_when_compile(t.GetInt()));
         if (t.GetType() == VALUE_FLT)
             return TerminalNode(log10Flt::process_when_compile(t.GetFlt()));
+        break;
     case 8:
         if (t.GetType() == VALUE_INT)
             return TerminalNode(expInt::process_when_compile(t.GetInt()));
         if (t.GetType() == VALUE_FLT)
             return TerminalNode(expFlt::process_when_compile(t.GetFlt()));
+        break;
     case 9:
         if (t.GetType() == VALUE_INT)
             return TerminalNode(squareInt::process_when_compile(t.GetInt()));
         if (t.GetType() == VALUE_FLT)
             return TerminalNode(squareFlt::process_when_compile(t.GetFlt()));
+        break;
     case 10:
         if (t.GetType() == VALUE_INT)
             return TerminalNode(cubeInt::process_when_compile(t.GetInt()));
         if (t.GetType() == VALUE_FLT)
             return TerminalNode(cubeFlt::process_when_compile(t.GetFlt()));
+        break;
     case 11:
         if (t.GetType() == VALUE_INT)
             return TerminalNode(sqrtInt::process_when_compile(t.GetInt()));
         if (t.GetType() == VALUE_FLT)
             return TerminalNode(sqrtFlt::process_when_compile(t.GetFlt()));
+        break;
     case 12:
         if (t.GetType() == VALUE_INT)
             return TerminalNode(cbrtInt::process_when_compile(t.GetInt()));
         if (t.GetType() == VALUE_FLT)
             return TerminalNode(cbrtFlt::process_when_compile(t.GetFlt()));
+        break;
     case 13:
         if (t.GetType() == VALUE_INT)
             return TerminalNode(ceilInt::process_when_compile(t.GetInt()));
         if (t.GetType() == VALUE_FLT)
             return TerminalNode(ceilFlt::process_when_compile(t.GetFlt()));
+        break;
     case 14:
         if (t.GetType() == VALUE_INT)
             return TerminalNode(floorInt::process_when_compile(t.GetInt()));
         if (t.GetType() == VALUE_FLT)
             return TerminalNode(floorFlt::process_when_compile(t.GetFlt()));
+        break;
     case 15:
         if (t.GetType() == VALUE_INT)
             return TerminalNode(intInt::process_when_compile(t.GetInt()));
         if (t.GetType() == VALUE_FLT)
             return TerminalNode(intFlt::process_when_compile(t.GetFlt()));
+        break;
     case 16:
         if (t.GetType() == VALUE_INT)
             return TerminalNode(floatInt::process_when_compile(t.GetInt()));
         if (t.GetType() == VALUE_FLT)
             return TerminalNode(floatFlt::process_when_compile(t.GetFlt()));
+        break;
     case 17:
         if (t.GetType() == VALUE_INT)
             return TerminalNode(absInt::process_when_compile(t.GetInt()));
         if (t.GetType() == VALUE_FLT)
             return TerminalNode(absFlt::process_when_compile(t.GetFlt()));
+        break;
     case 18:
         if (t.GetType() == VALUE_STR)
             return TerminalNode(lenStr::process_when_compile(t.GetStr()));
         if (t.GetType() == VALUE_VEC)
             return TerminalNode(lenVec::process_when_compile(t.GetVec()));
+        break;
     case 19:
         if (t.GetType() == VALUE_MAT)
             return TerminalNode(transposeMat::process_when_compile(t.GetMat()));
+        break;
     case 20:
         if (t.GetType() == VALUE_MAT)
             return TerminalNode(traceMat::process_when_compile(t.GetMat()));
+        break;
     case 34:
         if (t.GetType() == VALUE_INT)
             return TerminalNode(subInt::process_when_compile(t.GetInt()));
@@ -5568,6 +5589,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t)
             return TerminalNode(subVec::process_when_compile(t.GetVec()));
         if (t.GetType() == VALUE_MAT)
             return TerminalNode(subMat::process_when_compile(t.GetMat()));
+        break;
     }
     throw InvalidType("");
 }
@@ -5584,6 +5606,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(atan2FltInt::process_when_compile(t1.GetFlt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(atan2FltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
+        break;
     case 22:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(log2IntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
@@ -5593,31 +5616,39 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(log2FltInt::process_when_compile(t1.GetFlt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(log2FltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
+        break;
     case 23:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(maxIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(maxFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
+        break;
     case 24:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(minIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(minFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
+        break;
     case 25:
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(vec2FltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
+        break;
     case 26:
         if (t1.GetType() == VALUE_VEC && t2.GetType() == VALUE_VEC)
             return TerminalNode(mat2VecVec::process_when_compile(t1.GetVec(), t2.GetVec()));
+        break;
     case 27:
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(diag2FltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
+        break;
     case 28:
         if (t1.GetType() == VALUE_VEC && t2.GetType() == VALUE_VEC)
             return TerminalNode(dotVecVec::process_when_compile(t1.GetVec(), t2.GetVec()));
+        break;
     case 29:
         if (t1.GetType() == VALUE_VEC && t2.GetType() == VALUE_VEC)
             return TerminalNode(crossVecVec::process_when_compile(t1.GetVec(), t2.GetVec()));
+        break;
     case 35:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(powIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
@@ -5627,6 +5658,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(powFltInt::process_when_compile(t1.GetFlt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(powFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
+        break;
     case 36:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(mulIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
@@ -5648,6 +5680,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(mulMatMat::process_when_compile(t1.GetMat(), t2.GetMat()));
         if (t1.GetType() == VALUE_MAT && t2.GetType() == VALUE_VEC)
             return TerminalNode(mulMatVec::process_when_compile(t1.GetMat(), t2.GetVec()));
+        break;
     case 37:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(divIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
@@ -5659,9 +5692,11 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(divFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
         if (t1.GetType() == VALUE_VEC && t2.GetType() == VALUE_FLT)
             return TerminalNode(divVecFlt::process_when_compile(t1.GetVec(), t2.GetFlt()));
+        break;
     case 38:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(modIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
+        break;
     case 39:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(addIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
@@ -5677,6 +5712,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(addVecVec::process_when_compile(t1.GetVec(), t2.GetVec()));
         if (t1.GetType() == VALUE_MAT && t2.GetType() == VALUE_MAT)
             return TerminalNode(addMatMat::process_when_compile(t1.GetMat(), t2.GetMat()));
+        break;
     case 40:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(subIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
@@ -5690,6 +5726,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(subVecVec::process_when_compile(t1.GetVec(), t2.GetVec()));
         if (t1.GetType() == VALUE_MAT && t2.GetType() == VALUE_MAT)
             return TerminalNode(subMatMat::process_when_compile(t1.GetMat(), t2.GetMat()));
+        break;
     case 41:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(gtIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
@@ -5699,6 +5736,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(gtFltInt::process_when_compile(t1.GetFlt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(gtFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
+        break;
     case 42:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(geqIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
@@ -5708,6 +5746,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(geqFltInt::process_when_compile(t1.GetFlt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(geqFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
+        break;
     case 43:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(ltIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
@@ -5717,6 +5756,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(ltFltInt::process_when_compile(t1.GetFlt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(ltFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
+        break;
     case 44:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(leqIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
@@ -5726,6 +5766,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(leqFltInt::process_when_compile(t1.GetFlt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(leqFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
+        break;
     case 45:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(eqIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
@@ -5737,6 +5778,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(eqVecVec::process_when_compile(t1.GetVec(), t2.GetVec()));
         if (t1.GetType() == VALUE_MAT && t2.GetType() == VALUE_MAT)
             return TerminalNode(eqMatMat::process_when_compile(t1.GetMat(), t2.GetMat()));
+        break;
     case 46:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(neqIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
@@ -5748,6 +5790,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(neqVecVec::process_when_compile(t1.GetVec(), t2.GetVec()));
         if (t1.GetType() == VALUE_MAT && t2.GetType() == VALUE_MAT)
             return TerminalNode(neqMatMat::process_when_compile(t1.GetMat(), t2.GetMat()));
+        break;
     case 47:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(andIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
@@ -5757,6 +5800,7 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(andFltInt::process_when_compile(t1.GetFlt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(andFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
+        break;
     case 48:
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_INT)
             return TerminalNode(orIntInt::process_when_compile(t1.GetInt(), t2.GetInt()));
@@ -5766,11 +5810,13 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(orFltInt::process_when_compile(t1.GetFlt(), t2.GetInt()));
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT)
             return TerminalNode(orFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt()));
+        break;
     case 49:
         if (t1.GetType() == VALUE_STR && t2.GetType() == VALUE_INT)
             return TerminalNode(index2StrInt::process_when_compile(t1.GetStr(), t2.GetInt()));
         if (t1.GetType() == VALUE_VEC && t2.GetType() == VALUE_INT)
             return TerminalNode(index2VecInt::process_when_compile(t1.GetVec(), t2.GetInt()));
+        break;
     }
     throw InvalidType("");
 }
@@ -5787,18 +5833,23 @@ inline TerminalNode MakeConstantNode(ParserState*, size_t func, TerminalNode& t1
             return TerminalNode(ifIntStrStr::process_when_compile(t1.GetInt(), t2.GetStr(), t3.GetStr()));
         if (t1.GetType() == VALUE_INT && t2.GetType() == VALUE_VEC && t3.GetType() == VALUE_VEC)
             return TerminalNode(ifIntVecVec::process_when_compile(t1.GetInt(), t2.GetVec(), t3.GetVec()));
+        break;
     case 31:
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT && t3.GetType() == VALUE_FLT)
             return TerminalNode(vec3FltFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt(), t3.GetFlt()));
+        break;
     case 32:
         if (t1.GetType() == VALUE_VEC && t2.GetType() == VALUE_VEC && t3.GetType() == VALUE_VEC)
             return TerminalNode(mat3VecVecVec::process_when_compile(t1.GetVec(), t2.GetVec(), t3.GetVec()));
+        break;
     case 33:
         if (t1.GetType() == VALUE_FLT && t2.GetType() == VALUE_FLT && t3.GetType() == VALUE_FLT)
             return TerminalNode(diag3FltFltFlt::process_when_compile(t1.GetFlt(), t2.GetFlt(), t3.GetFlt()));
+        break;
     case 50:
         if (t1.GetType() == VALUE_MAT && t2.GetType() == VALUE_INT && t3.GetType() == VALUE_INT)
             return TerminalNode(index3MatIntInt::process_when_compile(t1.GetMat(), t2.GetInt(), t3.GetInt()));
+        break;
     }
     throw InvalidType("");
 }

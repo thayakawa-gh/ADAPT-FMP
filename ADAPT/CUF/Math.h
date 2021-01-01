@@ -169,7 +169,7 @@ class RandomWithAnyProbFunc
 		//[0, 1]の一様分布乱数を与えられた分布の乱数に変換する。
 		double operator()(double x) const
 		{
-			for (auto e : table)
+			for (const auto& e : table)
 			{
 				if (x > e.border) continue;
 				return x * e.slope + e.intercept;

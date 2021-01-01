@@ -70,13 +70,13 @@ struct TerminalNode : public NodeValue
 			i = (size_t)(&state->mTermBuffer.back().Get<double>()); break;
 		case VALUE_STR:
 			state->mTermBuffer.push_back(std::move(mValue.Get<VALUE_STR>()));
-			i = (size_t)(&state->mTermBuffer.back().Get<String>()); break;
+			i = (size_t)(&state->mTermBuffer.back().Get<std::string>()); break;
 		case VALUE_VEC:
 			state->mTermBuffer.push_back(std::move(mValue.Get<VALUE_VEC>()));
-			i = (size_t)(&state->mTermBuffer.back().Get<Vector<double>>()); break;
+			i = (size_t)(&state->mTermBuffer.back().Get<Eigen::VectorXd>()); break;
 		case VALUE_MAT:
 			state->mTermBuffer.push_back(std::move(mValue.Get<VALUE_MAT>()));
-			i = (size_t)(&state->mTermBuffer.back().Get<Matrix<double, 2>>()); break;
+			i = (size_t)(&state->mTermBuffer.back().Get<Eigen::MatrixXd>()); break;
 		case VALUE_INT + VALUE_END: i = (size_t)mValue.Get<VALUE_INT + VALUE_END>(); break;
 		case VALUE_FLT + VALUE_END: i = (size_t)mValue.Get<VALUE_FLT + VALUE_END>(); break;
 		case VALUE_STR + VALUE_END: i = (size_t)mValue.Get<VALUE_STR + VALUE_END>(); break;

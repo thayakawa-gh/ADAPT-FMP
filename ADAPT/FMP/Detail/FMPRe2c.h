@@ -21,7 +21,7 @@ struct FMPArgument
 {
 	template <class Type>
 	FMPArgument(const std::string& name, const Type* ptr)
-		: mName(name), mPtr(ptr), mType(detail::ConvertToType<Type>::Type::label) {}
+		: mType(detail::ConvertToType<Type>::Type::label), mName(name), mPtr(ptr)  {}
 	NumericalType mType;
 	std::string mName;
 	const void* mPtr;

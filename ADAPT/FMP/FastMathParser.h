@@ -10,14 +10,20 @@
 #pragma warning(disable: 4701)
 #pragma warning(disable: 4996)
 #pragma warning(disable: 6001)
+#elif defined(__GNUC__) || defined(__GNUG__)
+#pragma GCC diagnostic ignored "-Wunused-variable"
+#pragma GCC diagnostic ignored "-Wsign-compare"
 #endif
 #include <ADAPT/FMP/Detail/FMPRe2c.h>
 #include <ADAPT/FMP/Detail/FMPRe2c_impl.h>
-#include <ADAPT/FMP/Detail/FMPExpression.h>
 #include <ADAPT/FMP/Detail/FMPLemon.h>
 #ifdef _MSC_VER
 #pragma warning(pop)
+#elif defined(__GNUC__) || defined(__GNUG__)
+#pragma GCC diagnostic warning "-Wunused-variable"
+#pragma GCC diagnostic warning "-Wsign-compare"
 #endif
+#include <ADAPT/FMP/Detail/FMPExpression.h>
 #include <ADAPT/FMP/Detail/FMPNode.h>
 
 namespace adapt
@@ -113,6 +119,7 @@ public:
 				mRootNode = root;
 				break;
 			}
+			default: break;
 			}
 			mTermBuffer = std::move(state.mTermBuffer);
 			mNodeBuffer = std::move(state.mNodeBuffer);

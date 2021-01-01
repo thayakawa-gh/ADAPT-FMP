@@ -33,7 +33,7 @@ public:
 	virtual ~Exception() = default;
 
 	virtual const char* what() const noexcept { return mMessage.c_str(); }
-	virtual std::string GetErrorMessage() const noexcept { return mMessage; }
+	std::string GetErrorMessage() const noexcept { return mMessage; }
 
 protected:
 	std::string mMessage;
@@ -53,7 +53,12 @@ public:
 	using Exception::Exception;
 	virtual std::string GetErrorMessage() const noexcept { return std::string("NOT INITIALIZED : ") + what(); }
 };
-
+class NotDefined : public Exception
+{
+public:
+	using Exception::Exception;
+	virtual std::string GetErrorMessage() const noexcept { return std::string("NOT DEFINED : ") + what(); }
+};
 class InvalidArg : public Exception
 {
 public:

@@ -156,7 +156,7 @@ std:
 			return -1;
 		}
 		INTEGER {
-			yylval.Reset(stoll(this->Text()));
+			yylval.Reset((int64_t)stoll(this->Text()));
 			return FMP_TOKEN_INT;
 		}
 		FLOAT {

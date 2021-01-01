@@ -10,7 +10,7 @@ namespace adapt
 inline namespace cuf
 {
 
-template <size_t Capacity, size_t Align = 8ui64>
+template <size_t Capacity, size_t Align = 8>
 class StaticAny
 {
 	template <class Type>
@@ -97,28 +97,6 @@ public:
 
 	void(*mImplicitFunctions)(int, void*, void*);
 	std::aligned_storage_t<Capacity, Align> mStorage;
-};
-
-template <class Base, size_t Size, size_t Align = 8>
-class StaticBase
-{
-public:
-
-	template <class T, class ...Args>
-	std::enable_if_t<std::is_base_of<Base, T>::value>
-		Emplace(Args&& ...args)
-	{
-		mStorage.Emplace<T>(std::forward<Args>(args)...);
-	}
-	template <class T>
-	std::enable_if_t<std::is_base_of<Base, RemoveCVRef<T>>::value>
-		operator=(T&& t)
-	{
-		mStorage = std::forward<T>(t);
-	}
-
-private:
-	StaticAny<Size, Align> mStorage;
 };
 
 }

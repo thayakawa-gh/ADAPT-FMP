@@ -1,8 +1,6 @@
 #ifndef FMPEXPRESSION_H
 #define FMPEXPRESSION_H
 
-#include <ADAPT/CUF/String.h>
-#include <ADAPT/CUF/Matrix.h>
 #include <ADAPT/CUF/Exception.h>
 #include <ADAPT/CUF/LinearAllocator.h>
 #include <ADAPT/CUF/Variant.h>
@@ -234,30 +232,30 @@ struct ConvertToType<Eigen::MatrixXd> { using Type = MatType; };
 struct NodeValue
 {
 	//constant node用
-	NodeValue(int64_t i) : mValue(i) {}
-	NodeValue(double i) : mValue(i) {}
-	NodeValue(const std::string& i) : mValue(i) {}
-	NodeValue(const Eigen::VectorXd& i) : mValue(i) {}
-	NodeValue(const Eigen::MatrixXd& i) : mValue(i) {}
+	explicit NodeValue(int64_t i) : mValue(i) {}
+	explicit NodeValue(double i) : mValue(i) {}
+	explicit NodeValue(const std::string& i) : mValue(i) {}
+	explicit NodeValue(const Eigen::VectorXd& i) : mValue(i) {}
+	explicit NodeValue(const Eigen::MatrixXd& i) : mValue(i) {}
 
 	//variable node用
-	NodeValue(const int64_t* i)
+	explicit NodeValue(const int64_t* i)
 	{
 		mValue.Emplace<VALUE_INT + VALUE_END>(i);
 	}
-	NodeValue(const double* i)
+	explicit NodeValue(const double* i)
 	{
 		mValue.Emplace<VALUE_FLT + VALUE_END>(i);
 	}
-	NodeValue(const std::string* i)
+	explicit NodeValue(const std::string* i)
 	{
 		mValue.Emplace<VALUE_STR + VALUE_END>(i);
 	}
-	NodeValue(const Eigen::VectorXd* i)
+	explicit NodeValue(const Eigen::VectorXd* i)
 	{
 		mValue.Emplace<VALUE_VEC + VALUE_END>(i);
 	}
-	NodeValue(const Eigen::MatrixXd* i)
+	explicit NodeValue(const Eigen::MatrixXd* i)
 	{
 		mValue.Emplace<VALUE_MAT + VALUE_END>(i);
 	}

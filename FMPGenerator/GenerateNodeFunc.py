@@ -229,6 +229,7 @@ def GenerateNodeFunc(out_dir):
             res = s.GetResult()
             file.write(f"        if (t.GetType() == VALUE_{args[0].upper()})\n"
                        f"            return TerminalNode({name}{argsstr}::process_when_compile(t.Get{args[0]}()));\n")
+        file.write(f"        break;\n")
     file.write("    }\n")
     file.write("    throw InvalidType(\"\");\n")
     file.write("}\n")
@@ -246,6 +247,7 @@ def GenerateNodeFunc(out_dir):
             res = s.GetResult()
             file.write(f"        if (t1.GetType() == VALUE_{args[0].upper()} && t2.GetType() == VALUE_{args[1].upper()})\n"
                        f"            return TerminalNode({name}{argsstr}::process_when_compile(t1.Get{args[0]}(), t2.Get{args[1]}()));\n")
+        file.write(f"        break;\n")
     file.write("    }\n")
     file.write("    throw InvalidType(\"\");\n")
     file.write("}\n")
@@ -263,6 +265,7 @@ def GenerateNodeFunc(out_dir):
             res = s.GetResult()
             file.write(f"        if (t1.GetType() == VALUE_{args[0].upper()} && t2.GetType() == VALUE_{args[1].upper()} && t3.GetType() == VALUE_{args[2].upper()})\n"
                        f"            return TerminalNode({name}{argsstr}::process_when_compile(t1.Get{args[0]}(), t2.Get{args[1]}(), t3.Get{args[2]}()));\n")
+        file.write(f"        break;\n")
     file.write("    }\n")
     file.write("    throw InvalidType(\"\");\n")
     file.write("}\n")

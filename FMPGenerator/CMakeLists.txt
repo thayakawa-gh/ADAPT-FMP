@@ -1,15 +1,10 @@
-project(FMPGenerator)
+set(LEMON_EXE_PATH "NOT_SET" CACHE FILEPATH "lemon executable path")
+set(RE2C_EXE_PATH "NOT_SET" CACHE FILEPATH "re2c executable path")
 
-option(LEMON_EXE "lemon executable file")
-option(RE2C_EXE "re2c executable file")
-if (WIN32)
-    option(CYGWIN_DIR "cygwin directory, needed to execute re2c and lemon")
-endif()
-set(CMAKE_MSVCIDE_RUN_PATH ${CYGWIN_DIR})
-find_package(Python REQUIRED)
+find_package(Python)
 
 set(FMP_DETAIL_DIR    ${CMAKE_SOURCE_DIR}/ADAPT/FMP/Detail)
-set(GENERATOR_DIR     ${PROJECT_SOURCE_DIR})
+set(GENERATOR_DIR     ${CMAKE_SOURCE_DIR}/FMPGenerator)
 set(FMPLEMON_PARSER_Y FMPLemon_parser.y)
 set(FMPLEMON_PARSER_C ${FMP_DETAIL_DIR}/FMPLemon_parser.c)
 set(FMPLEMON_PARSER_H ${FMP_DETAIL_DIR}/FMPLemon_parser.h)
@@ -17,9 +12,10 @@ set(FMPRE2C_IMPL_B_H  FMPRe2c_impl_b.h)
 set(FMPRE2C_IMPL_H    ${FMP_DETAIL_DIR}/FMPRe2c_impl.h)
 set(FMPNODE_FUNC_H    ${FMP_DETAIL_DIR}/FMPNode_func.h)
 set(FMPFUNCTION_H     ${FMP_DETAIL_DIR}/FMPFunction.h)
-set(GENERATE_PY       Generate.py)
+set(GENERATE_PY       ${GENERATOR_DIR}/Generate.py)
 
 if (WIN32)
+    set(CYGWIN_PATH "NOT_SET" CACHE PATH "cygwin path")
     string(REGEX REPLACE "/" "\\\\" FMP_DETAIL_DIR ${FMP_DETAIL_DIR})
     string(REGEX REPLACE "/" "\\\\" FMPLEMON_PARSER_Y ${FMPLEMON_PARSER_Y})
     string(REGEX REPLACE "/" "\\\\" FMPLEMON_PARSER_C ${FMPLEMON_PARSER_C})
@@ -30,7 +26,10 @@ if (WIN32)
     string(REGEX REPLACE "/" "\\\\" FMPFUNCTION_H ${FMPFUNCTION_H})
     string(REGEX REPLACE "/" "\\\\" GENERATE_PY ${GENERATE_PY})
     string(REGEX REPLACE "/" "\\\\" GENERATOR_DIR ${GENERATOR_DIR})
-    string(REGEX REPLACE "/" "\\\\" CYGWIN_DIR ${CYGWIN_DIR})
+    string(REGEX REPLACE "/" "\\\\" CYGWIN_PATH ${CYGWIN_PATH})
+    set(CYGWIN_PATH_SEMICOLON "${CYGWIN_PATH};")
+else()
+    set(CYGWIN_PATH_SEMICOLON "")
 endif ()
 
 if (MSVC)
@@ -46,27 +45,32 @@ add_custom_command(OUTPUT
                    COMMAND
                        ${Python} "${GENERATE_PY}" "${FMP_DETAIL_DIR}" "${GENERATOR_DIR}"
                    WORKING_DIRECTORY
-                       ${PROJECT_SOURCE_DIR})
+                       ${CMAKE_SOURCE_DIR}/FMPGenerator)
+add_custom_target(GEN_FMP_LEMON_PARSER_Y
+                  DEPENDS
+                      ${FMPLEMON_PARSER_Y})
+
 add_custom_command(OUTPUT
                        ${FMPRE2C_IMPL_H}
                    COMMAND
-                       "${RE2C_EXE}" "-i" "--location-format" "${RE2C_LOC_FORMAT}" "--no-generation-date" "--no-version"
+                       ${CMAKE_COMMAND} -E env "PATH=${CYGWIN_PATH_SEMICOLON}$ENV{PATH}"
+                       "${RE2C_EXE_PATH}" "-i" "--location-format" "${RE2C_LOC_FORMAT}" "--no-generation-date" "--no-version"
                        "-o" "${FMPRE2C_IMPL_H}" "-W" "${FMPRE2C_IMPL_B_H}"
                    WORKING_DIRECTORY
-                       ${PROJECT_SOURCE_DIR})
+                       ${CMAKE_SOURCE_DIR}/FMPGenerator)
 add_custom_command(OUTPUT
                        ${FMPLEMON_PARSER_C}
                        ${FMPLEMON_PARSER_H}
                    DEPENDS
-                       ${FMPLEMON_PARSER_Y}
+                       GEN_FMP_LEMON_PARSER_Y
                    COMMAND
-                       "${LEMON_EXE}" "-d${FMP_DETAIL_DIR}" "${FMPLEMON_PARSER_Y}"
+                       ${CMAKE_COMMAND} -E env "PATH=${CYGWIN_PATH_SEMICOLON}$ENV{PATH}"
+                       "${LEMON_EXE_PATH}" "-d${FMP_DETAIL_DIR}" "${FMPLEMON_PARSER_Y}"
                    WORKING_DIRECTORY
-                       ${PROJECT_SOURCE_DIR})
+                       ${CMAKE_SOURCE_DIR}/FMPGenerator)
 
 add_custom_target(generate ALL
                   DEPENDS
-                      ${FMPLEMON_PARSER_Y}
                       ${FMPNODE_FUNC_H}
                       ${FMPFUNCTION_H}
                       ${FMPRE2C_IMPL_H}
