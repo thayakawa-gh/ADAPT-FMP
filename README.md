@@ -6,7 +6,6 @@ FMP can operate not only floating point and integer but also string, vector and 
 [benchmarks(Japanese)](https://kenkyu-note.hatenablog.com/entry/2021/01/19/191218)
 
 ADAPT-FMP requires Eigen linear algebra library and C++17.
-Confirmed to work with GCC 9.3.0, Clang 10.0.0 and msvc2019.
 
 ```cpp
 #include <ADAPT/FMP/FastMathParser.h>
