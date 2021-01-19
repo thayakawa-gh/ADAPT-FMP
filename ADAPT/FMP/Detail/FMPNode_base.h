@@ -57,35 +57,37 @@ struct TerminalNode : public NodeValue
 		mValue.Destroy();
 		return JunctureNode(t, i);
 	}
-	size_t GetIndex(ParserState* state)
+	std::size_t GetIndex(ParserState* state)
 	{
-		size_t i = 0;
+		std::size_t res = 0;
+		std::intptr_t i = 0;
 		switch (mValue.GetIndex())
 		{
 		case VALUE_INT:
 			state->mTermBuffer.push_back(mValue.Get<VALUE_INT>());
-			i = (size_t)(&state->mTermBuffer.back().Get<int64_t>()); break;
+			i = (std::intptr_t)(&state->mTermBuffer.back().Get<int64_t>()); break;
 		case VALUE_FLT:
 			state->mTermBuffer.push_back(mValue.Get<VALUE_FLT>());
-			i = (size_t)(&state->mTermBuffer.back().Get<double>()); break;
+			i = (std::intptr_t)(&state->mTermBuffer.back().Get<double>()); break;
 		case VALUE_STR:
 			state->mTermBuffer.push_back(std::move(mValue.Get<VALUE_STR>()));
-			i = (size_t)(&state->mTermBuffer.back().Get<std::string>()); break;
+			i = (std::intptr_t)(&state->mTermBuffer.back().Get<std::string>()); break;
 		case VALUE_VEC:
 			state->mTermBuffer.push_back(std::move(mValue.Get<VALUE_VEC>()));
-			i = (size_t)(&state->mTermBuffer.back().Get<Eigen::VectorXd>()); break;
+			i = (std::intptr_t)(&state->mTermBuffer.back().Get<Eigen::VectorXd>()); break;
 		case VALUE_MAT:
 			state->mTermBuffer.push_back(std::move(mValue.Get<VALUE_MAT>()));
-			i = (size_t)(&state->mTermBuffer.back().Get<Eigen::MatrixXd>()); break;
-		case VALUE_INT + VALUE_END: i = (size_t)mValue.Get<VALUE_INT + VALUE_END>(); break;
-		case VALUE_FLT + VALUE_END: i = (size_t)mValue.Get<VALUE_FLT + VALUE_END>(); break;
-		case VALUE_STR + VALUE_END: i = (size_t)mValue.Get<VALUE_STR + VALUE_END>(); break;
-		case VALUE_VEC + VALUE_END: i = (size_t)mValue.Get<VALUE_VEC + VALUE_END>(); break;
-		case VALUE_MAT + VALUE_END: i = (size_t)mValue.Get<VALUE_MAT + VALUE_END>(); break;
+			i = (std::intptr_t)(&state->mTermBuffer.back().Get<Eigen::MatrixXd>()); break;
+		case VALUE_INT + VALUE_END: i = (std::intptr_t)mValue.Get<VALUE_INT + VALUE_END>(); break;
+		case VALUE_FLT + VALUE_END: i = (std::intptr_t)mValue.Get<VALUE_FLT + VALUE_END>(); break;
+		case VALUE_STR + VALUE_END: i = (std::intptr_t)mValue.Get<VALUE_STR + VALUE_END>(); break;
+		case VALUE_VEC + VALUE_END: i = (std::intptr_t)mValue.Get<VALUE_VEC + VALUE_END>(); break;
+		case VALUE_MAT + VALUE_END: i = (std::intptr_t)mValue.Get<VALUE_MAT + VALUE_END>(); break;
 		default: throw InvalidType("");
 		}
 		mValue.Destroy();
-		return i;
+		memcpy(&res, &i, sizeof(size_t));
+		return res;
 	}
 };
 

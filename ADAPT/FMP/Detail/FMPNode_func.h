@@ -37,6 +37,18 @@ struct FMPMakeExpressionT<Func, IntType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, tanInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
             break;
+        case 6:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, lnInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
+            break;
+        case 7:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, log10Int, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
+            break;
+        case 8:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, expInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
+            break;
         case 9:
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, squareInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
@@ -44,6 +56,14 @@ struct FMPMakeExpressionT<Func, IntType> : public FMPMakeExpressionBase
         case 10:
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, cubeInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
+            break;
+        case 11:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, sqrtInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
+            break;
+        case 12:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, cbrtInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
             break;
         case 13:
             if (a.GetType() == VALUE_INT)
@@ -77,6 +97,12 @@ struct FMPMakeExpressionT<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionTFNode, log2IntInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionTFNode, log2FltInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, maxIntInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
@@ -133,6 +159,12 @@ struct FMPMakeExpressionT<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionJFNode, log2IntInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionJFNode, log2FltInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, maxIntInt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
@@ -189,6 +221,12 @@ struct FMPMakeExpressionT<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFTNode, log2IntInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFTNode, log2IntFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, maxIntInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
@@ -237,6 +275,12 @@ struct FMPMakeExpressionT<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFJNode, log2IntInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFJNode, log2IntFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, maxIntInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
@@ -309,6 +353,18 @@ struct FMPMakeExpressionT<Func, FltType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, tanFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
             break;
+        case 6:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, lnFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
+            break;
+        case 7:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, log10Flt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
+            break;
+        case 8:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, expFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
+            break;
         case 9:
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, squareFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
@@ -316,6 +372,14 @@ struct FMPMakeExpressionT<Func, FltType> : public FMPMakeExpressionBase
         case 10:
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, cubeFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
+            break;
+        case 11:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, sqrtFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
+            break;
+        case 12:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, cbrtFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
             break;
         case 13:
             if (a.GetType() == VALUE_FLT)
@@ -349,6 +413,12 @@ struct FMPMakeExpressionT<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionTFNode, log2IntFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionTFNode, log2FltFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, maxFltFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
@@ -393,6 +463,12 @@ struct FMPMakeExpressionT<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionJFNode, log2IntFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionJFNode, log2FltFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, maxFltFlt, FMPExpressionTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
@@ -437,6 +513,12 @@ struct FMPMakeExpressionT<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFTNode, log2FltInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFTNode, log2FltFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, maxFltFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
@@ -485,6 +567,12 @@ struct FMPMakeExpressionT<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFJNode, log2FltInt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFJNode, log2FltFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, maxFltFlt, FMPExpressionTNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
@@ -699,6 +787,18 @@ struct FMPMakeExpressionJ<Func, IntType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, tanInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
             break;
+        case 6:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, lnInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
+            break;
+        case 7:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, log10Int, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
+            break;
+        case 8:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, expInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
+            break;
         case 9:
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, squareInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
@@ -706,6 +806,14 @@ struct FMPMakeExpressionJ<Func, IntType> : public FMPMakeExpressionBase
         case 10:
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, cubeInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
+            break;
+        case 11:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, sqrtInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
+            break;
+        case 12:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, cbrtInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
             break;
         case 13:
             if (a.GetType() == VALUE_INT)
@@ -739,6 +847,12 @@ struct FMPMakeExpressionJ<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionTFNode, log2IntInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionTFNode, log2FltInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, maxIntInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
@@ -795,6 +909,12 @@ struct FMPMakeExpressionJ<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionJFNode, log2IntInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionJFNode, log2FltInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, maxIntInt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
@@ -851,6 +971,12 @@ struct FMPMakeExpressionJ<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFTNode, log2IntInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFTNode, log2IntFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, maxIntInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
@@ -899,6 +1025,12 @@ struct FMPMakeExpressionJ<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFJNode, log2IntInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFJNode, log2IntFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, maxIntInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
@@ -971,6 +1103,18 @@ struct FMPMakeExpressionJ<Func, FltType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, tanFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
             break;
+        case 6:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, lnFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
+            break;
+        case 7:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, log10Flt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
+            break;
+        case 8:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, expFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
+            break;
         case 9:
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, squareFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
@@ -978,6 +1122,14 @@ struct FMPMakeExpressionJ<Func, FltType> : public FMPMakeExpressionBase
         case 10:
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, cubeFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
+            break;
+        case 11:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, sqrtFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
+            break;
+        case 12:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, cbrtFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)));
             break;
         case 13:
             if (a.GetType() == VALUE_FLT)
@@ -1011,6 +1163,12 @@ struct FMPMakeExpressionJ<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionTFNode, log2IntFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionTFNode, log2FltFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, maxFltFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
@@ -1055,6 +1213,12 @@ struct FMPMakeExpressionJ<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionJFNode, log2IntFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionJFNode, log2FltFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, maxFltFlt, FMPExpressionJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg.GetIndex(state)));
@@ -1099,6 +1263,12 @@ struct FMPMakeExpressionJ<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFTNode, log2FltInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFTNode, log2FltFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, maxFltFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
@@ -1147,6 +1317,12 @@ struct FMPMakeExpressionJ<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFJNode, log2FltInt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFJNode, log2FltFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, maxFltFlt, FMPExpressionJNode_impl<Func>>(state, std::make_tuple(mUpArg.GetIndex(state)), b.GetIndex(state));
@@ -1361,6 +1537,18 @@ struct FMPMakeExpressionTT<Func, IntType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, tanInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
+        case 6:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, lnInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 7:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, log10Int, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 8:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, expInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 9:
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, squareInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -1368,6 +1556,14 @@ struct FMPMakeExpressionTT<Func, IntType> : public FMPMakeExpressionBase
         case 10:
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, cubeInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 11:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, sqrtInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 12:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, cbrtInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
         case 13:
             if (a.GetType() == VALUE_INT)
@@ -1401,6 +1597,12 @@ struct FMPMakeExpressionTT<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionTFNode, log2IntInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionTFNode, log2FltInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, maxIntInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -1457,6 +1659,12 @@ struct FMPMakeExpressionTT<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionJFNode, log2IntInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionJFNode, log2FltInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, maxIntInt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -1513,6 +1721,12 @@ struct FMPMakeExpressionTT<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFTNode, log2IntInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFTNode, log2IntFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, maxIntInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
@@ -1561,6 +1775,12 @@ struct FMPMakeExpressionTT<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFJNode, log2IntInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFJNode, log2IntFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, maxIntInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
@@ -1634,6 +1854,18 @@ struct FMPMakeExpressionTT<Func, FltType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, tanFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
+        case 6:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, lnFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 7:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, log10Flt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 8:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, expFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 9:
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, squareFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -1641,6 +1873,14 @@ struct FMPMakeExpressionTT<Func, FltType> : public FMPMakeExpressionBase
         case 10:
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, cubeFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 11:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, sqrtFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 12:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, cbrtFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
         case 13:
             if (a.GetType() == VALUE_FLT)
@@ -1674,6 +1914,12 @@ struct FMPMakeExpressionTT<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionTFNode, log2IntFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionTFNode, log2FltFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, maxFltFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -1718,6 +1964,12 @@ struct FMPMakeExpressionTT<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionJFNode, log2IntFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionJFNode, log2FltFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, maxFltFlt, FMPExpressionTTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -1762,6 +2014,12 @@ struct FMPMakeExpressionTT<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFTNode, log2FltInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFTNode, log2FltFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, maxFltFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
@@ -1810,6 +2068,12 @@ struct FMPMakeExpressionTT<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFJNode, log2FltInt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFJNode, log2FltFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, maxFltFlt, FMPExpressionTTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
@@ -2028,6 +2292,18 @@ struct FMPMakeExpressionTJ<Func, IntType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, tanInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
+        case 6:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, lnInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 7:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, log10Int, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 8:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, expInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 9:
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, squareInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -2035,6 +2311,14 @@ struct FMPMakeExpressionTJ<Func, IntType> : public FMPMakeExpressionBase
         case 10:
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, cubeInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 11:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, sqrtInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 12:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, cbrtInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
         case 13:
             if (a.GetType() == VALUE_INT)
@@ -2068,6 +2352,12 @@ struct FMPMakeExpressionTJ<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionTFNode, log2IntInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionTFNode, log2FltInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, maxIntInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -2124,6 +2414,12 @@ struct FMPMakeExpressionTJ<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionJFNode, log2IntInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionJFNode, log2FltInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, maxIntInt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -2180,6 +2476,12 @@ struct FMPMakeExpressionTJ<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFTNode, log2IntInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFTNode, log2IntFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, maxIntInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
@@ -2228,6 +2530,12 @@ struct FMPMakeExpressionTJ<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFJNode, log2IntInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFJNode, log2IntFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, maxIntInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
@@ -2301,6 +2609,18 @@ struct FMPMakeExpressionTJ<Func, FltType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, tanFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
+        case 6:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, lnFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 7:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, log10Flt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 8:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, expFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 9:
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, squareFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -2308,6 +2628,14 @@ struct FMPMakeExpressionTJ<Func, FltType> : public FMPMakeExpressionBase
         case 10:
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, cubeFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 11:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, sqrtFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 12:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, cbrtFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
         case 13:
             if (a.GetType() == VALUE_FLT)
@@ -2341,6 +2669,12 @@ struct FMPMakeExpressionTJ<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionTFNode, log2IntFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionTFNode, log2FltFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, maxFltFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -2385,6 +2719,12 @@ struct FMPMakeExpressionTJ<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionJFNode, log2IntFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionJFNode, log2FltFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, maxFltFlt, FMPExpressionTJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -2429,6 +2769,12 @@ struct FMPMakeExpressionTJ<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFTNode, log2FltInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFTNode, log2FltFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, maxFltFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
@@ -2477,6 +2823,12 @@ struct FMPMakeExpressionTJ<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFJNode, log2FltInt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFJNode, log2FltFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, maxFltFlt, FMPExpressionTJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
@@ -2695,6 +3047,18 @@ struct FMPMakeExpressionJT<Func, IntType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, tanInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
+        case 6:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, lnInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 7:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, log10Int, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 8:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, expInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 9:
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, squareInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -2702,6 +3066,14 @@ struct FMPMakeExpressionJT<Func, IntType> : public FMPMakeExpressionBase
         case 10:
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, cubeInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 11:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, sqrtInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 12:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, cbrtInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
         case 13:
             if (a.GetType() == VALUE_INT)
@@ -2735,6 +3107,12 @@ struct FMPMakeExpressionJT<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionTFNode, log2IntInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionTFNode, log2FltInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, maxIntInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -2791,6 +3169,12 @@ struct FMPMakeExpressionJT<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionJFNode, log2IntInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionJFNode, log2FltInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, maxIntInt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -2847,6 +3231,12 @@ struct FMPMakeExpressionJT<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFTNode, log2IntInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFTNode, log2IntFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, maxIntInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
@@ -2895,6 +3285,12 @@ struct FMPMakeExpressionJT<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFJNode, log2IntInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFJNode, log2IntFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, maxIntInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
@@ -2968,6 +3364,18 @@ struct FMPMakeExpressionJT<Func, FltType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, tanFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
+        case 6:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, lnFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 7:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, log10Flt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 8:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, expFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 9:
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, squareFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -2975,6 +3383,14 @@ struct FMPMakeExpressionJT<Func, FltType> : public FMPMakeExpressionBase
         case 10:
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, cubeFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 11:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, sqrtFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 12:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, cbrtFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
         case 13:
             if (a.GetType() == VALUE_FLT)
@@ -3008,6 +3424,12 @@ struct FMPMakeExpressionJT<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionTFNode, log2IntFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionTFNode, log2FltFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, maxFltFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -3052,6 +3474,12 @@ struct FMPMakeExpressionJT<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionJFNode, log2IntFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionJFNode, log2FltFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, maxFltFlt, FMPExpressionJTNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -3096,6 +3524,12 @@ struct FMPMakeExpressionJT<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFTNode, log2FltInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFTNode, log2FltFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, maxFltFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
@@ -3144,6 +3578,12 @@ struct FMPMakeExpressionJT<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFJNode, log2FltInt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFJNode, log2FltFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, maxFltFlt, FMPExpressionJTNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
@@ -3362,6 +3802,18 @@ struct FMPMakeExpressionJJ<Func, IntType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, tanInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
+        case 6:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, lnInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 7:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, log10Int, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 8:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, expInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 9:
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, squareInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -3369,6 +3821,14 @@ struct FMPMakeExpressionJJ<Func, IntType> : public FMPMakeExpressionBase
         case 10:
             if (a.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFNode, cubeInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 11:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, sqrtInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 12:
+            if (a.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFNode, cbrtInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
         case 13:
             if (a.GetType() == VALUE_INT)
@@ -3402,6 +3862,12 @@ struct FMPMakeExpressionJJ<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionTFNode, log2IntInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionTFNode, log2FltInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionTFNode, maxIntInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -3458,6 +3924,12 @@ struct FMPMakeExpressionJJ<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionJFNode, log2IntInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionJFNode, log2FltInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionJFNode, maxIntInt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -3514,6 +3986,12 @@ struct FMPMakeExpressionJJ<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFTNode, log2IntInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFTNode, log2IntFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFTNode, maxIntInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
@@ -3562,6 +4040,12 @@ struct FMPMakeExpressionJJ<Func, IntType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFJNode, log2IntInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFJNode, log2IntFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_INT && b.GetType() == VALUE_INT)
                 return MakeExpression<FMPExpressionFJNode, maxIntInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
@@ -3635,6 +4119,18 @@ struct FMPMakeExpressionJJ<Func, FltType> : public FMPMakeExpressionBase
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, tanFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
+        case 6:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, lnFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 7:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, log10Flt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 8:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, expFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 9:
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, squareFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -3642,6 +4138,14 @@ struct FMPMakeExpressionJJ<Func, FltType> : public FMPMakeExpressionBase
         case 10:
             if (a.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFNode, cubeFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 11:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, sqrtFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
+        case 12:
+            if (a.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFNode, cbrtFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
             break;
         case 13:
             if (a.GetType() == VALUE_FLT)
@@ -3675,6 +4179,12 @@ struct FMPMakeExpressionJJ<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionTFNode, log2IntFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionTFNode, log2FltFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionTFNode, maxFltFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -3719,6 +4229,12 @@ struct FMPMakeExpressionJJ<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_INT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionJFNode, log2IntFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionJFNode, log2FltFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionJFNode, maxFltFlt, FMPExpressionJJNode_impl<Func>>(state, a.GetIndex(state), std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)));
@@ -3763,6 +4279,12 @@ struct FMPMakeExpressionJJ<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFTNode, log2FltInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFTNode, log2FltFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFTNode, maxFltFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
@@ -3811,6 +4333,12 @@ struct FMPMakeExpressionJJ<Func, FltType> : public FMPMakeExpressionBase
         (void)state, (void)func, (void)a, (void)b;
         switch (func)
         {
+        case 22:
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_INT)
+                return MakeExpression<FMPExpressionFJNode, log2FltInt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
+                return MakeExpression<FMPExpressionFJNode, log2FltFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));
+            break;
         case 23:
             if (a.GetType() == VALUE_FLT && b.GetType() == VALUE_FLT)
                 return MakeExpression<FMPExpressionFJNode, maxFltFlt, FMPExpressionJJNode_impl<Func>>(state, std::make_tuple(mUpArg1.GetIndex(state), mUpArg2.GetIndex(state)), b.GetIndex(state));

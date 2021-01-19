@@ -28,15 +28,19 @@ namespace detail
 {
 
 template <class T, class U>
-std::enable_if_t<std::is_integral<U>::value, T> fast_pow(T a, U b)
+std::enable_if_t<std::is_integral<U>::value, double> fast_pow(T base, U exp)
 {
-	T res = a;
-	size_t end = (size_t)b;
-	for (size_t i = 1; i < end; ++i)
+	if (exp == 0) return 1;
+	double temp = fast_pow(base, exp / 2);
+	if (exp % 2 == 0)
+		return temp * temp;
+	else
 	{
-		res *= a;
+		if (exp > 0)
+			return base * temp * temp;
+		else
+			return (temp * temp) / base;
 	}
-	return res;
 }
 
 #define FMP_DEFINE_FUNC1(NAME, ARG, RES, PROCESS, UPWARD, DOWNWARD)\
@@ -329,6 +333,7 @@ private:
 
 //
 #define INDEX_TO_PTR_T(ARG, IND, TYPE)\
+{ size_t tmp = IND; memcpy(&ARG, &tmp, sizeof(size_t)); }
 //ARG = &(state->mTermBuffer.Get<TYPE::ValueType>(IND));
 #define INDEX_TO_PTR_J(ARG, IND, TYPE)\
 ARG = &(state->mNodeBuffer.Get<FMPExpressionNodeBase<TYPE>>(IND));\

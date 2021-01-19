@@ -101,7 +101,7 @@ def GetFuncList():
     
     oper2.append(Function2("pow"))
     #第2引数がintの場合、powは十分に速いのでdownwardを許可する。
-    oper2[-1].AddImpl([ "Int", "Int" ], "Int", "return fast_pow(a, b)")
+    oper2[-1].AddImpl([ "Int", "Int" ], "Flt", "return fast_pow(a, b)")
     oper2[-1].AddImpl([ "Int", "Flt" ], "Flt", "return std::pow(a, b)", upward = False, downward = False)
     oper2[-1].AddImpl([ "Flt", "Int" ], "Flt", "return fast_pow(a, b)")
     oper2[-1].AddImpl([ "Flt", "Flt" ], "Flt", "return std::pow(a, b)", upward = False, downward = False)
@@ -225,16 +225,16 @@ def GetFuncList():
     func1[-1].AddImpl([ "Flt" ], "Flt", "return std::atan(a)", upward = False, downward = False)
     
     func1.append(Function1("ln"))
-    func1[-1].AddImpl([ "Int" ], "Flt", "return std::log(a)", upward = False, downward = False)
-    func1[-1].AddImpl([ "Flt" ], "Flt", "return std::log(a)", upward = False, downward = False)
+    func1[-1].AddImpl([ "Int" ], "Flt", "return std::log(a)", downward = False)
+    func1[-1].AddImpl([ "Flt" ], "Flt", "return std::log(a)", downward = False)
     
     func1.append(Function1("log10"))
-    func1[-1].AddImpl([ "Int" ], "Flt", "return std::log10(a)", upward = False, downward = False)
-    func1[-1].AddImpl([ "Flt" ], "Flt", "return std::log10(a)", upward = False, downward = False)
+    func1[-1].AddImpl([ "Int" ], "Flt", "return std::log10(a)", downward = False)
+    func1[-1].AddImpl([ "Flt" ], "Flt", "return std::log10(a)", downward = False)
     
     func1.append(Function1("exp"))
-    func1[-1].AddImpl([ "Int" ], "Flt", "return std::exp(a)", upward = False, downward = False)
-    func1[-1].AddImpl([ "Flt" ], "Flt", "return std::exp(a)", upward = False, downward = False)
+    func1[-1].AddImpl([ "Int" ], "Flt", "return std::exp(a)", downward = False)
+    func1[-1].AddImpl([ "Flt" ], "Flt", "return std::exp(a)", downward = False)
     
     func1.append(Function1("square"))
     func1[-1].AddImpl([ "Int" ], "Int", "return a * a")
@@ -245,12 +245,12 @@ def GetFuncList():
     func1[-1].AddImpl([ "Flt" ], "Flt", "return a * a * a")
     
     func1.append(Function1("sqrt"))
-    func1[-1].AddImpl([ "Int" ], "Flt", "return std::sqrt(a)", upward = False, downward = False)
-    func1[-1].AddImpl([ "Flt" ], "Flt", "return std::sqrt(a)", upward = False, downward = False)
+    func1[-1].AddImpl([ "Int" ], "Flt", "return std::sqrt(a)", downward = False)
+    func1[-1].AddImpl([ "Flt" ], "Flt", "return std::sqrt(a)", downward = False)
     
     func1.append(Function1("cbrt"))
-    func1[-1].AddImpl([ "Int" ], "Flt", "return std::cbrt(a)", upward = False, downward = False)
-    func1[-1].AddImpl([ "Flt" ], "Flt", "return std::cbrt(a)", upward = False, downward = False)
+    func1[-1].AddImpl([ "Int" ], "Flt", "return std::cbrt(a)", downward = False)
+    func1[-1].AddImpl([ "Flt" ], "Flt", "return std::cbrt(a)", downward = False)
 
     func1.append(Function1("ceil"))
     func1[-1].AddImpl([ "Int" ], "Int", "return (int64_t)std::ceil(a)")
@@ -288,10 +288,10 @@ def GetFuncList():
     func2[-1].AddImpl([ "Flt", "Flt" ], "Flt", "return std::atan2(a, b)", upward = False, downward = False)
 
     func2.append(Function2("log2"))
-    func2[-1].AddImpl([ "Int", "Int" ], "Flt", "return std::log2(a) / std::log2(b)", upward = False, downward = False)
-    func2[-1].AddImpl([ "Int", "Flt" ], "Flt", "return std::log2(a) / std::log2(b)", upward = False, downward = False)
-    func2[-1].AddImpl([ "Flt", "Int" ], "Flt", "return std::log2(a) / std::log2(b)", upward = False, downward = False)
-    func2[-1].AddImpl([ "Flt", "Flt" ], "Flt", "return std::log2(a) / std::log2(b)", upward = False, downward = False)
+    func2[-1].AddImpl([ "Int", "Int" ], "Flt", "return std::log(a) / std::log(b)", downward = False)
+    func2[-1].AddImpl([ "Int", "Flt" ], "Flt", "return std::log(a) / std::log(b)", downward = False)
+    func2[-1].AddImpl([ "Flt", "Int" ], "Flt", "return std::log(a) / std::log(b)", downward = False)
+    func2[-1].AddImpl([ "Flt", "Flt" ], "Flt", "return std::log(a) / std::log(b)", downward = False)
     
     func2.append(Function2("max"))
     func2[-1].AddImpl([ "Int", "Int" ], "Int", "return std::max(a, b)", downward = False)
@@ -337,7 +337,7 @@ def GetFuncList():
     func3[-1].AddImpl([ "Flt", "Flt", "Flt" ], "Vec",\
                       "mBuffer->resize(3); *mBuffer << a, b, c; return *mBuffer;",\
                       "Eigen::VectorXd v(3); v << a, b, c; return v;",\
-                      downward = False)
+                      upward = False, downward = False)
 
     func3.append(Function3("mat3"))
     func3[-1].AddImpl([ "Vec", "Vec", "Vec" ], "Mat",\

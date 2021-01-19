@@ -356,7 +356,7 @@ FunctionNode::FunctionNode(Identity<Func>, size_t /*func*/, BoolConstant<BU>, Bo
 	JunctureNode j1 = n1.IsJuncture() ? n1.GetJunctureNode() : n1.Juncturize(state);
 	JunctureNode j2 = n2.IsJuncture() ? n2.GetJunctureNode() : n2.Juncturize(state);
 	JunctureNode j3 = n3.IsJuncture() ? n3.GetJunctureNode() : n3.Juncturize(state);
-	mMakeFunc.Emplace<JunctureNode>(Func::RetType::label, state->mNodeBuffer.EmplaceBack<FMPExpressionJTJNode<Func>>(state, j1.GetIndex(state), j2.GetIndex(state), j3.GetIndex(state)));
+	mMakeFunc.Emplace<JunctureNode>(Func::RetType::label, state->mNodeBuffer.EmplaceBack<FMPExpressionJJJNode<Func>>(state, j1.GetIndex(state), j2.GetIndex(state), j3.GetIndex(state)));
 	mIsJuncture = true;
 }
 
